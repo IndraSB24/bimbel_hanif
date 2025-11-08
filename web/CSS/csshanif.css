@@ -6,15 +6,17 @@ p {
     text-align: right;
     color: rgb(0, 255, 42);
     text-transform: uppercase;
+    background-color: rgb(230, 230, 230);
 }
 
 h1 {
     text-align: left;
-    background-color: white;
-    size: 70px;
+    background-color: rgb(230, 230, 230);
+    padding: 0.1px;
 }
 p.class1 {
     text-align: center;
-    color: brown;
+    color: rgb(99, 102, 255);
     text-transform: uppercase;
+    background-color: rgb(230, 230, 230);
 }
