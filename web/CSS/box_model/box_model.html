@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram CSS Box Model</title>
+    <!-- Menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="box_model.css">
+</head>
+<body>
+
+    <!-- BAGIAN VISUAL DIAGRAM -->
+    <!-- Diagram ini meniru gambar yang Anda berikan -->
+    <div class="box-model-diagram">
+        <!-- Lapisan terluar: Margin -->
+        <div class="margin-layer">
+            <span class="label top">TOP</span>
+            <span class="label left">LEFT</span>
+            <span class="label right">RIGHT</span>
+            <span class="label bottom">BOTTOM</span>
+            <span class="main-label">MARGIN</span>
+
+            <!-- Lapisan kedua: Border -->
+            <div class="border-layer">
+                <span class="main-label">BORDER</span>
+
+                <!-- Lapisan ketiga: Padding -->
+                <div class="padding-layer">
+                    <span class="main-label">PADDING</span>
+
+                    <!-- Lapisan terdalam: Content -->
+                    <div class="content-layer">
+                        <span class="main-label">CONTENT</span>
+                        <div class="dimension-label width-label">WIDTH</div>
+                        <div class="dimension-label height-label">HEIGHT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BAGIAN KOTAK PENJELASAN -->
+    <!-- Penjelasan ditempatkan di bawah diagram -->
+    <div class="explanation-box">
+        <h2>Penjelasan Box Model</h2>
+        <ul>
+            <li>
+                <!-- Penjelasan untuk Margin -->
+                <strong class="margin">Margin (Batas Luar)</strong>
+                <p>
+                    Area transparan di <strong>luar</strong> border. Fungsi utamanya adalah untuk memberi jarak dan mendorong elemen lain menjauh dari kotak ini. Margin tidak memiliki warna background.
+                </p>
+                <pre><code>/* Contoh kode CSS untuk Margin */
+.elemen-saya {
+  margin: 20px; /* 20px di semua sisi */
+  margin-top: 10px; /* 10px hanya di atas */
+  margin-left: 5px; /* 5px hanya di kiri */
+}</code></pre>
+            </li>
+            <li>
+                <!-- Penjelasan untuk Border -->
+                <strong class="border">Border (Garis Tepi)</strong>
+                <p>
+                    Garis yang "membungkus" padding dan content. Border memiliki ketebalan (<code>border-width</code>), gaya (<code>border-style</code>: solid, dashed, dll.), dan warna (<code>border-color</code>).
+                </p>
+                <pre><code>/* Contoh kode CSS untuk Border */
+.elemen-saya {
+  border: 2px solid #333; /* 2px, solid, warna gelap */
+  border-bottom: 4px dashed red; /* 4px, putus-putus, merah */
+}</code></pre>
+            </li>
+            <li>
+                <!-- Penjelasan untuk Padding -->
+                <strong class="padding">Padding (Bantalan)</strong>
+                <p>
+                    Area transparan di <strong>dalam</strong> border, yang mengelilingi content. Padding memberi "ruang napas" untuk isi di dalamnya dan akan mengambil warna dari <code>background-color</code> elemen.
+                </p>
+                <pre><code>/* Contoh kode CSS untuk Padding */
+.elemen-saya {
+  padding: 15px; /* 15px di semua sisi */
+  padding: 10px 20px; /* 10px atas/bawah, 20px kiri/kanan */
+}</code></pre>
+            </li>
+            <li>
+                <!-- Penjelasan untuk Content -->
+                <strong class="content">Content (Isi)</strong>
+                <p>
+                    Bagian pusat kotak tempat konten Anda (teks, gambar, video) ditampilkan. Ukurannya diatur oleh properti <code>width</code> dan <code>height</code>.
+                </p>
+                <pre><code>/* Contoh kode CSS untuk Content */
+.elemen-saya {
+  width: 300px;
+  height: 150px;
+  box-sizing: border-box; /* Sangat direkomendasikan! */
+}</code></pre>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

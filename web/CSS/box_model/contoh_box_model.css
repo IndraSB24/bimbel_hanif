@@ -1,0 +1,80 @@
+/* Mengatur font dasar dan latar belakang halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, p {
+    text-align: center;
+}
+
+/* --- Mengatur wadah/container menu --- */
+.menu-navigasi {
+    display: flex; /* Membuat item menu jadi horizontal */
+    justify-content: center; /* Menengahkan menu di halaman */
+    list-style-type: none; /* Menghilangkan bullets <li> */
+    padding: 10px; /* Memberi padding PADA WADAH menu */
+    background-color: #e0e0e0; /* Warna latar belakang wadah */
+    border-radius: 8px;
+}
+
+/* --- Di sinilah Box Model berperan! --- */
+/* Kita menata <a> (link) sebagai "kotak" tombol */
+.menu-navigasi li a {
+    display: block; /* Membuat link bisa diatur tinggi/lebarnya */
+    color: white; /* Warna teks */
+    text-align: center;
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    background-color: #3498db; /* Biru */
+    border-radius: 5px;
+
+    /* ===== INTI DARI BOX MODEL ===== */
+
+    /* 1. CONTENT (Isi) */
+    /* Ini adalah teksnya, misal "Home" atau "Produk". */
+    /* Lebar dan tingginya diatur otomatis oleh teks + padding. */
+
+    /* 2. PADDING (Bantalan) */
+    /* Memberi ruang DI DALAM kotak, antara teks dan border. */
+    /* 12px untuk atas/bawah, 20px untuk kiri/kanan. */
+    padding: 12px 20px;
+
+    /* 3. BORDER (Garis Tepi) */
+    /* Kita akan tambahkan ini di class .active di bawah */
+    /* border: 2px solid black; */ /* (Contoh) */
+
+    /* 4. MARGIN (Jarak Luar) */
+    /* Memberi ruang DI LUAR kotak, untuk mendorong kotak lain. */
+    /* 0 untuk atas/bawah, 5px untuk kiri/kanan. */
+    /* Inilah yang menciptakan celah antar tombol. */
+    margin: 0 5px;
+
+    /* ================================== */
+}
+
+/* Efek saat mouse diarahkan ke tombol */
+.menu-navigasi li a:hover {
+    background-color: #2980b9; /* Biru lebih gelap */
+}
+
+/* Menata tombol yang "aktif" untuk menunjukkan BORDER */
+.menu-navigasi li a.active {
+    background-color: #2c3e50; /* Biru tua/abu-abu */
+    
+    /* 3. BORDER (Garis Tepi) */
+    /* Kita tambahkan border tebal di bawah untuk menunjukkan */
+    /* salah satu bagian dari box model. */
+    border-bottom: 4px solid #f1c40f; /* Kuning */
+}
+
+/* Kotak penjelasan di bawah demo */
+.penjelasan-demo {
+    max-width: 600px;
+    margin: 40px auto; /* Margin atas/bawah 40px, auto kiri/kanan (menengahkan) */
+    padding: 20px; /* Padding di dalam kotak penjelasan */
+    background-color: #ffffff;
+    border: 1px solid #ccc; /* Border di kotak penjelasan */
+    border-radius: 8px;
+}

@@ -1,0 +1,214 @@
+/* --- Pengaturan Body Umum --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2b3a57; /* Latar belakang biru gelap */
+    display: flex;
+    flex-direction: column; /* Mengatur tata letak vertikal */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0; /* Memberi sedikit ruang di atas dan bawah */
+}
+
+/* --- Base Diagram Box Model --- */
+.box-model-diagram {
+    position: relative;
+    width: 600px; /* Lebar keseluruhan diagram */
+    height: 400px; /* Tinggi keseluruhan diagram */
+    display: flex; /* Gunakan flexbox untuk memusatkan lapisan konten */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Menumpuk lapisan secara vertikal */
+}
+
+/* --- Penataan Lapisan (dari luar ke dalam) --- */
+
+.margin-layer {
+    position: relative; /* Memungkinkan penempatan lapisan dalam dan label */
+    width: 100%;
+    height: 100%;
+    background-color: #55b2d7; /* Biru Muda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Sudut sedikit melengkung */
+}
+
+.border-layer {
+    position: relative; /* DITAMBAHKAN: Agar label "BORDER" mengacu ke sini */
+    width: calc(100% - 80px); /* Sesuaikan ukuran untuk menunjukkan celah margin */
+    height: calc(100% - 80px);
+    background-color: #3b7bb5; /* Biru Sedang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.padding-layer {
+    position: relative; /* DITAMBAHKAN: Agar label "PADDING" mengacu ke sini */
+    width: calc(100% - 80px); /* Sesuaikan ukuran untuk menunjukkan celah border */
+    height: calc(100% - 80px);
+    background-color: #2f5d8e; /* Biru Lebih Gelap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.content-layer {
+    width: calc(100% - 80px); /* Sesuaikan ukuran untuk menunjukkan celah padding */
+    height: calc(100% - 80px);
+    background-color: #f7a83b; /* Oranye */
+    position: relative; /* Untuk label dimensi */
+    display: flex; /* Untuk pemusatan label utama */
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+
+/* --- Penataan Label --- */
+
+.label {
+    position: absolute;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.label.top { top: 20px; }
+.label.bottom { bottom: 20px; }
+.label.left { left: 20px; writing-mode: vertical-lr; transform: rotate(180deg); } /* Teks vertikal */
+.label.right { right: 20px; writing-mode: vertical-lr; } /* Teks vertikal */
+
+.main-label {
+    position: absolute; /* Diposisikan di dalam lapisan masing-masing */
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10; /* Pastikan label berada di atas */
+
+    /* DIHAPUS: Properti pemusatan umum yang salah */
+    /* left: 50%; */
+    /* top: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.margin-layer .main-label {
+    font-size: 1.4em;
+    /* DITAMBAHKAN: Posisi spesifik (kiri atas) */
+    top: 10px;
+    left: 20px;
+}
+.border-layer .main-label {
+    font-size: 1.3em;
+    /* DITAMBAHKAN: Posisi spesifik (kiri atas) */
+    top: 10px;
+    left: 10px;
+}
+.padding-layer .main-label {
+    font-size: 1.2em;
+    /* DITAMBAHKAN: Posisi spesifik (kiri atas) */
+    top: 10px;
+    left: 10px;
+}
+.content-layer .main-label {
+    font-size: 1.1em;
+    /* DITAMBAHKAN: Posisi spesifik (hanya ini yang di tengah) */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Label Dimensi untuk Konten */
+.dimension-label {
+    position: absolute;
+    color: #4a4a4a; /* Warna lebih gelap untuk label dimensi */
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang putih agak transparan */
+    padding: 2px 5px;
+    border-radius: 3px;
+    white-space: nowrap; /* Mencegah teks terpotong */
+}
+
+.width-label {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.height-label {
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* Putar untuk teks vertikal */
+}
+
+/* --- Penataan untuk Kotak Penjelasan --- */
+
+.explanation-box {
+    background-color: #ffffff; /* Latar belakang putih bersih */
+    color: #2b3a57;         /* Teks warna biru gelap */
+    width: 600px;            /* Samakan lebar dengan diagram */
+    margin-top: 40px;        /* Jarak dari diagram di atasnya */
+    padding: 1px 25px 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.explanation-box h2 {
+    text-align: center;
+    border-bottom: 2px solid #eef2f7; /* Garis pemisah tipis */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.explanation-box ul {
+    list-style-type: none; /* Hilangkan bulit poin */
+    padding-left: 0;
+}
+
+.explanation-box li {
+    margin-bottom: 15px;
+    line-height: 1.6; /* Jarak antar baris agar mudah dibaca */
+}
+
+/* Memberi warna pada judul agar sesuai dengan 
+  warna di diagram untuk koneksi visual 
+*/
+.explanation-box li strong {
+    font-size: 1.2em;
+}
+.explanation-box li strong.margin { color: #55b2d7; }
+.explanation-box li strong.border { color: #3b7bb5; }
+.explanation-box li strong.padding { color: #2f5d8e; }
+.explanation-box li strong.content { color: #f7a83b; }
+
+/* Menyoroti kata kunci "luar" dan "dalam" */
+.explanation-box p strong {
+    color: #c0392b; /* Warna merah untuk penekanan */
+    font-weight: bold;
+}
+
+.explanation-box code {
+    background-color: #eef2f7; /* Background abu-abu muda untuk kode */
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* DITAMBAHKAN: Styling untuk blok kode <pre> */
+.explanation-box pre {
+    background-color: #2b3a57; /* Latar belakang biru gelap (sesuai body) */
+    color: #2b3a57; /* Teks warna kuning/emas agar kontras */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Jika kode terlalu panjang */
+    font-size: 0.9em;
+    margin-top: 15px; /* Memberi jarak dari paragraf di atasnya */
+}
