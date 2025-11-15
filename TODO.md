@@ -1,0 +1,5 @@
+- [x] Create simple_table.html with basic table structure (rows, columns, headers)
+- [x] Create merge_cells.html demonstrating colspan and rowspan
+- [x] Create table_styling.html with basic CSS styling for tables
+- [x] Create table_structure.html using thead, tbody, tfoot
+- [x] Create table_attributes.html covering native attributes for table elements

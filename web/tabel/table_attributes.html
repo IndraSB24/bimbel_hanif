@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Table Attributes</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>HTML Table Attributes</h2>
+
+<p>Tables have various attributes to control appearance and behavior.</p>
+
+<h3><table> Attributes</h3>
+<ul>
+    <li><strong>border:</strong> Sets border width (deprecated, use CSS).</li>
+    <li><strong>cellpadding:</strong> Space inside cells (deprecated, use CSS).</li>
+    <li><strong>cellspacing:</strong> Space between cells (deprecated, use CSS).</li>
+    <li><strong>width:</strong> Table width (deprecated, use CSS).</li>
+    <li><strong>height:</strong> Table height (deprecated, use CSS).</li>
+    <li><strong>align:</strong> Table alignment (deprecated, use CSS).</li>
+    <li><strong>bgcolor:</strong> Background color (deprecated, use CSS).</li>
+    <li><strong>summary:</strong> Summary for screen readers.</li>
+</ul>
+
+<div class="example">
+    <h4>Example: border attribute</h4>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>25</td>
+        </tr>
+    </table>
+</div>
+
+<h3><tr> Attributes</h3>
+<ul>
+    <li><strong>align:</strong> Horizontal alignment (left, center, right).</li>
+    <li><strong>valign:</strong> Vertical alignment (top, middle, bottom).</li>
+    <li><strong>bgcolor:</strong> Row background color.</li>
+</ul>
+
+<div class="example">
+    <h4>Example: align and valign</h4>
+    <table>
+        <tr align="center" valign="top">
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr align="left">
+            <td>John</td>
+            <td>25</td>
+        </tr>
+    </table>
+</div>
+
+<h3><td> and <th> Attributes</h3>
+<ul>
+    <li><strong>colspan:</strong> Number of columns to span.</li>
+    <li><strong>rowspan:</strong> Number of rows to span.</li>
+    <li><strong>align:</strong> Horizontal alignment.</li>
+    <li><strong>valign:</strong> Vertical alignment.</li>
+    <li><strong>width:</strong> Cell width.</li>
+    <li><strong>height:</strong> Cell height.</li>
+    <li><strong>bgcolor:</strong> Cell background color.</li>
+    <li><strong>nowrap:</strong> Prevents text wrapping.</li>
+</ul>
+
+<div class="example">
+    <h4>Example: colspan and rowspan</h4>
+    <table>
+        <tr>
+            <th colspan="2">Header</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Data</td>
+            <td>More Data</td>
+        </tr>
+        <tr>
+            <td>Even More</td>
+        </tr>
+    </table>
+</div>
+
+<p>Note: Many attributes are deprecated. Use CSS for styling instead.</p>
+
+</body>
+</html>
