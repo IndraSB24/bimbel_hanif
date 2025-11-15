@@ -3,3 +3,4 @@
 - [x] Create table_styling.html with basic CSS styling for tables
 - [x] Create table_structure.html using thead, tbody, tfoot
 - [x] Create table_attributes.html covering native attributes for table elements
+- [x] Create grid_concept.html demonstrating the grid concept in tables

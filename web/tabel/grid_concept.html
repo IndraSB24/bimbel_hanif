@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Concept in HTML Tables</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .grid-example {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Grid Concept in HTML Tables</h2>
+
+<p>HTML tables are based on a grid system: rows and columns form a rectangular grid of cells.</p>
+
+<div class="grid-example">
+    <h3>Basic Grid: 3 Rows x 3 Columns</h3>
+    <table>
+        <tr>
+            <td>Cell 1,1</td>
+            <td>Cell 1,2</td>
+            <td>Cell 1,3</td>
+        </tr>
+        <tr>
+            <td>Cell 2,1</td>
+            <td>Cell 2,2</td>
+            <td>Cell 2,3</td>
+        </tr>
+        <tr>
+            <td>Cell 3,1</td>
+            <td>Cell 3,2</td>
+            <td>Cell 3,3</td>
+        </tr>
+    </table>
+    <p>Each <tr> is a row, each <td> is a cell in that row.</p>
+</div>
+
+<div class="grid-example">
+    <h3>Irregular Grid with Merging</h3>
+    <table>
+        <tr>
+            <td rowspan="2">Tall Cell</td>
+            <td>Cell 1,2</td>
+            <td>Cell 1,3</td>
+        </tr>
+        <tr>
+            <td>Cell 2,2</td>
+            <td>Cell 2,3</td>
+        </tr>
+        <tr>
+            <td>Cell 3,1</td>
+            <td colspan="2">Wide Cell</td>
+        </tr>
+    </table>
+    <p>Merging cells changes the grid structure but maintains the concept.</p>
+</div>
+
+<div class="grid-example">
+    <h3>Visualizing the Grid</h3>
+    <table>
+        <tr>
+            <td class="highlight">Row 1, Col 1</td>
+            <td>Row 1, Col 2</td>
+            <td class="highlight">Row 1, Col 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Col 1</td>
+            <td class="highlight">Row 2, Col 2</td>
+            <td>Row 2, Col 3</td>
+        </tr>
+        <tr>
+            <td class="highlight">Row 3, Col 1</td>
+            <td>Row 3, Col 2</td>
+            <td class="highlight">Row 3, Col 3</td>
+        </tr>
+    </table>
+    <p>The grid is like a spreadsheet: rows horizontal, columns vertical.</p>
+</div>
+
+<p>Tables help organize data in a structured grid format.</p>
+
+</body>
+</html>
