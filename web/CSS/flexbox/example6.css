@@ -1,0 +1,132 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > p code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Container Flexbox utama */
+.flex-container {
+    display: flex; /* Mengaktifkan Flexbox */
+    flex-wrap: wrap; /* Membungkus ke baris berikutnya */
+    gap: 10px; /* Jarak antar kotak */
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    justify-content: space-between; /* Distribusi merata antar kotak */
+    align-items: flex-start; /* Mulai dari atas */
+    max-width: 1000px; /* Batasi lebar untuk memastikan max 5 kotak per baris */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling untuk setiap box dengan ukuran berbeda */
+.box {
+    height: 100px; /* Tinggi tetap */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.box1 { width: 100px; background-color: #ff6b6b; }
+.box2 { width: 150px; background-color: #4ecdc4; }
+.box3 { width: 120px; background-color: #45b7d1; }
+.box4 { width: 80px; background-color: #f9ca24; color: #333; }
+.box5 { width: 200px; background-color: #6c5ce7; }
+.box6 { width: 90px; background-color: #fd79a8; }
+.box7 { width: 130px; background-color: #00b894; }
+.box8 { width: 110px; background-color: #e17055; }
+.box9 { width: 160px; background-color: #a29bfe; }
+.box10 { width: 70px; background-color: #fdcb6e; color: #333; }
+.box11 { width: 180px; background-color: #e84393; }
+.box12 { width: 140px; background-color: #00cec9; }
+.box13 { width: 100px; background-color: #d63031; }
+.box14 { width: 120px; background-color: #0984e3; }
+.box15 { width: 190px; background-color: #6c5ce7; }
+
+/* Styling untuk bagian penjelasan */
+.explanation {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.explanation h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.explanation p {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.explanation code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/*
+   PENJELASAN PROPERTI FLEXBOX:
+   
+   1. .flex-container { display: flex; flex-wrap: wrap; }
+      - Flexbox dengan pembungkusan otomatis ke baris berikutnya
+      - Ketika ruang horizontal tidak cukup, item pindah ke baris baru
+      
+   2. gap: 10px;
+      - Jarak antar flex items (modern, menggantikan margin)
+      
+   3. justify-content: flex-start;
+      - Item dimulai dari kiri container
+      
+   4. align-items: flex-start;
+      - Item dimulai dari atas container
+      
+   5. Setiap .box memiliki width berbeda (70px - 200px)
+      - Menunjukkan bagaimana Flexbox menangani ukuran berbeda
+      - Layout akan menyesuaikan secara responsif
+*/

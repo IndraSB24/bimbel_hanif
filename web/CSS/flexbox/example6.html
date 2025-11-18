@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Flexbox - Multi-line Layout with Different Sizes</title>
+    <link rel="stylesheet" href="example6.css">
+</head>
+<body>
+    <h1>Demo CSS Flexbox: Multi-line Layout with Different Box Sizes</h1>
+    <p>Contoh Flexbox dengan layout multi-baris dimana kotak-kotak memiliki ukuran berbeda. Container menggunakan <code>flex-wrap: wrap</code> untuk membuat baris baru ketika ruang tidak cukup.</p>
+
+    <div class="flex-container">
+        <div class="box box1">Box 1<br>(100x100)</div>
+        <div class="box box2">Box 2<br>(150x100)</div>
+        <div class="box box3">Box 3<br>(120x100)</div>
+        <div class="box box4">Box 4<br>(80x100)</div>
+        <div class="box box5">Box 5<br>(200x100)</div>
+        <div class="box box6">Box 6<br>(90x100)</div>
+        <div class="box box7">Box 7<br>(130x100)</div>
+        <div class="box box8">Box 8<br>(110x100)</div>
+        <div class="box box9">Box 9<br>(160x100)</div>
+        <div class="box box10">Box 10<br>(70x100)</div>
+        <div class="box box11">Box 11<br>(180x100)</div>
+        <div class="box box12">Box 12<br>(140x100)</div>
+        <div class="box box13">Box 13<br>(100x100)</div>
+        <div class="box box14">Box 14<br>(120x100)</div>
+        <div class="box box15">Box 15<br>(190x100)</div>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan:</h2>
+        <p>Layout ini menggunakan <code>flex-wrap: wrap</code> dan <code>justify-content: space-between</code> untuk mendistribusikan kotak secara merata. Container dibatasi lebar maksimal 1000px untuk memastikan maksimal 5 kotak per baris.</p>
+        <p>Setiap kotak memiliki lebar berbeda (70px - 200px) tetapi tinggi tetap (100px). Total ada 15 kotak yang tersusun dalam 3 baris.</p>
+        <p>Coba resize browser untuk melihat bagaimana kotak berpindah baris dan penyebaran berubah!</p>
+    </div>
+</body>
+</html>

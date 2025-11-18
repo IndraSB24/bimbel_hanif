@@ -1,0 +1,115 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container Flexbox utama */
+.flex-container {
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: space-around; /* Distribusi ruang merata di sekitar item */
+    align-items: center; /* Center vertikal */
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    min-height: 150px;
+}
+
+/* Styling untuk setiap box */
+.box {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.box1 {
+    background-color: #ff6b6b; /* Merah */
+}
+
+.box2 {
+    background-color: #4ecdc4; /* Hijau kebiruan */
+}
+
+.box3 {
+    background-color: #45b7d1; /* Biru */
+}
+
+.box4 {
+    background-color: #f9ca24; /* Kuning */
+    color: #333; /* Teks gelap untuk kontras */
+}
+
+/* Styling untuk bagian penjelasan */
+.explanation {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.explanation h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.explanation p {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.explanation code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/*
+   PENJELASAN PROPERTI FLEXBOX:
+   
+   1. .flex-container { display: flex; }
+      - Mengubah container menjadi flex container
+      
+   2. justify-content: space-around;
+      - Mendistribusikan ruang secara merata di sekitar setiap flex item
+      - Memberikan ruang sama di kiri dan kanan setiap item
+      
+   3. align-items: center;
+      - Menyelaraskan item secara vertikal di tengah cross axis
+      
+   4. .box { display: flex; justify-content: center; align-items: center; }
+      - Di dalam setiap box, Flexbox digunakan untuk center teks secara horizontal dan vertikal
+*/

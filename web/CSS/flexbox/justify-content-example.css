@@ -1,0 +1,178 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > p code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Styling untuk setiap contoh */
+.example {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.example h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.example p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+/* Container dasar untuk semua contoh */
+.container {
+    display: flex;
+    background-color: #e8f4f8;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    min-height: 60px;
+}
+
+/* Item styling */
+.item {
+    width: 50px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific justify-content classes */
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+/* Summary table styling */
+.summary {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.summary h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e8f4f8;
+}
+
+code {
+    background-color: #f1f3f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .item {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

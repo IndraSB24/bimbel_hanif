@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Flexbox - Justify Content Property</title>
+    <link rel="stylesheet" href="justify-content-example.css">
+</head>
+<body>
+    <h1>Demo CSS Flexbox: Justify Content Property</h1>
+    <p><code>justify-content</code> adalah properti Flexbox yang mengatur penyebaran item di sepanjang main axis (sumbu utama). Berikut adalah semua nilai yang tersedia dengan contoh visual.</p>
+
+    <!-- flex-start -->
+    <div class="example">
+        <h2>justify-content: flex-start</h2>
+        <p>Item dimulai dari awal container (kiri untuk row, atas untuk column)</p>
+        <div class="container flex-start">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <!-- flex-end -->
+    <div class="example">
+        <h2>justify-content: flex-end</h2>
+        <p>Item dimulai dari akhir container (kanan untuk row, bawah untuk column)</p>
+        <div class="container flex-end">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <!-- center -->
+    <div class="example">
+        <h2>justify-content: center</h2>
+        <p>Item diposisikan di tengah container</p>
+        <div class="container center">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <!-- space-between -->
+    <div class="example">
+        <h2>justify-content: space-between</h2>
+        <p>Ruang sama di antara item, item pertama dan terakhir menempel ke tepi</p>
+        <div class="container space-between">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <!-- space-around -->
+    <div class="example">
+        <h2>justify-content: space-around</h2>
+        <p>Ruang sama di sekitar setiap item (dua kali lebih banyak di antara item)</p>
+        <div class="container space-around">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <!-- space-evenly -->
+    <div class="example">
+        <h2>justify-content: space-evenly</h2>
+        <p>Ruang sama di antara item dan di sekitar item (termasuk tepi)</p>
+        <div class="container space-evenly">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h2>Ringkasan Justify Content Values</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>flex-start</code></td>
+                    <td>Items align to the start of the container</td>
+                    <td>Default alignment, left-aligned content</td>
+                </tr>
+                <tr>
+                    <td><code>flex-end</code></td>
+                    <td>Items align to the end of the container</td>
+                    <td>Right-aligned content, footer elements</td>
+                </tr>
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Items centered in the container</td>
+                    <td>Centered navigation, modal dialogs</td>
+                </tr>
+                <tr>
+                    <td><code>space-between</code></td>
+                    <td>Equal space between items, first/last at edges</td>
+                    <td>Navigation menus, button groups</td>
+                </tr>
+                <tr>
+                    <td><code>space-around</code></td>
+                    <td>Equal space around each item</td>
+                    <td>Card layouts, evenly spaced elements</td>
+                </tr>
+                <tr>
+                    <td><code>space-evenly</code></td>
+                    <td>Equal space between items and edges</td>
+                    <td>Perfectly balanced layouts</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
