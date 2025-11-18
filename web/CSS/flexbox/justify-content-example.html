@@ -15,9 +15,20 @@
         <h2>justify-content: flex-start</h2>
         <p>Item dimulai dari awal container (kiri untuk row, atas untuk column)</p>
         <div class="container flex-start">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span>Item 1 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 3 (50px)</span>
+                <span class="space">300px remaining</span>
+            </div>
         </div>
     </div>
 
@@ -26,9 +37,20 @@
         <h2>justify-content: flex-end</h2>
         <p>Item dimulai dari akhir container (kanan untuk row, bawah untuk column)</p>
         <div class="container flex-end">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span class="space">300px</span>
+                <span>Item 1 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 3 (50px)</span>
+            </div>
         </div>
     </div>
 
@@ -37,9 +59,21 @@
         <h2>justify-content: center</h2>
         <p>Item diposisikan di tengah container</p>
         <div class="container center">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span class="space">125px</span>
+                <span>Item 1 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">0px</span>
+                <span>Item 3 (50px)</span>
+                <span class="space">125px</span>
+            </div>
         </div>
     </div>
 
@@ -48,9 +82,20 @@
         <h2>justify-content: space-between</h2>
         <p>Ruang sama di antara item, item pertama dan terakhir menempel ke tepi</p>
         <div class="container space-between">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span>Item 1 (50px)</span>
+                <span class="space">150px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">150px</span>
+                <span>Item 3 (50px)</span>
+            </div>
+            <div class="formula">Formula: (400px - 150px) / 2 = 150px space between each pair</div>
         </div>
     </div>
 
@@ -59,9 +104,22 @@
         <h2>justify-content: space-around</h2>
         <p>Ruang sama di sekitar setiap item (dua kali lebih banyak di antara item)</p>
         <div class="container space-around">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span class="space">50px</span>
+                <span>Item 1 (50px)</span>
+                <span class="space">100px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">100px</span>
+                <span>Item 3 (50px)</span>
+                <span class="space">50px</span>
+            </div>
+            <div class="formula">Formula: (400px - 150px) / 6 = 50px space around each item</div>
         </div>
     </div>
 
@@ -70,9 +128,22 @@
         <h2>justify-content: space-evenly</h2>
         <p>Ruang sama di antara item dan di sekitar item (termasuk tepi)</p>
         <div class="container space-evenly">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            <div class="item">1<br><small>50px</small></div>
+            <div class="item">2<br><small>50px</small></div>
+            <div class="item">3<br><small>50px</small></div>
+        </div>
+        <div class="spacing-guide">
+            <div class="space-label">Container: 400px</div>
+            <div class="space-line">
+                <span class="space">66.67px</span>
+                <span>Item 1 (50px)</span>
+                <span class="space">66.67px</span>
+                <span>Item 2 (50px)</span>
+                <span class="space">66.67px</span>
+                <span>Item 3 (50px)</span>
+                <span class="space">66.67px</span>
+            </div>
+            <div class="formula">Formula: (400px - 150px) / 4 = 66.67px space between each gap</div>
         </div>
     </div>
 

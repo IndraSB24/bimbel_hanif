@@ -156,6 +156,64 @@ code {
     font-size: 0.9em;
 }
 
+/* Spacing guide styling */
+.spacing-guide {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.space-label {
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.space-line {
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    font-size: 0.85em;
+    background-color: white;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #e9ecef;
+}
+
+.space-line span {
+    display: inline-block;
+    text-align: center;
+}
+
+.space-line .space {
+    color: #dc3545;
+    font-weight: bold;
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 2px;
+    min-width: 50px;
+}
+
+.formula {
+    margin-top: 8px;
+    font-size: 0.8em;
+    color: #6c757d;
+    font-style: italic;
+    background-color: #e9ecef;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+/* Item size display */
+.item small {
+    font-size: 10px;
+    opacity: 0.8;
+    line-height: 1;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
@@ -166,6 +224,19 @@ code {
     .item {
         width: 100%;
         margin-bottom: 5px;
+    }
+
+    .spacing-guide {
+        font-size: 0.8em;
+    }
+
+    .space-line {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .space-line span {
+        margin-bottom: 2px;
     }
 
     table {
