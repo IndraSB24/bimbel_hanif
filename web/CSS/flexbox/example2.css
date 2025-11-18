@@ -15,7 +15,6 @@ body {
     display: flex; /* Flexbox untuk layout utama */
     min-height: 100vh;
 }
-
 .sidebar {
     background-color: #333;
     color: white;
