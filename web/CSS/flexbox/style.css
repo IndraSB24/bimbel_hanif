@@ -1,0 +1,95 @@
+/* Reset dasar untuk menghilangkan margin dan padding default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling untuk body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Styling untuk heading */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling untuk paragraf */
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Styling untuk navigasi */
+nav {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* 
+   PENTING: Ini adalah bagian utama Flexbox!
+   display: flex; - Mengubah elemen ul menjadi flex container.
+   Dengan ini, anak-anaknya (li) akan menjadi flex items yang bisa diatur.
+*/
+ul {
+    display: flex; /* Mengaktifkan Flexbox pada ul */
+    list-style: none; /* Menghilangkan bullet points */
+    justify-content: space-around; /* Mengatur jarak antar item: space-around memberikan ruang di sekitar setiap item */
+}
+
+/* Styling untuk setiap item list (li) */
+li {
+    /* Tidak ada properti Flexbox khusus di sini, tapi kita bisa menambah jika perlu */
+}
+
+/* Styling untuk link di dalam li */
+li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block; /* Membuat link mengisi seluruh area li */
+    transition: background-color 0.3s; /* Efek transisi halus */
+}
+
+/* Hover effect untuk link */
+li a:hover {
+    background-color: #555;
+}
+
+/* 
+   PENJELASAN PROPERTI FLEXBOX UTAMA:
+   
+   1. display: flex;
+      - Mengubah elemen menjadi flex container
+      - Anak-anaknya menjadi flex items
+      - Default: flex-direction: row (horizontal)
+   
+   2. flex-direction: (tidak digunakan di sini, default row)
+      - row: horizontal (kiri ke kanan)
+      - column: vertikal (atas ke bawah)
+      - row-reverse: horizontal terbalik
+      - column-reverse: vertikal terbalik
+   
+   3. justify-content: space-around;
+      - Mengatur penyebaran item di sepanjang main axis (horizontal)
+      - space-around: ruang sama di sekitar setiap item
+      - flex-start: item di awal
+      - flex-end: item di akhir
+      - center: item di tengah
+      - space-between: ruang sama di antara item
+      - space-evenly: ruang sama di sekitar dan antara item
+   
+   4. align-items: (tidak digunakan, default stretch)
+      - Mengatur penyebaran item di sepanjang cross axis (vertikal)
+      - stretch: item memenuhi tinggi container
+      - flex-start: item di atas
+      - flex-end: item di bawah
+      - center: item di tengah
+      - baseline: item sejajar baseline teks
+*/

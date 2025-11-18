@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ajar HTML Forms - Bagian 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .form-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #4CAF50;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .radio-group, .checkbox-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label, .checkbox-group label {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Materi Ajar HTML Forms - Bagian 1: Elemen-elemen Dasar</h1>
+
+    <div class="form-section">
+        <h2>Penjelasan Tag <form></h2>
+        <p>Tag <form> adalah wadah untuk elemen-elemen form. Atribut penting:</p>
+        <ul>
+            <li><strong>action:</strong> URL tujuan pengiriman data form (misalnya ke server atau halaman lain)</li>
+            <li><strong>method:</strong> Cara pengiriman data. Nilai umum: "get" (data di URL) atau "post" (data di body request)</li>
+        </ul>
+    </div>
+
+    <div class="form-section">
+        <h2>Penjelasan Tag <label></h2>
+        <p>Tag <label> memberikan label deskriptif untuk elemen form. Atribut <strong>for</strong> menghubungkan label dengan elemen form berdasarkan ID, meningkatkan aksesibilitas (misalnya untuk screen reader) dan pengalaman pengguna.</p>
+    </div>
+
+    <h2>Contoh Lengkap Semua Elemen Form HTML</h2>
+
+    <form action="/submit" method="post">
+        <div class="form-section">
+            <h3>1. Input Text - Untuk teks biasa</h3>
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+        </div>
+
+        <div class="form-section">
+            <h3>2. Input Password - Untuk password (tersembunyi)</h3>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password">
+        </div>
+
+        <div class="form-section">
+            <h3>3. Input Email - Validasi email otomatis</h3>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="contoh@email.com">
+        </div>
+
+        <div class="form-section">
+            <h3>4. Input Number - Hanya menerima angka</h3>
+            <label for="umur">Umur:</label>
+            <input type="number" id="umur" name="umur" min="1" max="120" placeholder="Masukkan umur">
+        </div>
+
+        <div class="form-section">
+            <h3>5. Input Tel - Untuk nomor telepon</h3>
+            <label for="telepon">Nomor Telepon:</label>
+            <input type="tel" id="telepon" name="telepon" placeholder="08123456789">
+        </div>
+
+        <div class="form-section">
+            <h3>6. Input URL - Untuk alamat website</h3>
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" placeholder="https://example.com">
+        </div>
+
+        <div class="form-section">
+            <h3>7. Input Search - Untuk pencarian</h3>
+            <label for="cari">Cari:</label>
+            <input type="search" id="cari" name="cari" placeholder="Kata kunci pencarian">
+        </div>
+
+        <div class="form-section">
+            <h3>8. Input Date - Untuk tanggal</h3>
+            <label for="tanggal">Tanggal Lahir:</label>
+            <input type="date" id="tanggal" name="tanggal">
+        </div>
+
+        <div class="form-section">
+            <h3>9. Input Time - Untuk waktu</h3>
+            <label for="waktu">Waktu:</label>
+            <input type="time" id="waktu" name="waktu">
+        </div>
+
+        <div class="form-section">
+            <h3>10. Input Datetime-local - Untuk tanggal dan waktu lokal</h3>
+            <label for="datetime">Tanggal dan Waktu:</label>
+            <input type="datetime-local" id="datetime" name="datetime">
+        </div>
+
+        <div class="form-section">
+            <h3>11. Input Month - Untuk bulan dan tahun</h3>
+            <label for="bulan">Bulan:</label>
+            <input type="month" id="bulan" name="bulan">
+        </div>
+
+        <div class="form-section">
+            <h3>12. Input Week - Untuk minggu dan tahun</h3>
+            <label for="minggu">Minggu:</label>
+            <input type="week" id="minggu" name="minggu">
+        </div>
+
+        <div class="form-section">
+            <h3>13. Input Color - Untuk memilih warna</h3>
+            <label for="warna">Pilih Warna:</label>
+            <input type="color" id="warna" name="warna">
+        </div>
+
+        <div class="form-section">
+            <h3>14. Input Range - Untuk slider angka</h3>
+            <label for="range">Rating (1-10):</label>
+            <input type="range" id="range" name="range" min="1" max="10">
+        </div>
+
+        <div class="form-section">
+            <h3>15. Input Checkbox - Untuk pilihan multiple</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="hobi" value="membaca"> Membaca</label>
+                <label><input type="checkbox" name="hobi" value="olahraga"> Olahraga</label>
+                <label><input type="checkbox" name="hobi" value="musik"> Musik</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>16. Input Radio - Untuk pilihan tunggal</h3>
+            <div class="radio-group">
+                <label><input type="radio" name="jenis_kelamin" value="pria"> Pria</label>
+                <label><input type="radio" name="jenis_kelamin" value="wanita"> Wanita</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>17. Input File - Untuk upload file</h3>
+            <label for="file">Upload File:</label>
+            <input type="file" id="file" name="file">
+        </div>
+
+        <div class="form-section">
+            <h3>18. Textarea - Untuk teks panjang</h3>
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan Anda di sini"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>19. Select - Dropdown untuk pilihan</h3>
+            <label for="negara">Negara:</label>
+            <select id="negara" name="negara">
+                <option value="">Pilih negara</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="singapore">Singapura</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <h3>20. Datalist - Autocomplete untuk input</h3>
+            <label for="browser">Browser Favorit:</label>
+            <input type="text" id="browser" name="browser" list="browsers">
+            <datalist id="browsers">
+                <option value="Chrome">
+                <option value="Firefox">
+                <option value="Safari">
+                <option value="Edge">
+            </datalist>
+        </div>
+
+        <div class="form-section">
+            <h3>21. Fieldset dan Legend - Grouping elemen form</h3>
+            <fieldset>
+                <legend>Informasi Kontak</legend>
+                <label for="alamat">Alamat:</label>
+                <textarea id="alamat" name="alamat" rows="3"></textarea>
+                <label for="kode_pos">Kode Pos:</label>
+                <input type="text" id="kode_pos" name="kode_pos">
+            </fieldset>
+        </div>
+
+        <div class="form-section">
+            <h3>22. Button - Tombol untuk aksi</h3>
+            <button type="submit">Kirim Form</button>
+            <button type="reset">Reset Form</button>
+            <button type="button">Tombol Biasa</button>
+        </div>
+    </form>
+
+    <p><strong>Catatan:</strong> Dalam bagian ini, kita fokus pada elemen HTML saja. Styling CSS sederhana ditambahkan untuk tampilan yang lebih baik, tapi logika pengiriman form belum dibahas (akan di bagian selanjutnya).</p>
+</body>
+</html>
