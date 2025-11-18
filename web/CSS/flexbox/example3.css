@@ -1,0 +1,72 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex; /* Flexbox untuk centering */
+    justify-content: center; /* Center horizontal */
+    align-items: center; /* Center vertikal */
+    min-height: 100vh; /* Tinggi penuh viewport */
+}
+
+.centered-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+}
+
+.centered-content h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.centered-content p {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/*
+   PENJELASAN PROPERTI FLEXBOX UNTUK CENTERING:
+   
+   1. .container { display: flex; }
+      - Mengaktifkan Flexbox pada container
+   
+   2. justify-content: center;
+      - Memusatkan konten secara horizontal (main axis)
+   
+   3. align-items: center;
+      - Memusatkan konten secara vertikal (cross axis)
+   
+   4. min-height: 100vh;
+      - Memastikan container setinggi viewport untuk centering vertikal yang sempurna
+   
+   Ini adalah cara paling mudah dan efektif untuk centering elemen di CSS!
+*/

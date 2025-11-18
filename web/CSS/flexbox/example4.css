@@ -1,0 +1,106 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > p code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.card-container {
+    display: flex; /* Flexbox untuk grid */
+    flex-wrap: wrap; /* Membungkus ke baris berikutnya */
+    gap: 20px; /* Jarak antar card */
+    justify-content: center; /* Center cards */
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 300px; /* Flex grow, shrink, basis */
+    max-width: 350px;
+    display: flex; /* Flexbox di dalam card untuk layout internal */
+    flex-direction: column; /* Vertikal */
+}
+
+.card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Membuat paragraf mengisi ruang yang tersedia */
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start; /* Button di kiri bawah */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/*
+   PENJELASAN PROPERTI FLEXBOX UNTUK CARD LAYOUT:
+   
+   1. .card-container { display: flex; flex-wrap: wrap; }
+      - Grid responsif: item pindah ke baris berikutnya jika tidak muat
+      - flex-wrap: wrap adalah kunci untuk responsivitas
+   
+   2. gap: 20px;
+      - Jarak antar card (modern, menggantikan margin)
+   
+   3. .card { flex: 1 1 300px; }
+      - flex-grow: 1 (bisa membesar)
+      - flex-shrink: 1 (bisa mengecil)
+      - flex-basis: 300px (ukuran dasar)
+      - Card akan minimum 300px, tapi bisa membesar untuk mengisi ruang
+   
+   4. .card { display: flex; flex-direction: column; }
+      - Layout vertikal di dalam card
+      - Memastikan button selalu di bawah
+   
+   5. .card p { flex-grow: 1; }
+      - Paragraf mengisi ruang vertikal yang tersedia
+      - Semua card memiliki tinggi yang sama
+*/

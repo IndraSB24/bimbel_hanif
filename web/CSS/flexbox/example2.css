@@ -1,0 +1,88 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex; /* Flexbox untuk layout utama */
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #333;
+    color: white;
+    width: 250px;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.sidebar ul {
+    display: flex; /* Flexbox untuk menu vertikal */
+    flex-direction: column; /* Arah vertikal */
+    list-style: none;
+    gap: 10px; /* Jarak antar item */
+}
+
+.sidebar li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar li a:hover {
+    background-color: #555;
+}
+
+.content {
+    flex: 1; /* Mengisi sisa ruang */
+    padding: 20px;
+}
+
+.content h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.content code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/*
+   PENJELASAN PROPERTI FLEXBOX:
+   
+   1. .container { display: flex; }
+      - Layout utama horizontal (sidebar + content)
+   
+   2. .sidebar ul { display: flex; flex-direction: column; }
+      - Menu vertikal di sidebar
+      - flex-direction: column membuat item tersusun atas-bawah
+   
+   3. gap: 10px;
+      - Jarak antar flex items (modern, alternatif dari margin)
+   
+   4. .content { flex: 1; }
+      - Content mengisi sisa ruang yang tersedia
+*/
