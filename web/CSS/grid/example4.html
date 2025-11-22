@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CSS Grid - Column Spans</title>
+    <link rel="stylesheet" href="example4.css">
+</head>
+<body>
+    <h1>Demo CSS Grid: Column Spans</h1>
+    <p>CSS Grid memungkinkan item untuk menjangkau beberapa kolom atau baris menggunakan <code>grid-column</code> dan <code>grid-row</code>. Ini berguna untuk membuat layout yang lebih kompleks.</p>
+
+    <div class="container">
+        <div class="item header">Header (3 kolom)</div>
+        <div class="item sidebar">Sidebar</div>
+        <div class="item main">Main Content (2 kolom)</div>
+        <div class="item widget1">Widget 1</div>
+        <div class="item widget2">Widget 2</div>
+        <div class="item widget3">Widget 3</div>
+        <div class="item footer">Footer (seluruh lebar)</div>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan Column Spans</h2>
+        <p><code>grid-column: span n</code> membuat item menjangkau n kolom.</p>
+        <p><code>grid-column: start / end</code> menentukan garis kolom awal dan akhir.</p>
+
+        <h3>Contoh penggunaan:</h3>
+        <ul>
+            <li><code>grid-column: span 2;</code> - Jangkau 2 kolom</li>
+            <li><code>grid-column: 1 / 4;</code> - Dari kolom 1 sampai 4</li>
+            <li><code>grid-column: 2 / -1;</code> - Dari kolom 2 sampai kolom terakhir</li>
+        </ul>
+
+        <p><strong>Catatan:</strong> Angka negatif menghitung dari akhir grid.</p>
+    </div>
+</body>
+</html>

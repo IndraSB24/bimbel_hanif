@@ -1,0 +1,185 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 1.5em;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Auto-placement demo */
+.auto-placement {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+/* Implicit grid demo */
+.implicit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 80px; /* Baris implisit berukuran 80px */
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+/* Grid items */
+.item {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* Large item untuk implicit grid */
+.large {
+    grid-column: span 3; /* Span 3 kolom */
+    background-color: #28a745;
+    font-size: 16px;
+}
+
+/* Berbagai warna untuk item */
+.auto-placement .item:nth-child(1) { background-color: #007bff; }
+.auto-placement .item:nth-child(2) { background-color: #28a745; }
+.auto-placement .item:nth-child(3) { background-color: #dc3545; }
+.auto-placement .item:nth-child(4) { background-color: #ffc107; color: #333; }
+.auto-placement .item:nth-child(5) { background-color: #17a2b8; }
+.auto-placement .item:nth-child(6) { background-color: #6f42c1; }
+.auto-placement .item:nth-child(7) { background-color: #e83e8c; }
+.auto-placement .item:nth-child(8) { background-color: #fd7e14; }
+.auto-placement .item:nth-child(9) { background-color: #20c997; }
+.auto-placement .item:nth-child(10) { background-color: #6c757d; }
+
+/* Warna untuk implicit grid items */
+.implicit-grid .item:not(.large) {
+    background-color: #6f42c1;
+}
+
+.implicit-grid .item:nth-child(2) { background-color: #e83e8c; }
+.implicit-grid .item:nth-child(3) { background-color: #fd7e14; }
+.implicit-grid .item:nth-child(4) { background-color: #20c997; }
+.implicit-grid .item:nth-child(5) { background-color: #6c757d; }
+.implicit-grid .item:nth-child(6) { background-color: #007bff; }
+.implicit-grid .item:nth-child(7) { background-color: #28a745; }
+.implicit-grid .item:nth-child(8) { background-color: #dc3545; }
+.implicit-grid .item:nth-child(9) { background-color: #ffc107; color: #333; }
+.implicit-grid .item:nth-child(10) { background-color: #17a2b8; }
+.implicit-grid .item:nth-child(11) { background-color: #795548; }
+.implicit-grid .item:nth-child(12) { background-color: #9C27B0; }
+.implicit-grid .item:nth-child(13) { background-color: #607D8B; }
+.implicit-grid .item:nth-child(14) { background-color: #FF5722; }
+.implicit-grid .item:nth-child(15) { background-color: #4CAF50; }
+.implicit-grid .item:nth-child(16) { background-color: #2196F3; }
+
+/* Styling untuk penjelasan */
+.explanation {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.explanation h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.explanation h3 {
+    color: #555;
+    margin: 20px 0 10px 0;
+}
+
+.explanation p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.explanation code {
+    background-color: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #495057;
+}
+
+.explanation ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.explanation li {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.explanation strong {
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .auto-placement {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .implicit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .auto-placement {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .implicit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .large {
+        grid-column: span 1;
+    }
+}

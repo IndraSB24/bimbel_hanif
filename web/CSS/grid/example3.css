@@ -1,0 +1,165 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid container - Default: 4 kolom untuk desktop */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+/* Grid items */
+.item {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Berbagai warna untuk setiap item */
+.item1 { background-color: #007bff; }
+.item2 { background-color: #28a745; }
+.item3 { background-color: #dc3545; }
+.item4 { background-color: #ffc107; color: #333; }
+.item5 { background-color: #17a2b8; }
+.item6 { background-color: #6f42c1; }
+.item7 { background-color: #e83e8c; }
+.item8 { background-color: #fd7e14; }
+
+/* Media Queries untuk responsivitas */
+
+/* Tablet: 3 kolom */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile Landscape: 2 kolom */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .item {
+        padding: 15px;
+        font-size: 16px;
+        min-height: 70px;
+    }
+}
+
+/* Mobile Portrait: 1 kolom */
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .item {
+        padding: 12px;
+        font-size: 14px;
+        min-height: 60px;
+    }
+}
+
+/* Styling untuk informasi breakpoint */
+.responsive-info {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.responsive-info h2 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.breakpoint {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+}
+
+.breakpoint strong {
+    color: #007bff;
+}
+
+/* Current breakpoint indicator (untuk demo) */
+@media (max-width: 480px) {
+    .breakpoint:nth-child(4) {
+        background-color: #d4edda;
+        border-left-color: #28a745;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .breakpoint:nth-child(3) {
+        background-color: #d4edda;
+        border-left-color: #28a745;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .breakpoint:nth-child(2) {
+        background-color: #d4edda;
+        border-left-color: #28a745;
+    }
+}
+
+@media (min-width: 1025px) {
+    .breakpoint:nth-child(1) {
+        background-color: #d4edda;
+        border-left-color: #28a745;
+    }
+}

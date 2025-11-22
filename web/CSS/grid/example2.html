@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CSS Grid - Grid Template Areas</title>
+    <link rel="stylesheet" href="example2.css">
+</head>
+<body>
+    <h1>Demo CSS Grid: Grid Template Areas</h1>
+    <p><code>grid-template-areas</code> memungkinkan kita memberi nama pada area grid dan mengatur layout dengan cara yang lebih intuitif. Kita dapat mendefinisikan layout seperti ASCII art!</p>
+
+    <div class="container">
+        <header>Header</header>
+        <nav>Navigation</nav>
+        <aside>Sidebar</aside>
+        <main>Main Content</main>
+        <footer>Footer</footer>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan Grid Template Areas</h2>
+        <p>Dalam CSS, kita mendefinisikan area seperti ini:</p>
+        <pre><code>grid-template-areas:
+    "header header header"
+    "nav content sidebar"
+    "footer footer footer";</code></pre>
+
+        <p>Setiap baris mewakili baris grid, dan setiap kata mewakili area grid. Titik (.) dapat digunakan untuk area kosong.</p>
+
+        <p><strong>Keuntungan:</strong></p>
+        <ul>
+            <li>Layout lebih mudah dibaca dan dipahami</li>
+            <li>Mudah mengubah posisi area tanpa mengubah HTML</li>
+            <li>Visual representation yang jelas</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CSS Grid - Auto-placement dan Implicit Grids</title>
+    <link rel="stylesheet" href="example5.css">
+</head>
+<body>
+    <h1>Demo CSS Grid: Auto-placement dan Implicit Grids</h1>
+    <p>CSS Grid secara otomatis menempatkan item yang tidak memiliki posisi eksplisit. Grid juga dapat membuat baris/kolom implisit ketika diperlukan.</p>
+
+    <h2>Auto-placement: Item tanpa posisi eksplisit</h2>
+    <div class="auto-placement">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+    </div>
+
+    <h2>Implicit Grid: Baris tambahan otomatis</h2>
+    <div class="implicit-grid">
+        <div class="item large">Header (span 3)</div>
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+        <div class="item">H</div>
+        <div class="item">I</div>
+        <div class="item">J</div>
+        <div class="item">K</div>
+        <div class="item">L</div>
+        <div class="item">M</div>
+        <div class="item">N</div>
+        <div class="item">O</div>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan Auto-placement dan Implicit Grids</h2>
+
+        <h3>Auto-placement:</h3>
+        <p>Item tanpa <code>grid-column</code> atau <code>grid-row</code> akan ditempatkan secara otomatis dalam urutan dokumen.</p>
+
+        <h3>Implicit Grid:</h3>
+        <p>Ketika item ditempatkan di luar grid eksplisit, CSS Grid membuat baris/kolom implisit secara otomatis.</p>
+
+        <h3>Properti terkait:</h3>
+        <ul>
+            <li><code>grid-auto-flow</code>: Mengontrol arah auto-placement (row/column)</li>
+            <li><code>grid-auto-rows</code>: Ukuran baris implisit</li>
+            <li><code>grid-auto-columns</code>: Ukuran kolom implisit</li>
+        </ul>
+
+        <p><strong>Contoh:</strong> <code>grid-auto-rows: 100px;</code> membuat semua baris implisit berukuran 100px.</p>
+    </div>
+</body>
+</html>
