@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        align-items: center;
+    }
+textarea{
+    border-radius: 8px;
+    width: 250px;  
+    height: 95px; 
+}
+
+</style>
+<body>
+    <h1>Personal Details</h1>
+    <form>
+        <label for="Nama">Nama</label>
+        <input type="text" id="Nama" name="Nama">
+        <br>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password">
+        <br>
+        <label for="Email">E-mail id:</label>
+        <input type="email" id="Email" name="Email">
+        <br>
+        <label> Gender:
+        <input type="radio" name="gender" value="Male">Male
+        </label>
+         <label><input type="radio" name="gender" value="Female">Female
+        </label>
+        <br>
+        <label for="kontak">Contact#:</label>
+        <input type="tel" id="kontak" name="kontak"><br>
+        <h2>Educational Qualification</h2>
+        <label for="degree">Degree:</label>
+        <select id="degree" name="degree">
+            <option value="">-- Select Group --</option>
+            <option value="SMA">SMA</option>
+            <option value="SMP">SMP</option>
+            <option value="SD">SD</option>
+        </select>
+        <br>
+        <label for="engineer">Engineering:</label>
+        <select id="engineer" name="engineer">
+            <option value="">-- Select Group --</option>
+            <option value="MATH">MATH</option>
+            <option value="SAINS">SAINS</option>
+        </select><br>
+        <label for="hobi">Hobbies:</label>
+        <input type="checkbox" id="hobi" name="hobi">Playing Chess
+        <input type="checkbox" id="hobi" name="hobi">Reading Books
+        <h3>Address</h3>
+        <textarea></textarea>
+        <br><br>
+        <label for="fileinput">Attch Resume:</label>
+        <input type="file" id="fileinput" name="fileinput" placeholder="Choose File">No file choosen
+        <br>
+        <input type="button" value="SUBMIT->">
+    </form>
+</body>
+</html>
