@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ajar HTML Forms - Bagian 2</title>
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Materi Ajar HTML Forms - Bagian 2: Fungsi, Validasi, dan Layout</h1>
+
+    <!-- Penjelasan singkat -->
+    <div class="explanation">
+        <h2>Apa yang Akan Kita Pelajari?</h2>
+        <ul>
+            <li><strong>Fungsi Form:</strong> Cara form mengirim data ke server menggunakan PHP.</li>
+            <li><strong>Validasi:</strong> Memastikan data yang dimasukkan valid (required, type email).</li>
+            <li><strong>Layout:</strong> Menggunakan CSS Flexbox untuk tata letak yang rapi dan responsif.</li>
+        </ul>
+        <p>Form ini akan mengirim data ke <code>proses.php</code> menggunakan method POST. PHP akan menangkap dan menampilkan data tersebut.</p>
+    </div>
+
+    <!-- Form pendaftaran -->
+    <div class="form-container">
+        <h2>Form Pendaftaran</h2>
+        <!-- action="proses.php" mengirim data ke file PHP -->
+        <!-- method="POST" untuk mengirim data secara aman -->
+        <form action="proses.php" method="POST">
+            <!-- Grup untuk Nama -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <!-- required: Input wajib diisi -->
+                <!-- name="nama": Nama unik untuk PHP menangkap data -->
+                <input type="text" id="nama" name="nama" required placeholder="Masukkan nama Anda">
+            </div>
+
+            <!-- Grup untuk Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <!-- type="email": Validasi otomatis email -->
+                <!-- required: Input wajib diisi -->
+                <!-- name="email": Nama unik untuk PHP -->
+                <input type="email" id="email" name="email" required placeholder="contoh@email.com">
+            </div>
+
+            <!-- Grup untuk Pesan -->
+            <div class="form-group">
+                <label for="pesan">Pesan:</label>
+                <!-- required: Textarea wajib diisi -->
+                <!-- name="pesan": Nama unik untuk PHP -->
+                <textarea id="pesan" name="pesan" required placeholder="Tulis pesan Anda di sini"></textarea>
+            </div>
+
+            <!-- Tombol submit -->
+            <button type="submit">Kirim Pendaftaran</button>
+        </form>
+    </div>
+
+    <!-- Penjelasan teknis -->
+    <div class="explanation">
+        <h2>Penjelasan Teknis:</h2>
+        <ul>
+            <li><strong>action="proses.php":</strong> URL tujuan pengiriman data (file PHP).</li>
+            <li><strong>method="POST":</strong> Cara pengiriman data (aman untuk form).</li>
+            <li><strong>required:</strong> Validasi sisi klien - browser akan cegah submit jika kosong.</li>
+            <li><strong>type="email":</strong> Validasi format email otomatis.</li>
+            <li><strong>name:</strong> Atribut penting untuk PHP mengidentifikasi input.</li>
+            <li><strong>CSS Flexbox:</strong> Digunakan untuk layout responsif (lihat style.css).</li>
+        </ul>
+        <p><strong>Catatan:</strong> Validasi sisi klien (HTML) tidak cukup untuk keamanan. Di dunia nyata, tambahkan validasi sisi server di PHP.</p>
+    </div>
+</body>
+</html>

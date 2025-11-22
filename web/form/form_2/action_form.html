@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Action Form - Integrasi PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Penjelasan Action Form dalam Integrasi HTML dan PHP</h1>
+
+    <div class="explanation">
+        <h2>Apa itu Atribut action?</h2>
+        <p>Atribut <code>action</code> pada tag <code><form></code> menentukan URL atau file tujuan di mana data form akan dikirim. Biasanya, ini adalah file PHP yang akan memproses data.</p>
+        <p>Dalam integrasi HTML dan PHP, action menunjukkan ke file PHP yang akan menangkap data menggunakan <code>$_POST</code> atau <code>$_GET</code>.</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Contoh Form dengan Action</h2>
+        <form action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <button type="submit">Kirim ke proses.php</button>
+        </form>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan Kode:</h2>
+        <ul>
+            <li><code>action="proses.php"</code>: Data form dikirim ke file <code>proses.php</code>.</li>
+            <li>Jika action kosong (<code>action=""</code>), data dikirim ke halaman yang sama.</li>
+            <li>Action bisa berupa URL lengkap, seperti <code>action="https://example.com/proses.php"</code>.</li>
+        </ul>
+        <p><strong>Untuk Pemula:</strong> Action seperti alamat tujuan surat. Form mengirim "surat" (data) ke alamat tersebut (file PHP).</p>
+    </div>
+
+    <a href="index.html">Kembali ke Form Utama</a>
+</body>
+</html>

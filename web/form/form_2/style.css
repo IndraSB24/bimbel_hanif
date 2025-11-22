@@ -1,0 +1,104 @@
+/* CSS untuk styling form menggunakan Flexbox */
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Judul */
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Container form menggunakan Flexbox */
+.form-container {
+    display: flex; /* Menggunakan Flexbox */
+    flex-direction: column; /* Elemen ditumpuk vertikal */
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Grup form: label dan input sejajar */
+.form-group {
+    display: flex; /* Flexbox untuk label dan input */
+    flex-direction: column; /* Tumpuk vertikal untuk responsivitas */
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input dan textarea styling */
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%; /* Lebar penuh */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar */
+}
+
+/* Textarea khusus */
+textarea {
+    resize: vertical; /* Hanya bisa resize vertikal */
+    min-height: 100px;
+}
+
+/* Tombol submit */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Penjelasan */
+.explanation {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.explanation h2 {
+    color: #4CAF50;
+}
+
+.explanation ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    input, textarea, button {
+        font-size: 14px;
+    }
+}

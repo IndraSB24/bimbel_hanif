@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Validasi Form - Integrasi PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Penjelasan Validasi Form dalam Integrasi HTML dan PHP</h1>
+
+    <div class="explanation">
+        <h2>Apa itu Validasi Form?</h2>
+        <p>Validasi form adalah proses memastikan data yang dimasukkan pengguna valid dan aman sebelum diproses. Ada dua jenis validasi:</p>
+        <ul>
+            <li><strong>Validasi Sisi Klien (Client-side):</strong> Dilakukan di browser menggunakan HTML dan JavaScript.</li>
+            <li><strong>Validasi Sisi Server (Server-side):</strong> Dilakukan di server menggunakan PHP.</li>
+        </ul>
+        <p>Validasi sisi klien cepat, tapi bisa di-bypass. Validasi sisi server lebih aman dan wajib untuk keamanan.</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Contoh Validasi Sisi Klien (HTML)</h2>
+        <form action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama (required):</label>
+                <input type="text" id="nama" name="nama" required minlength="2" maxlength="50">
+            </div>
+            <div class="form-group">
+                <label for="email">Email (required, format email):</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="umur">Umur (number, 1-120):</label>
+                <input type="number" id="umur" name="umur" min="1" max="120">
+            </div>
+            <div class="form-group">
+                <label for="website">Website (URL):</label>
+                <input type="url" id="website" name="website">
+            </div>
+            <button type="submit">Kirim dengan Validasi HTML</button>
+        </form>
+    </div>
+
+    <div class="explanation">
+        <h2>Atribut Validasi HTML:</h2>
+        <ul>
+            <li><code>required</code>: Input wajib diisi</li>
+            <li><code>minlength</code> / <code>maxlength</code>: Panjang minimal/maksimal</li>
+            <li><code>min</code> / <code>max</code>: Nilai minimal/maksimal (untuk number/date)</li>
+            <li><code>type="email"</code>: Validasi format email</li>
+            <li><code>type="url"</code>: Validasi format URL</li>
+            <li><code>pattern</code>: Validasi dengan regex (contoh: <code>pattern="[A-Za-z]{3,}"</code>)</li>
+        </ul>
+    </div>
+
+    <div class="explanation">
+        <h2>Validasi Sisi Server dengan PHP</h2>
+        <p>Di <code>proses.php</code>, kita harus validasi ulang:</p>
+        <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 4px;">
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama = trim($_POST['nama']);
+    $email = trim($_POST['email']);
+
+    // Validasi nama
+    if (empty($nama)) {
+        echo "Nama wajib diisi!";
+    } elseif (strlen($nama) < 2) {
+        echo "Nama minimal 2 karakter!";
+    }
+
+    // Validasi email
+    if (empty($email)) {
+        echo "Email wajib diisi!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Format email tidak valid!";
+    }
+}
+?>
+        </pre>
+        <p><strong>Fungsi PHP untuk Validasi:</strong></p>
+        <ul>
+            <li><code>empty()</code>: Cek apakah kosong</li>
+            <li><code>strlen()</code>: Cek panjang string</li>
+            <li><code>filter_var()</code>: Validasi email/URL</li>
+            <li><code>is_numeric()</code>: Cek apakah angka</li>
+            <li><code>preg_match()</code>: Validasi dengan regex</li>
+        </ul>
+        <p><strong>Untuk Pemula:</strong> Validasi seperti penjaga pintu. Sisi klien seperti penjaga pintu depan (cepat tapi bisa ditipu), sisi server seperti penjaga dalam rumah (lebih aman).</p>
+    </div>
+
+    <a href="index.html">Kembali ke Form Utama</a>
+</body>
+</html>

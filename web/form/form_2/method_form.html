@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Method Form - Integrasi PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Penjelasan Method Form dalam Integrasi HTML dan PHP</h1>
+
+    <div class="explanation">
+        <h2>Apa itu Atribut method?</h2>
+        <p>Atribut <code>method</code> pada tag <code><form></code> menentukan cara data dikirim ke server. Ada dua method utama:</p>
+        <ul>
+            <li><strong>GET:</strong> Data dikirim melalui URL (query string). Terlihat di address bar browser.</li>
+            <li><strong>POST:</strong> Data dikirim di body request. Lebih aman, tidak terlihat di URL.</li>
+        </ul>
+        <p>Di PHP, data GET diakses via <code>$_GET</code>, data POST via <code>$_POST</code>.</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Contoh Form dengan Method GET</h2>
+        <form action="proses.php" method="GET">
+            <div class="form-group">
+                <label for="nama_get">Nama:</label>
+                <input type="text" id="nama_get" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="email_get">Email:</label>
+                <input type="email" id="email_get" name="email" required>
+            </div>
+            <button type="submit">Kirim dengan GET</button>
+        </form>
+        <p><small>Data akan muncul di URL: <code>?nama=...&email=...</code></small></p>
+    </div>
+
+    <div class="form-container">
+        <h2>Contoh Form dengan Method POST</h2>
+        <form action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="nama_post">Nama:</label>
+                <input type="text" id="nama_post" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="email_post">Email:</label>
+                <input type="email" id="email_post" name="email" required>
+            </div>
+            <button type="submit">Kirim dengan POST</button>
+        </form>
+        <p><small>Data tidak terlihat di URL, lebih aman untuk data sensitif.</small></p>
+    </div>
+
+    <div class="explanation">
+        <h2>Kapan Menggunakan GET vs POST?</h2>
+        <ul>
+            <li><strong>Gunakan GET untuk:</strong> Pencarian, filter, bookmark-able pages (data bisa di-share via URL).</li>
+            <li><strong>Gunakan POST untuk:</strong> Login, pendaftaran, upload file, data sensitif (password, dll).</li>
+        </ul>
+        <h3>Di PHP:</h3>
+        <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 4px;">
+// Untuk GET
+$nama = $_GET['nama'];
+
+// Untuk POST
+$nama = $_POST['nama'];
+
+// Cek method
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Proses data POST
+}
+        </pre>
+        <p><strong>Untuk Pemula:</strong> GET seperti mengirim pesan terbuka (semua orang bisa lihat), POST seperti surat tertutup (hanya penerima yang tahu isi).</p>
+    </div>
+
+    <a href="index.html">Kembali ke Form Utama</a>
+</body>
+</html>

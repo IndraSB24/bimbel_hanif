@@ -1,0 +1,27 @@
+# TODO: Enhance web/form/index.html with Special Attributes for Form Elements
+
+- [x] Add special attributes section for <form> tag
+- [x] Add special attributes section for <label> tag
+- [x] Add special attributes section for input type="text"
+- [x] Add special attributes section for input type="password"
+- [x] Add special attributes section for input type="email"
+- [x] Add special attributes section for input type="number"
+- [x] Add special attributes section for input type="tel"
+- [x] Add special attributes section for input type="url"
+- [x] Add special attributes section for input type="search"
+- [x] Add special attributes section for input type="date"
+- [x] Add special attributes section for input type="time"
+- [x] Add special attributes section for input type="datetime-local"
+- [x] Add special attributes section for input type="month"
+- [x] Add special attributes section for input type="week"
+- [x] Add special attributes section for input type="color"
+- [x] Add special attributes section for input type="range"
+- [x] Add special attributes section for input type="checkbox"
+- [x] Add special attributes section for input type="radio"
+- [x] Add special attributes section for input type="file"
+- [x] Add special attributes section for <textarea>
+- [x] Add special attributes section for <select>
+- [x] Add special attributes section for <datalist>
+- [x] Add special attributes section for <fieldset> and <legend>
+- [x] Add special attributes section for <button>
+- [x] Test the updated file by opening in browser

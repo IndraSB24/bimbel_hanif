@@ -63,12 +63,23 @@
         <ul>
             <li><strong>action:</strong> URL tujuan pengiriman data form (misalnya ke server atau halaman lain)</li>
             <li><strong>method:</strong> Cara pengiriman data. Nilai umum: "get" (data di URL) atau "post" (data di body request)</li>
+            <li><strong>enctype:</strong> Encoding untuk data form (default: application/x-www-form-urlencoded)</li>
+            <li><strong>target:</strong> Target window untuk response (_self, _blank, dll)</li>
+            <li><strong>name:</strong> Nama form</li>
+            <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete untuk semua input</li>
+            <li><strong>novalidate:</strong> Skip validasi form</li>
+            <li><strong>accept-charset:</strong> Charset yang diterima</li>
         </ul>
     </div>
 
     <div class="form-section">
         <h2>Penjelasan Tag <label></h2>
         <p>Tag <label> memberikan label deskriptif untuk elemen form. Atribut <strong>for</strong> menghubungkan label dengan elemen form berdasarkan ID, meningkatkan aksesibilitas (misalnya untuk screen reader) dan pengalaman pengguna.</p>
+        <h4>Atribut Khusus:</h4>
+        <ul>
+            <li><strong>for:</strong> ID elemen form yang terkait dengan label ini</li>
+            <li><strong>form:</strong> ID form yang terkait (jika label di luar form)</li>
+        </ul>
     </div>
 
     <h2>Contoh Lengkap Semua Elemen Form HTML</h2>
@@ -78,18 +89,56 @@
             <h3>1. Input Text - Untuk teks biasa</h3>
             <label for="nama">Nama Lengkap:</label>
             <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>spellcheck:</strong> Aktifkan/nonaktifkan spell check</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>2. Input Password - Untuk password (tersembunyi)</h3>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Masukkan password">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>3. Input Email - Validasi email otomatis</h3>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="contoh@email.com">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>multiple:</strong> Izinkan multiple email (dipisah koma)</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -102,18 +151,55 @@
             <h3>5. Input Tel - Untuk nomor telepon</h3>
             <label for="telepon">Nomor Telepon:</label>
             <input type="tel" id="telepon" name="telepon" placeholder="08123456789">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi (e.g., untuk format telepon)</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>6. Input URL - Untuk alamat website</h3>
             <label for="website">Website:</label>
             <input type="url" id="website" name="website" placeholder="https://example.com">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>7. Input Search - Untuk pencarian</h3>
             <label for="cari">Cari:</label>
             <input type="search" id="cari" name="cari" placeholder="Kata kunci pencarian">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>size:</strong> Lebar tampilan input (dalam karakter)</li>
+                <li><strong>pattern:</strong> Pola regex untuk validasi</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam input</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>spellcheck:</strong> Aktifkan/nonaktifkan spell check</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -126,36 +212,95 @@
             <h3>9. Input Time - Untuk waktu</h3>
             <label for="waktu">Waktu:</label>
             <input type="time" id="waktu" name="waktu">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>min:</strong> Waktu minimal yang bisa dipilih</li>
+                <li><strong>max:</strong> Waktu maksimal yang bisa dipilih</li>
+                <li><strong>step:</strong> Interval langkah (dalam detik)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>10. Input Datetime-local - Untuk tanggal dan waktu lokal</h3>
             <label for="datetime">Tanggal dan Waktu:</label>
             <input type="datetime-local" id="datetime" name="datetime">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>min:</strong> Tanggal/waktu minimal yang bisa dipilih</li>
+                <li><strong>max:</strong> Tanggal/waktu maksimal yang bisa dipilih</li>
+                <li><strong>step:</strong> Interval langkah (dalam detik)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>11. Input Month - Untuk bulan dan tahun</h3>
             <label for="bulan">Bulan:</label>
             <input type="month" id="bulan" name="bulan">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>min:</strong> Bulan/tahun minimal yang bisa dipilih</li>
+                <li><strong>max:</strong> Bulan/tahun maksimal yang bisa dipilih</li>
+                <li><strong>step:</strong> Interval langkah (dalam bulan)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>12. Input Week - Untuk minggu dan tahun</h3>
             <label for="minggu">Minggu:</label>
             <input type="week" id="minggu" name="minggu">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>min:</strong> Minggu/tahun minimal yang bisa dipilih</li>
+                <li><strong>max:</strong> Minggu/tahun maksimal yang bisa dipilih</li>
+                <li><strong>step:</strong> Interval langkah (dalam minggu)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>13. Input Color - Untuk memilih warna</h3>
             <label for="warna">Pilih Warna:</label>
             <input type="color" id="warna" name="warna">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>value:</strong> Warna default (hex code)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>14. Input Range - Untuk slider angka</h3>
             <label for="range">Rating (1-10):</label>
             <input type="range" id="range" name="range" min="1" max="10">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>min:</strong> Nilai minimal</li>
+                <li><strong>max:</strong> Nilai maksimal</li>
+                <li><strong>step:</strong> Interval langkah</li>
+                <li><strong>value:</strong> Nilai default</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -165,6 +310,15 @@
                 <label><input type="checkbox" name="hobi" value="olahraga"> Olahraga</label>
                 <label><input type="checkbox" name="hobi" value="musik"> Musik</label>
             </div>
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>checked:</strong> Checkbox tercentang secara default</li>
+                <li><strong>value:</strong> Nilai yang dikirim jika tercentang</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi (minimal satu tercentang)</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -173,18 +327,52 @@
                 <label><input type="radio" name="jenis_kelamin" value="pria"> Pria</label>
                 <label><input type="radio" name="jenis_kelamin" value="wanita"> Wanita</label>
             </div>
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>checked:</strong> Radio button tercentang secara default</li>
+                <li><strong>value:</strong> Nilai yang dikirim jika tercentang</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi (minimal satu tercentang dalam group)</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>form:</strong> ID form yang terkait (jika radio di luar form)</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>17. Input File - Untuk upload file</h3>
             <label for="file">Upload File:</label>
             <input type="file" id="file" name="file">
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>accept:</strong> Tipe file yang diterima (e.g., .jpg, .png, image/*)</li>
+                <li><strong>multiple:</strong> Izinkan multiple file</li>
+                <li><strong>capture:</strong> Gunakan kamera untuk capture (user, environment)</li>
+                <li><strong>readonly:</strong> Input hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Input dinonaktifkan</li>
+                <li><strong>required:</strong> Input wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+            </ul>
         </div>
 
         <div class="form-section">
             <h3>18. Textarea - Untuk teks panjang</h3>
             <label for="pesan">Pesan:</label>
             <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan Anda di sini"></textarea>
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>rows:</strong> Jumlah baris tampilan</li>
+                <li><strong>cols:</strong> Jumlah kolom tampilan</li>
+                <li><strong>maxlength:</strong> Jumlah karakter maksimal</li>
+                <li><strong>minlength:</strong> Jumlah karakter minimal</li>
+                <li><strong>placeholder:</strong> Teks petunjuk di dalam textarea</li>
+                <li><strong>readonly:</strong> Textarea hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Textarea dinonaktifkan</li>
+                <li><strong>required:</strong> Textarea wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>spellcheck:</strong> Aktifkan/nonaktifkan spell check</li>
+                <li><strong>wrap:</strong> Cara wrapping teks (soft, hard)</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -196,6 +384,16 @@
                 <option value="malaysia">Malaysia</option>
                 <option value="singapore">Singapura</option>
             </select>
+            <h4>Atribut Khusus:</h4>
+            <ul>
+                <li><strong>multiple:</strong> Izinkan multiple pilihan</li>
+                <li><strong>size:</strong> Jumlah opsi yang ditampilkan</li>
+                <li><strong>readonly:</strong> Select hanya bisa dibaca</li>
+                <li><strong>disabled:</strong> Select dinonaktifkan</li>
+                <li><strong>required:</strong> Select wajib diisi</li>
+                <li><strong>autocomplete:</strong> Aktifkan/nonaktifkan autocomplete browser</li>
+                <li><strong>form:</strong> ID form yang terkait (jika select di luar form)</li>
+            </ul>
         </div>
 
         <div class="form-section">
@@ -219,6 +417,16 @@
                 <label for="kode_pos">Kode Pos:</label>
                 <input type="text" id="kode_pos" name="kode_pos">
             </fieldset>
+            <h4>Atribut Khusus untuk Fieldset:</h4>
+            <ul>
+                <li><strong>disabled:</strong> Nonaktifkan semua elemen di dalam fieldset</li>
+                <li><strong>form:</strong> ID form yang terkait (jika fieldset di luar form)</li>
+                <li><strong>name:</strong> Nama fieldset</li>
+            </ul>
+            <h4>Atribut Khusus untuk Legend:</h4>
+            <ul>
+                <li>Tidak ada atribut khusus, hanya teks deskriptif</li>
+            </ul>
         </div>
 
         <div class="form-section">

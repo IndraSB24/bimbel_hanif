@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Name Attribute - Integrasi PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Penjelasan Atribut name dalam Integrasi HTML dan PHP</h1>
+
+    <div class="explanation">
+        <h2>Apa itu Atribut name?</h2>
+        <p>Atribut <code>name</code> pada elemen form (input, textarea, select) memberikan nama unik untuk data yang dikirim. PHP menggunakan nama ini untuk mengakses data melalui <code>$_POST</code> atau <code>$_GET</code>.</p>
+        <p>Tanpa <code>name</code>, data tidak akan dikirim ke server!</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Contoh Form dengan Name Attribute</h2>
+        <form action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" required></textarea>
+            </div>
+            <button type="submit">Kirim Data</button>
+        </form>
+    </div>
+
+    <div class="explanation">
+        <h2>Penjelasan Kode:</h2>
+        <ul>
+            <li><code>name="nama"</code>: Data input disimpan dengan key 'nama'. Di PHP: <code>$_POST['nama']</code></li>
+            <li><code>name="email"</code>: Data input disimpan dengan key 'email'. Di PHP: <code>$_POST['email']</code></li>
+            <li><code>name="pesan"</code>: Data textarea disimpan dengan key 'pesan'. Di PHP: <code>$_POST['pesan']</code></li>
+            <li>Nama harus unik dalam satu form untuk menghindari konflik.</li>
+            <li>Untuk checkbox/radio dengan nama sama, gunakan array: <code>name="hobi[]"</code></li>
+        </ul>
+        <p><strong>Untuk Pemula:</strong> Name seperti label pada kotak. PHP menggunakan label ini untuk menemukan isi kotak.</p>
+    </div>
+
+    <a href="index.html">Kembali ke Form Utama</a>
+</body>
+</html>
