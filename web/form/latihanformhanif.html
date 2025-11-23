@@ -23,7 +23,7 @@
 </style>
 <body>
 <div class="container">
-    <form>
+    <form action="prosesForm1.php" method="post" enctype="multipart/form-data">
         <h1 style="color: orangered;">Personal Details</h1>
         <label for="Nama">Nama</label>
         <input type="text" id="Nama" name="Nama">
@@ -62,7 +62,7 @@
         <input type="checkbox" id="hobi" name="hobi">Playing Chess
         <input type="checkbox" id="hobi" name="hobi">Reading Books
         <h3 style="color: orangered;">Address</h3>
-        <textarea></textarea>
+        <textarea name="address"></textarea>
         <br><br>
         <label for="fileinput">Attch Resume:</label>
         <input type="file" id="fileinput" name="fileinput" placeholder="Choose File">No file choosen
