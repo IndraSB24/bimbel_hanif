@@ -6,37 +6,46 @@
     <title>Document</title>
 </head>
 <style>
-    h1{
-        align-items: center;
+    .container{
+        display: flex;
+        justify-content: center;
+        background-color: rgb(140, 221, 140);
+        
     }
-textarea{
+    
+.container textarea{
+    align-self: center;
     border-radius: 8px;
     width: 250px;  
     height: 95px; 
 }
+.container form{
+}
 
 </style>
 <body>
-    <h1>Personal Details</h1>
+<div class="container">
     <form>
+        <h1 style="color: orangered;">Personal Details</h1>
         <label for="Nama">Nama</label>
         <input type="text" id="Nama" name="Nama">
         <br>
+        <br>
         <label for="Password">Password:</label>
         <input type="password" id="Password" name="Password">
-        <br>
+        <br><br>
         <label for="Email">E-mail id:</label>
         <input type="email" id="Email" name="Email">
-        <br>
+        <br><br>
         <label> Gender:
         <input type="radio" name="gender" value="Male">Male
         </label>
          <label><input type="radio" name="gender" value="Female">Female
         </label>
-        <br>
+        <br><br>
         <label for="kontak">Contact#:</label>
         <input type="tel" id="kontak" name="kontak"><br>
-        <h2>Educational Qualification</h2>
+        <h2 style="color: orangered;">Educational Qualification</h2>
         <label for="degree">Degree:</label>
         <select id="degree" name="degree">
             <option value="">-- Select Group --</option>
@@ -44,7 +53,7 @@ textarea{
             <option value="SMP">SMP</option>
             <option value="SD">SD</option>
         </select>
-        <br>
+        <br><br>
         <label for="engineer">Engineering:</label>
         <select id="engineer" name="engineer">
             <option value="">-- Select Group --</option>
@@ -59,8 +68,9 @@ textarea{
         <br><br>
         <label for="fileinput">Attch Resume:</label>
         <input type="file" id="fileinput" name="fileinput" placeholder="Choose File">No file choosen
-        <br>
-        <input type="button" value="SUBMIT->">
+        <br><br>
+        <input type="submit" value="SUBMIT ->" style="color: orangered;">
     </form>
+    </div>
 </body>
 </html>
