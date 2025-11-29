@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-    body {
+    <title>Form</title>
+    <style> body {
         background-color: #f4f6f8;
         display: flex; 
         justify-content: center;
@@ -199,13 +198,12 @@
         margin-top: 10px;
         transition: background 0.3s;
         align-self: flex-start;
-    }
-    </style>
+    }</style>
 </head>
 <body>
 
     <div> 
-        <form class="form">
+        <form action="hanif1.php" method="POST" class="form">
             <div class="form-row">
                 <div class="form-group">
                     <label for="Firstname">First Name</label>
@@ -254,7 +252,7 @@
     </div>
 
     <div>
-        <form class="form">
+        <form action="hanif2.php" method="POST" class="form">
             <div>
                 <label for="email-to">Send files to this email:</label>
                 <input type="email" name="email-to" id="email-to" placeholder="example@gmail.com">
@@ -263,8 +261,10 @@
             <div class="file-upload-box">
                 Drop files here
                 <br>Or<br>
-                <input type="file" id="file-input" multiple>
+                <input type="file" id="file-input"  multiple>
                 <label for="file-input"><button type="button">Browse</button></label>
+                <label for="fileinput">Attch Resume:</label>
+        <input type="file" id="fileinput" name="fileinput" placeholder="Choose File">No file choosen    
             </div>
 
             <div class="file-list">
@@ -291,7 +291,7 @@
     </div>
 
     <div>
-        <form class="form">
+        <form action="hanif3.php" method="POST" class="form">
             <div>
                 <label for="fullname">Full Name</label>
                 <input type="text" name="fullname" id="fullname" placeholder="First and Last">

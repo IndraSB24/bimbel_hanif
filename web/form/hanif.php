@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>Hobbies:</strong> $hobi</p>
         <p><strong>Input file here:</strong> $fileinput</p>
     </div>
-    <p><a href='index.html'>Kembali ke Form</a></p>
+    <p><a href='latihanformhanif.html'>Kembali ke Form</a></p>
 </body>
 </html>";
     
