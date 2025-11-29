@@ -16,6 +16,20 @@
         .code-block { background-color: #2c3e50; color: #f1c40f; padding: 15px; border-radius: 5px; overflow-x: auto; margin-bottom: 20px; font-size: 0.9em; white-space: pre-wrap; }
         .challenge { border: 2px solid #e74c3c; padding: 15px; border-radius: 5px; background-color: #fdf5f5; margin-top: 20px; }
         .expected-result { border-left: 5px solid #27ae60; padding: 15px; background-color: #e8f8f8; margin-top: 20px; }
+        .answer-button-container { text-align: right; margin-top: 20px; }
+        .answer-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .answer-button:hover {
+            background-color: #c0392b;
+        }
     </style>
 </head>
 <body>
@@ -71,6 +85,11 @@ $durasi_promosi_hari = 7;
                 Setelah diskon, harga jual bersihnya menjadi Rp900.000. Hingga saat ini, kami telah berhasil menarik 15 peserta.<br>
                 Total pengeluaran untuk iklan selama 7 hari adalah Rp1.050.003,50. Dengan asumsi biaya iklan terbagi rata, profit kotor rata-rata yang kami dapatkan per peserta adalah Rp829.999,77 per unit, ini adalah angka yang menjanjikan!
             </p>
+        </div>
+
+        <!-- TOMBOL JAWABAN (DITAMBAHKAN) -->
+        <div class="answer-button-container">
+            <a href="task_1_answer.php" class="answer-button" target="_blank">Lihat Kunci Jawaban</a>
         </div>
         
     </div>
