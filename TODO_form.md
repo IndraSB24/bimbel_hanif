@@ -1,27 +1,19 @@
-# TODO: Enhance web/form/index.html with Special Attributes for Form Elements
+# TODO: Create Modern Simple Form
 
-- [x] Add special attributes section for <form> tag
-- [x] Add special attributes section for <label> tag
-- [x] Add special attributes section for input type="text"
-- [x] Add special attributes section for input type="password"
-- [x] Add special attributes section for input type="email"
-- [x] Add special attributes section for input type="number"
-- [x] Add special attributes section for input type="tel"
-- [x] Add special attributes section for input type="url"
-- [x] Add special attributes section for input type="search"
-- [x] Add special attributes section for input type="date"
-- [x] Add special attributes section for input type="time"
-- [x] Add special attributes section for input type="datetime-local"
-- [x] Add special attributes section for input type="month"
-- [x] Add special attributes section for input type="week"
-- [x] Add special attributes section for input type="color"
-- [x] Add special attributes section for input type="range"
-- [x] Add special attributes section for input type="checkbox"
-- [x] Add special attributes section for input type="radio"
-- [x] Add special attributes section for input type="file"
-- [x] Add special attributes section for <textarea>
-- [x] Add special attributes section for <select>
-- [x] Add special attributes section for <datalist>
-- [x] Add special attributes section for <fieldset> and <legend>
-- [x] Add special attributes section for <button>
-- [x] Test the updated file by opening in browser
+## Steps to Complete
+- [x] Create modern_form.html with contact form fields (name, email, message) and submit button
+- [x] Create modern_form.css with CSS Grid layout for form, Flexbox for field alignment, modern styles including shadows, transitions, and responsive design
+- [x] Test the form by opening modern_form.html in browser to verify layout and functionality
+
+## New Task: Create Second Modern Form
+
+## Steps to Complete
+- [x] Create modern_form2.html with comprehensive form elements (text, email, password, number, tel, url, date, time, textarea, select, checkboxes, radios)
+- [x] Create modern_form2.css with modern positioning using Grid and Flexbox, no gradients, focus on clean layout and responsiveness
+- [ ] Test the form by opening modern_form2.html in browser to verify layout and functionality
+
+## Notes
+- Use pure CSS, no frameworks
+- More form elements for variety
+- Focus on modern positioning with Grid and Flexbox
+- No gradients, clean design

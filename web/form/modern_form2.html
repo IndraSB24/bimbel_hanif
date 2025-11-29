@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Modern Form</title>
+    <link rel="stylesheet" href="modern_form2.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        <form action="#" method="post">
+            <!-- Text inputs -->
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" required placeholder="Enter your first name">
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" required placeholder="Enter your last name">
+            </div>
+
+            <!-- Email and Password -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Create a password">
+            </div>
+
+            <!-- Number and Tel -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="100" placeholder="Your age">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
+            </div>
+
+            <!-- URL and Date -->
+            <div class="form-group">
+                <label for="website">Website</label>
+                <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Birth Date</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+
+            <!-- Time and Select -->
+            <div class="form-group">
+                <label for="preferred_time">Preferred Contact Time</label>
+                <input type="time" id="preferred_time" name="preferred_time">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="">Select Country</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="au">Australia</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="jp">Japan</option>
+                    <option value="in">India</option>
+                </select>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group full-width">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+            </div>
+
+            <!-- Radio buttons -->
+            <div class="form-group full-width">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                    <label><input type="radio" name="gender" value="prefer_not"> Prefer not to say</label>
+                </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-group full-width">
+                <label>Interests (Select all that apply)</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="interests" value="technology"> Technology</label>
+                    <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+                    <label><input type="checkbox" name="interests" value="music"> Music</label>
+                    <label><input type="checkbox" name="interests" value="travel"> Travel</label>
+                    <label><input type="checkbox" name="interests" value="cooking"> Cooking</label>
+                    <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+                </div>
+            </div>
+
+            <!-- Fieldset -->
+            <fieldset class="full-width">
+                <legend>Additional Information</legend>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" placeholder="Your job title">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" placeholder="Company name">
+                </div>
+            </fieldset>
+
+            <!-- Submit button -->
+            <button type="submit" class="full-width">Register</button>
+        </form>
+    </div>
+</body>
+</html>
