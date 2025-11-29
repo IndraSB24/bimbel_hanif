@@ -8,4 +8,5 @@ $hasil = ($sepuluh/$lima);
 echo "$angkaplus $sepuluh dan $lima adalah: " . ($sepuluh+$lima) . "<br>";
 echo "$angkaminus $sepuluh dan $lima adalah: " . ($sepuluh-$lima) . "<br>";
 echo "$angkabagi $sepuluh dan $lima adalah: $hasil";
+ for ($i = 1; $i <=5; $i++) { echo "Perulangan ke-" . $i . "<br>"; } ?> 
 ?>
