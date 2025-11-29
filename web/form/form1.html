@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    body {
+        background-color: #f4f6f8;
+        display: flex; 
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px;
+        margin: 0;
+    }
+    body > div { 
+        background-color: white;
+        width: 100%;
+        max-width: 400px; 
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 480px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+        color: #333;
+    }
+    textarea { 
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        color: #555;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #6c5ce7;
+    }
+    .form-row {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .form-group {
+        flex: 1;
+    }
+
+
+    .radio-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .radio-group label {
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+    }
+
+    .submit { 
+        background-color: #6c5ce7;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100px;
+        margin-top: 10px;
+        transition: background 0.3s;
+    }
+    .form-footer { 
+        margin-top: auto;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: left;
+    }
+    .form-footer h3 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        color: #333;
+    }
+    .button{ 
+        background-color: #6c5ce7;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.3s;
+    }
+    .button:hover {
+        background-color: #5a4ad1;
+    }
+    .file-upload-box {
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        padding: 30px 20px;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #777;
+        font-size: 14px;
+        background-color: #fcfcff;
+        cursor: pointer;
+        transition: border-color 0.3s;
+    }
+    .file-upload-box:hover {
+        border-color: #6c5ce7;
+    }
+    .file-upload-box input[type="file"] {
+        display: none; 
+    }
+    .file-upload-box label button { /* Menargetkan tombol di dalam label */
+        background-color: #f0f0f0;
+        color: #333;
+        border: 1px solid #ddd;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        margin-top: 10px;
+        transition: background 0.3s;
+    }
+    .file-upload-box label button:hover {
+        background-color: #e0e0e0;
+    }
+    .file-list {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .file-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 13px;
+    }
+    .file-item .filename {
+        flex-grow: 1;
+        color: #333;
+    }
+    .file-item .progress-bar-bg {
+        width: 100px;
+        height: 6px;
+        background-color: #e0e0e0;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .file-item .progress-bar {
+        height: 100%;
+        background-color: #6c5ce7;
+        border-radius: 3px;
+    }
+    .file-item .remove-btn {
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .send {
+        background-color: #6c5ce7;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 120px;
+        margin-top: 10px;
+        transition: background 0.3s;
+        align-self: flex-start;
+    }
+    </style>
+</head>
+<body>
+
+    <div> 
+        <form class="form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Firstname">First Name</label>
+                    <input type="text" name="firstname" id="Firstname" placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="Secondname">Last Name</label>
+                    <input type="text" name="secondname" id="Secondname" placeholder="Enter your last name">
+                </div>
+            </div>
+
+            <div>
+                <label for="guest">How many guest are you bringing?</label>
+                <input type="text" name="guest" id="guest" placeholder="5">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Event Date</label>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div class="form-group">
+                    <label for="time">Event Time</label>
+                    <input type="time" name="time" id="time">
+                </div>
+            </div>
+
+            <div>
+                <label>Are you coming to the event?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="coming" value="Yes" checked> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="coming" value="NO"> No
+                    </label>
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+
+        <div class="form-footer">
+            <h3>Fully Working RSVP HTML Form</h3>
+            <button class="button">Get the code</button>
+        </div>
+    </div>
+
+    <div>
+        <form class="form">
+            <div>
+                <label for="email-to">Send files to this email:</label>
+                <input type="email" name="email-to" id="email-to" placeholder="example@gmail.com">
+            </div>
+
+            <div class="file-upload-box">
+                Drop files here
+                <br>Or<br>
+                <input type="file" id="file-input" multiple>
+                <label for="file-input"><button type="button">Browse</button></label>
+            </div>
+
+            <div class="file-list">
+                <div class="file-item">
+                    <span class="filename">banner-design.png</span>
+                    <div class="progress-bar-bg"><div class="progress-bar" style="width: 70%;"></div></div>
+                    <button type="button" class="remove-btn">x</button>
+                </div>
+                <div class="file-item">
+                    <span class="filename">template-file.zip</span>
+                    <div class="progress-bar-bg"><div class="progress-bar" style="width: 100%;"></div></div>
+                    <button type="button" class="remove-btn">x</button>
+                </div>
+            </div>
+
+            <button type="submit" class="send">Send File</button>
+            <br><br><br><br>
+        </form>
+
+        <div class="form-footer">
+            <h3>File Upload HTML Form Template</h3>
+            <button class="button">Get the code</button>
+        </div>
+    </div>
+
+    <div>
+        <form class="form">
+            <div>
+                <label for="fullname">Full Name</label>
+                <input type="text" name="fullname" id="fullname" placeholder="First and Last">
+            </div>
+            <div>
+                <label for="email-contact">Email Address</label>
+                <input type="email" name="email-contact" id="email-contact" placeholder="example@domain.com">
+            </div>
+            <div>
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" placeholder="Enter your subject">
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" placeholder="Type your message"></textarea>
+            </div>
+
+            <input type="submit" value="Submit" class="submit">
+        </form>
+
+        <div class="form-footer">
+            <h3>Fully Working HTML Contact Form</h3>
+            <button class="button">Get the code</button>
+        </div>
+    </div>
+
+</body>
+</html>
