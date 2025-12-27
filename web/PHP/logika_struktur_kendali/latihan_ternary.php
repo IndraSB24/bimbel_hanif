@@ -81,7 +81,7 @@
         // --- TULIS KODE ANDA DI BAWAH INI ---
         
         // TODO: $status = (kondisi) ? "LULUS" : "REMEDIAL";
-
+        $status = ($nilai_ujian>=70) ? "LULUS" : "REMEDIAL";
         
         // ------------------------------------
         ?>
@@ -102,14 +102,13 @@
         </div>
 
         <?php
-        $kode_gender = "P"; // Coba ganti "L"
+        $kode_gender = "L"; // Coba ganti "L"
         $keterangan_gender = "[Belum ada jawaban]";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Gunakan ternary untuk mengecek $kode_gender == "L"
-        
-
+        $keterangan_gender = ($kode_gender == "L") ? "LAkI LAKI" : "Perempuan"; 
         // ------------------------------------
         ?>
 
@@ -130,13 +129,13 @@
         </div>
 
         <?php
-        $is_online = true; // Coba ganti false
+        $is_online = false; // Coba ganti false
         $pesan_status = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Gunakan ternary pada boolean
-        
+        $pesan_status = ($is_online == true) ? "User sedang Online" : "User Offline";
 
         // ------------------------------------
         ?>
@@ -158,13 +157,13 @@
         </div>
 
         <?php
-        $jam_sekarang = 14; // Anggap format 24 jam
+        $jam_sekarang = 12; // Anggap format 24 jam
         $sapaan = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Isi variabel $sapaan dengan ternary
-        
+        $sapaan = ($jam_sekarang <12) ? "Selamat Pagi" : "Selamat Siang";
 
         // ------------------------------------
         ?>
@@ -186,13 +185,13 @@
         </div>
 
         <?php
-        $angka = 9; 
+        $angka = 4; 
         $jenis_bilangan = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: $jenis_bilangan = (... % 2 == 0) ? ... : ...;
-        
+        $jenis_bilangan = ($angka % 2 == 0) ? "Genap" : "Ganjil";
 
         // ------------------------------------
         ?>
