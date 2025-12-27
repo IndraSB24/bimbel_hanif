@@ -78,7 +78,7 @@
 
         <?php
         $username = "admin";
-        $password = "salah"; // Coba ganti jadi "12345"
+        $password = "12345"; // Coba ganti jadi "12345"
         $pesan_login = "[Belum ada jawaban]";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
@@ -86,7 +86,17 @@
         // TODO: if ($username == "admin") {
         //           if ($password == "12345") { ... } else { ... }
         //       } else { ... }
-
+        if ($username == "admin") {
+            if($password == "12345"){
+                $pesan_login = "Login Sukses";
+            }
+            else{
+                $pesan_login = "Password Salah";
+            }
+        }
+        else {
+            $pesan_login = "Username tidak ditemukan";
+        }
         
         // ------------------------------------
         ?>
@@ -109,13 +119,28 @@
         </div>
 
         <?php
-        $nilai = 80; // Coba: 95, 80, 60, 40
+        $nilai = 89; // Coba: 95, 80, 60, 40
         $status_akhir = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Buat Nested If sesuai instruksi
-        
+        if($nilai >= 75){
+            if($nilai >=90){
+                $status_akhir = "Cumlaude";
+            }
+            else{
+                $status_akhir = "Lulus Biasa";
+            }
+        }
+        else {
+            if($nilai <50){
+                $status_akhir = "Drop Out";
+            }
+            else{
+                $status_akhir = "Boleh Remedial";
+            }
+        }
 
         // ------------------------------------
         ?>
@@ -145,7 +170,17 @@
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Nested If boolean
-        
+        if ($punya_sim == true){
+            if ($punya_stnk = true){
+                $keputusan_polisi = "Boleh Jalan";
+            }
+            else{
+                $keputusan_polisi = "Tilang STNK";
+            }
+        }
+        else{
+            $keputusan_polisi = "Tilang Tidak Punya SIM";
+        }
 
         // ------------------------------------
         ?>
@@ -169,14 +204,28 @@
 
         <?php
         $is_member = true;
-        $total_belanja = 300000; // Coba ganti > 500000
+        $total_belanja = 500001; // Coba ganti > 500000
         $diskon_didapat = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Nested If untuk logika Member & Belanja
-        
-
+        if($is_member == true){
+            if($total_belanja > 500000){
+                $diskon_didapat = "20%";
+            }
+            else{
+                $diskon_didapat = "10%";
+            }
+        }
+        else{
+            if($total_belanja > 500000){
+                $diskon_didapat = "5%";
+            }
+            else{
+                $diskon_didapat = "0%";
+            }
+        }
         // ------------------------------------
         ?>
 
@@ -198,13 +247,25 @@
         </div>
 
         <?php
-        $angka = 14; // Coba ganti -5, 0, 13, 14
+        $angka = -5; // Coba ganti -5, 0, 13, 14
         $analisa = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Nested If
-        
+        if($angka > 0){
+            if($angka % 2== 0){
+                $analisa = "Positif Genap";
+            }
+            else{
+                $analisa = "Positif Ganjil";
+            }
+        }
+        else{
+            if($angka <=0){
+                $analisa = "Bukan bilangan Positif";
+            }
+        }
 
         // ------------------------------------
         ?>
