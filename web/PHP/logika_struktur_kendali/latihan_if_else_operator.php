@@ -76,13 +76,18 @@
 
         <?php
         $username = "admin";
-        $password = "rahasia"; // Coba ganti jadi "12345"
+        $password = "12345"; // Coba ganti jadi "12345"
         $status_login = "[Belum ada jawaban]";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
         
         // TODO: if ($username == "admin" && ...) { ... }
-
+        if ($username == "admin" && $password == "12345"){
+            $status_login = "Login Berhasil";
+        }
+        else {
+            $status_login = "Login Gagal";
+        }
         
         // ------------------------------------
         ?>
@@ -105,13 +110,18 @@
 
         <?php
         $nilai_akademik = 90;
-        $nilai_sikap = 75; // Coba ubah nilai ini
+        $nilai_sikap = 80; // Coba ubah nilai ini
         $hasil_beasiswa = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Gunakan operator AND (&&)
-        
+        if ($nilai_akademik >= 80 && $nilai_sikap >= 80){
+            $hasil_beasiswa = "Dapat Beasiswa";
+        }
+        else{
+            $hasil_beasiswa = "Tidak Dapat";
+        }
 
         // ------------------------------------
         ?>
@@ -134,14 +144,19 @@
         </div>
 
         <?php
-        $total_belanja = 50000;
-        $punya_kartu = true; // Coba ubah false
+        $total_belanja = 99999;
+        $punya_kartu = false; // Coba ubah false
         $cek_diskon = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Gunakan operator OR (||)
-        
+        if ($total_belanja == 100000 || $punya_kartu == true){
+            $cek_diskon = "Dapat Diskon";
+        }
+        else{
+            $cek_diskon = "Harga Normal";
+        }
 
         // ------------------------------------
         ?>
@@ -165,13 +180,18 @@
         </div>
 
         <?php
-        $is_banned = false; // Coba ganti true
+        $is_banned = true; // Coba ganti true
         $status_akun = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: if (!$is_banned) { ... }
-        
+        if (!$is_banned) {
+            $status_akun = "Akun Aktif";
+        }
+        else{
+            $status_akun = "Akun terblokir";
+        }
 
         // ------------------------------------
         ?>
@@ -194,20 +214,25 @@
         </div>
 
         <?php
-        $angka = 15; // Coba ganti 5 atau 25
+        $angka2 = 21; // Coba ganti 5 atau 25
         $validasi = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: if ($angka >= 10 && ...) { ... }
-        
+        if ($angka2 >=10 && $angka2 <=20) {
+            $validasi = "Angka dalam jangkauan";
+        }
+        else{
+            $validasi = "Angka diluar jangkauan";
+        }
 
         // ------------------------------------
         ?>
 
         <div class="output-preview">
             <span class="label-output">Output Program:</span>
-            Input Angka: <?php echo $angka; ?> <br>
+            Input Angka: <?php echo $angka2; ?> <br>
             Hasil: <b><?php echo $validasi; ?></b>
         </div>
     </div>
