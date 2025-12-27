@@ -70,14 +70,36 @@
         </div>
 
         <?php
-        $nomor_hari = 3; // Coba ganti angka 1-7
-        $nama_hari = "[Belum ada jawaban]";
+        $nomor_hari = 7; // Coba ganti angka 1-7
+        $nama_hari;
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
         
         // TODO: Gunakan switch($nomor_hari)
         // Jangan lupa break; di setiap case!
-
+        switch ($nomor_hari) {
+            case "1":
+            $nama_hari = "Senin";
+            break;
+            case "2":
+            $nama_hari = "Selasa";
+            break;
+            case "3":
+            $nama_hari = "Rabu";
+            break;
+            case "4";
+            $nama_hari = "Kamis";
+            break;
+            case "5";
+            $nama_hari = "Jumat";
+            break;
+            case "6";
+            $nama_hari = "Sabtu";
+            break;
+            case "7";
+            $nama_hari = "Minggu";
+            break;
+        }
         
         // ------------------------------------
         ?>
@@ -102,13 +124,26 @@
         </div>
 
         <?php
-        $warna_lampu = "merah"; // Coba ganti "kuning" atau "hijau"
+        $warna_lampu = "s"; // Coba ganti "kuning" atau "hijau"
         $aksi = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Buat switch case untuk $warna_lampu
-        
+        switch ($warna_lampu){
+            case "Merah":
+            $aksi = "Berhenti!";
+            break;
+            case "Kuning":
+            $aksi = "Hati-Hati!";
+            break;
+            case "Hijau":
+            $aksi = "Jalan!";
+            break;
+            default:
+            $aksi = "warna rusak";
+            break;
+        }
 
         // ------------------------------------
         ?>
@@ -134,13 +169,29 @@
         </div>
 
         <?php
-        $grade = "B"; 
+        $grade = "A"; 
         $keterangan = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Buat switch case untuk $grade
-        
+        switch ($grade) {
+        case "A":
+        $keterangan = "Sangat Memuaskan";
+        break;
+        case "B":
+        $keterangan = "Memuaskan";
+        break;
+        case "C":
+        $keterangan = "Cukup";
+        break;
+        case "D":
+        $keterangan = "Kurang";
+        break;
+        case "E":
+        $keterangan = "Gagal";
+        break;
+        }
 
         // ------------------------------------
         ?>
@@ -165,13 +216,25 @@
         </div>
 
         <?php
-        $kode_menu = 2; // Coba ganti 1, 2, atau 3
+        $kode_menu = 3; // Coba ganti 1, 2, atau 3
         $pesan_menu = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Buat switch case disini
-        
+        switch ($kode_menu) {
+            case "1":
+            $pesan_menu = "Nasi Goreng - Rp 15.000";
+            break;
+            case "2":
+            $pesan_menu = "Mie Ayam - Rp 12.000";
+            break;
+            case "3":
+            $pesan_menu = "Bakso - Rp 13.000";
+            break;
+            default:
+            $pesan_menu = "Menu tidak tersedia";
+        }
 
         // ------------------------------------
         ?>
@@ -195,22 +258,36 @@
         <?php
         $angka1 = 10;
         $angka2 = 5;
-        $operator = "+"; // Coba ganti jadi "-", "*", atau "/"
-        $hasil_hitung = 0;
+        $operator = "/"; // Coba ganti jadi "-", "*", atau "/"
+        $hasil_hitung ;
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Switch case untuk $operator
         // case "+": $hasil_hitung = $angka1 + $angka2; break;
         // dst...
-        
+        switch ($operator){
+            case "+":
+            $hasil_hitung = $angka1 + $angka2;
+            break;
+            case "-":
+            $hasil_hitung = $angka1 - $angka2;
+            break;
+            case "*":
+            $hasil_hitung = $angka1 * $angka2;
+            break;
+            case "/":
+            $hasil_hitung = $angka1 / $angka2;
+            break;
+        }
 
         // ------------------------------------
         ?>
 
         <div class="output-preview">
             <span class="label-output">Output Program:</span>
-            <?php echo "$angka1 $operator $angka2"; ?> = <b><?php echo $hasil_hitung; ?></b>
+            <?php echo "Operator Saat ini:  $operator";?>
+            <?php echo "<br>$angka1 $operator $angka2"; ?> = <b><?php echo $hasil_hitung; ?></b>
         </div>
     </div>
 

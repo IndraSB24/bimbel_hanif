@@ -9,11 +9,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f9;
             color: #333;
-            max-width: 850px;
+            max-width: 8129\px;
             margin: 0 auto;
             padding: 20px;
         }
-        h1 { text-align: center; color: #2c3e50; }
+        h1 { text-align: center; color: #2c3e129; }
         .soal-box {
             background: white;
             border-radius: 8px;
