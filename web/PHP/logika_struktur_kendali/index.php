@@ -6,36 +6,72 @@
     <title>PHP - Logika & Struktur Kendali</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .code-block {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-        }
-        .output {
-            background-color: #e8f5e8;
-            border: 1px solid #4CAF50;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        h1, h2 {
+            background-color: #f4f4f9;
             color: #333;
+            max-width: 900px;
+            margin: 0 auto;
         }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        
+        /* Box Styles */
         .highlight {
-            background-color: #fff3cd;
-            padding: 10px;
-            border-left: 4px solid #ffc107;
-            margin: 10px 0;
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
         }
+        
+        /* Code Display Styling */
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            overflow-x: auto;
+            white-space: pre; /* Preserves spaces/newlines automatically */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        
+        /* Syntax highlighting simulation for display */
+        .kw { color: #c678dd; } /* Keywords (if, else, switch) */
+        .str { color: #98c379; } /* Strings */
+        .var { color: #e06c75; } /* Variables */
+        .num { color: #d19a66; } /* Numbers */
+        
+        /* Output Styling */
+        .output {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 5px solid #4caf50;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .output-label {
+            font-weight: bold;
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+
         .interactive {
             background-color: #e3f2fd;
             border: 1px solid #2196F3;
@@ -49,30 +85,31 @@
     <h1>Materi Ajar PHP: Logika & Struktur Kendali</h1>
 
     <div class="highlight">
-        <strong>Struktur Kendali</strong> adalah cara untuk mengontrol alur eksekusi program berdasarkan kondisi tertentu. PHP memiliki beberapa struktur kendali: if-else, switch-case, dan ternary operator.
+        <strong>Struktur Kendali</strong> adalah cara untuk mengontrol alur eksekusi program berdasarkan kondisi tertentu. PHP memiliki beberapa struktur kendali: <code>if-else</code>, <code>switch-case</code>, dan <code>ternary operator</code>.
     </div>
 
+    <!-- 1. IF ELSE -->
     <h2>1. If-Else Statement</h2>
     <p>Struktur if-else digunakan untuk mengeksekusi kode berdasarkan kondisi yang benar atau salah.</p>
 
-    <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$nilai = 85;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if ($nilai >= 90) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Grade: A";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;} elseif ($nilai >= 80) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Grade: B";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;} elseif ($nilai >= 70) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Grade: C";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Grade: D";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-?>
-    </div>
+    <!-- Code Display (Safe HTML) -->
+    <div class="code-block">&lt;?php
+    <span class="var">$nilai</span> = <span class="num">85</span>;
 
+    <span class="kw">if</span> (<span class="var">$nilai</span> >= <span class="num">90</span>) {
+        <span class="kw">echo</span> <span class="str">"Grade: A"</span>;
+    } <span class="kw">elseif</span> (<span class="var">$nilai</span> >= <span class="num">80</span>) {
+        <span class="kw">echo</span> <span class="str">"Grade: B"</span>;
+    } <span class="kw">elseif</span> (<span class="var">$nilai</span> >= <span class="num">70</span>) {
+        <span class="kw">echo</span> <span class="str">"Grade: C"</span>;
+    } <span class="kw">else</span> {
+        <span class="kw">echo</span> <span class="str">"Grade: D"</span>;
+    }
+?&gt;</div>
+
+    <!-- Actual PHP Execution -->
     <div class="output">
-        <strong>Output:</strong><br>
+        <span class="output-label">Hasil Eksekusi Server:</span>
         <?php
         $nilai = 85;
 
@@ -88,31 +125,30 @@
         ?>
     </div>
 
+    <!-- 2. SWITCH CASE -->
     <h2>2. Switch-Case Statement</h2>
-    <p>Switch-case digunakan untuk memilih salah satu dari banyak blok kode yang akan dieksekusi.</p>
+    <p>Switch-case digunakan untuk memilih salah satu dari banyak blok kode yang akan dieksekusi berdasarkan nilai variabel.</p>
 
-    <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$hari = "Senin";<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;switch ($hari) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "Senin":<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Hari kerja pertama";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "Sabtu":<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Hari libur";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "Minggu":<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Hari libur";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Hari kerja biasa";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-?>
-    </div>
+    <div class="code-block">&lt;?php
+    <span class="var">$hari</span> = <span class="str">"Senin"</span>;
+
+    <span class="kw">switch</span> (<span class="var">$hari</span>) {
+        <span class="kw">case</span> <span class="str">"Senin"</span>:
+            <span class="kw">echo</span> <span class="str">"Hari kerja pertama"</span>;
+            <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="str">"Sabtu"</span>:
+            <span class="kw">echo</span> <span class="str">"Hari libur"</span>;
+            <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="str">"Minggu"</span>:
+            <span class="kw">echo</span> <span class="str">"Hari libur"</span>;
+            <span class="kw">break</span>;
+        <span class="kw">default</span>:
+            <span class="kw">echo</span> <span class="str">"Hari kerja biasa"</span>;
+    }
+?&gt;</div>
 
     <div class="output">
-        <strong>Output:</strong><br>
+        <span class="output-label">Hasil Eksekusi Server:</span>
         <?php
         $hari = "Senin";
 
@@ -132,19 +168,21 @@
         ?>
     </div>
 
+    <!-- 3. TERNARY -->
     <h2>3. Ternary Operator</h2>
-    <p>Ternary operator adalah cara singkat untuk if-else dalam satu baris.</p>
+    <p>Ternary operator adalah cara singkat (shorthand) untuk if-else dalam satu baris.</p>
 
-    <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$umur = 20;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$status = ($umur >= 18) ? "Dewasa" : "Anak-anak";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;echo "Status: " . $status;<br>
-?>
-    </div>
+    <div class="code-block">&lt;?php
+    <span class="var">$umur</span> = <span class="num">20</span>;
+    
+    <span class="comment">// Format: (Kondisi) ? Benar : Salah;</span>
+    <span class="var">$status</span> = (<span class="var">$umur</span> >= <span class="num">18</span>) ? <span class="str">"Dewasa"</span> : <span class="str">"Anak-anak"</span>;
+    
+    <span class="kw">echo</span> <span class="str">"Status: "</span> . <span class="var">$status</span>;
+?&gt;</div>
 
     <div class="output">
-        <strong>Output:</strong><br>
+        <span class="output-label">Hasil Eksekusi Server:</span>
         <?php
         $umur = 20;
         $status = ($umur >= 18) ? "Dewasa" : "Anak-anak";
@@ -152,78 +190,76 @@
         ?>
     </div>
 
+    <!-- 4. LOGICAL OPERATORS -->
     <h2>4. Logical Operators</h2>
-    <p>Operator logika digunakan untuk menggabungkan kondisi.</p>
+    <p>Operator logika digunakan untuk menggabungkan dua atau lebih kondisi.</p>
 
-    <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$nilai = 85;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$absensi = 90;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;// AND (&&) - kedua kondisi harus true<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if ($nilai >= 80 && $absensi >= 85) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Lulus dengan baik<br>";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;// OR (||) - salah satu kondisi harus true<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if ($nilai >= 90 || $absensi >= 95) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Berhak mendapat penghargaan<br>";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;// NOT (!) - membalikkan kondisi<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$tidak_lulus = !($nilai >= 70);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;echo "Tidak lulus: " . ($tidak_lulus ? "Ya" : "Tidak") . "<br>";<br>
-?>
-    </div>
+    <div class="code-block">&lt;?php
+    <span class="var">$nilai</span> = <span class="num">85</span>;
+    <span class="var">$absensi</span> = <span class="num">90</span>;
+
+    <span class="comment">// AND (&&) - kedua kondisi harus true</span>
+    <span class="kw">if</span> (<span class="var">$nilai</span> >= <span class="num">80</span> && <span class="var">$absensi</span> >= <span class="num">85</span>) {
+        <span class="kw">echo</span> <span class="str">"Lulus dengan baik&lt;br&gt;"</span>;
+    }
+
+    <span class="comment">// OR (||) - salah satu kondisi harus true</span>
+    <span class="kw">if</span> (<span class="var">$nilai</span> >= <span class="num">90</span> || <span class="var">$absensi</span> >= <span class="num">95</span>) {
+        <span class="kw">echo</span> <span class="str">"Berhak mendapat penghargaan&lt;br&gt;"</span>;
+    }
+
+    <span class="comment">// NOT (!) - membalikkan kondisi</span>
+    <span class="var">$tidak_lulus</span> = !(<span class="var">$nilai</span> >= <span class="num">70</span>);
+    <span class="kw">echo</span> <span class="str">"Tidak lulus: "</span> . (<span class="var">$tidak_lulus</span> ? <span class="str">"Ya"</span> : <span class="str">"Tidak"</span>);
+?&gt;</div>
 
     <div class="output">
-        <strong>Output:</strong><br>
+        <span class="output-label">Hasil Eksekusi Server:</span>
         <?php
         $nilai = 85;
         $absensi = 90;
 
-        // AND (&&) - kedua kondisi harus true
+        // AND (&&)
         if ($nilai >= 80 && $absensi >= 85) {
             echo "Lulus dengan baik<br>";
         }
 
-        // OR (||) - salah satu kondisi harus true
+        // OR (||)
         if ($nilai >= 90 || $absensi >= 95) {
             echo "Berhak mendapat penghargaan<br>";
         }
 
-        // NOT (!) - membalikkan kondisi
+        // NOT (!)
         $tidak_lulus = !($nilai >= 70);
         echo "Tidak lulus: " . ($tidak_lulus ? "Ya" : "Tidak") . "<br>";
         ?>
     </div>
 
+    <!-- 5. NESTED IF -->
     <h2>5. Nested If Statements</h2>
-    <p>If bersarang digunakan untuk kondisi yang lebih kompleks.</p>
+    <p>If bersarang (Nested If) adalah struktur IF di dalam IF lainnya untuk kondisi yang bertingkat.</p>
 
-    <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$poin = 2500;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$level = 3;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if ($poin >= 1000) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($level >= 3) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($poin >= 2000) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Master Player!";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Advanced Player";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Intermediate Player";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Beginner Player";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-?>
-    </div>
+    <div class="code-block">&lt;?php
+    <span class="var">$poin</span> = <span class="num">2500</span>;
+    <span class="var">$level</span> = <span class="num">3</span>;
+
+    <span class="kw">if</span> (<span class="var">$poin</span> >= <span class="num">1000</span>) {
+        <span class="kw">if</span> (<span class="var">$level</span> >= <span class="num">3</span>) {
+            <span class="kw">if</span> (<span class="var">$poin</span> >= <span class="num">2000</span>) {
+                <span class="kw">echo</span> <span class="str">"Master Player!"</span>;
+            } <span class="kw">else</span> {
+                <span class="kw">echo</span> <span class="str">"Advanced Player"</span>;
+            }
+        } <span class="kw">else</span> {
+            <span class="kw">echo</span> <span class="str">"Intermediate Player"</span>;
+        }
+    } <span class="kw">else</span> {
+        <span class="kw">echo</span> <span class="str">"Beginner Player"</span>;
+    }
+?&gt;</div>
 
     <div class="output">
-        <strong>Output:</strong><br>
+        <span class="output-label">Hasil Eksekusi Server:</span>
         <?php
         $poin = 2500;
         $level = 3;
@@ -245,12 +281,13 @@
     </div>
 
     <div class="highlight">
-        <strong>Tips Penggunaan Struktur Kendali:</strong><br>
-        - Gunakan if-else untuk kondisi sederhana<br>
-        - Switch-case lebih efisien untuk banyak pilihan dengan nilai yang sama<br>
-        - Ternary operator untuk kondisi sederhana dalam satu baris<br>
-        - Jangan lupa break; di switch-case untuk menghindari fall-through<br>
-        - Gunakan operator logika untuk menggabungkan kondisi
+        <strong>Tips Penting:</strong>
+        <ul style="margin-top: 10px; margin-bottom: 0;">
+            <li>Gunakan <code>if-else</code> untuk kondisi sederhana atau pengecekan range nilai.</li>
+            <li>Gunakan <code>switch-case</code> jika membandingkan satu variabel dengan banyak nilai spesifik (exact match).</li>
+            <li>Jangan lupa <code>break;</code> pada switch case, atau kode akan terus berjalan ke case di bawahnya (fall-through).</li>
+            <li>Pastikan tanda kurung <code>{ }</code> seimbang saat menggunakan Nested If agar tidak error.</li>
+        </ul>
     </div>
 </body>
 </html>
