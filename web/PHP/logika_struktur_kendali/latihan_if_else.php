@@ -69,16 +69,20 @@
         </div>
 
         <?php
-        $angka = 14; // Silakan ganti angka ini untuk mengetes
-        $hasil_soal1 = "[Belum ada jawaban]"; // Variabel untuk menampung hasil
+        $angka = 16; // Silakan ganti angka ini untuk mengetes
+        $hasil_soal1;// Variabel untuk menampung hasil
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
         
         // TODO: Tulis if-else disini
         // Jika genap, isi $hasil_soal1 = "Bilangan Genap";
         // Jika ganjil, isi $hasil_soal1 = "Bilangan Ganjil";
-
-        
+        if ($angka % 2== 0) {
+        $hasil_soal1 = "Bilangan Genap";
+        }
+        elseif ($angka % 2== 1) {
+            $hasil_soal1 = "Bilangan Ganjil";
+        }
         // ------------------------------------
         ?>
 
@@ -98,13 +102,18 @@
         </div>
 
         <?php
-        $nilai_ujian = 70; 
-        $status_kelulusan = "[Belum ada jawaban]";
+        $nilai_ujian = 45; 
+        $status_kelulusan;
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Tulis logika if-else disini
-        
+        if ($nilai_ujian >=75) {
+            $status_kelulusan = "LULUS";
+        }
+        else {
+            $status_kelulusan = "Remedial";
+        }
 
         // ------------------------------------
         ?>
@@ -126,20 +135,16 @@
         </div>
 
         <?php
-        $total_belanja = 120000;
-        $diskon = 0;
-        $total_bayar = 0;
-
-        // --- TULIS KODE ANDA DI BAWAH INI ---
-
-        // TODO 1: Tulis if-else untuk menentukan nilai $diskon
-        
-
-        // TODO 2: Hitung $total_bayar = $total_belanja - $diskon
-        
-
-        // ------------------------------------
-        ?>
+    $total_belanja = 100001;
+    $diskon = 0;
+    $total_bayar = 0;
+    if ($total_belanja > 100000) {
+    $diskon = 10000;
+    } else {
+    $diskon = 0;
+}
+$total_bayar = $total_belanja - $diskon;
+?>
 
         <div class="output-preview">
             <span class="label-output">Output Program:</span>
@@ -161,14 +166,19 @@
         </div>
 
         <?php
-        $input_password = "rahasia"; // Coba ganti jadi "admin123"
+        $input_password = "admin1234"; // Coba ganti jadi "admin123"
         $pesan_login = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Gunakan operator perbandingan (==) untuk string
-        
-
+        if($input_password == "admin123"){
+            $pesan_login = "Selamat Datang, Admin!";
+            
+        }
+        else{
+            $pesan_login = "Password Salah, Akses Ditolak!";
+        }
         // ------------------------------------
         ?>
 
@@ -190,13 +200,18 @@
         </div>
 
         <?php
-        $umur_sekarang = 16;
+        $umur_sekarang = 18;
         $hasil_ktp = "";
 
         // --- TULIS KODE ANDA DI BAWAH INI ---
 
         // TODO: Tulis logika disini
-        
+        if($umur_sekarang >= 17) {
+            $hasil_ktp = "Boleh buat KTP";
+        }
+        else {
+            $hasil_ktp = "Belum cukup umur";
+        }
 
         // ------------------------------------
         ?>
