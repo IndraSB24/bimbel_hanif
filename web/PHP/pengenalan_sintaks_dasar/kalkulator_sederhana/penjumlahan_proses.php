@@ -1,6 +1,5 @@
 <?php 
-
-  // Kita langsung menggunakan (float) untuk memastikan data diubah menjadi angka
+// Kita langsung menggunakan (float) untuk memastikan data diubah menjadi angka
     $angka1 = (float)$_POST['angka1']; 
     $angka2 = (float)$_POST['angka2'];
     

@@ -1,18 +1,18 @@
-<?php
-// prosesForm1.php - File untuk menangani pengiriman form latihanformhanif.html
+    <?php
+    // prosesForm1.php - File untuk menangani pengiriman form latihanformhanif.html
 
-// Pastikan request adalah POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil dan sanitasi data dari form
-    $nama = isset($_POST['Nama']) ? htmlspecialchars($_POST['Nama']) : '';
-    $password = isset($_POST['Password']) ? htmlspecialchars($_POST['Password']) : '';
-    $email = isset($_POST['Email']) ? htmlspecialchars($_POST['Email']) : '';
-    $gender = isset($_POST['gender']) ? htmlspecialchars($_POST['gender']) : '';
-    $kontak = isset($_POST['kontak']) ? htmlspecialchars($_POST['kontak']) : '';
-    $degree = isset($_POST['degree']) ? htmlspecialchars($_POST['degree']) : '';
-    $engineer = isset($_POST['engineer']) ? htmlspecialchars($_POST['engineer']) : '';
-    $hobi = isset($_POST['hobi']) ? $_POST['hobi'] : []; // Array untuk checkboxes
-    $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
+    // Pastikan request adalah POST
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Ambil dan sanitasi data dari form
+        $nama = isset($_POST['Nama']) ? htmlspecialchars($_POST['Nama']) : '';
+        $password = isset($_POST['Password']) ? htmlspecialchars($_POST['Password']) : '';
+        $email = isset($_POST['Email']) ? htmlspecialchars($_POST['Email']) : '';
+        $gender = isset($_POST['gender']) ? htmlspecialchars($_POST['gender']) : '';
+        $kontak = isset($_POST['kontak']) ? htmlspecialchars($_POST['kontak']) : '';
+        $degree = isset($_POST['degree']) ? htmlspecialchars($_POST['degree']) : '';
+        $engineer = isset($_POST['engineer']) ? htmlspecialchars($_POST['engineer']) : '';
+        $hobi = isset($_POST['hobi']) ? $_POST['hobi'] : []; // Array untuk checkboxes
+        $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
 
     // Handle file upload
     $file_path = '';
