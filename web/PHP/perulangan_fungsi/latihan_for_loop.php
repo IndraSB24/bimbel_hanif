@@ -26,7 +26,7 @@
         $hasil1 = "";
         // TODO: Buat for loop $i=1 sampai 5
         for ($i = 1; $i <= 5; $i++) {
-            $hasil1 .= $i . " ";
+            $hasil1 .= $i . "<br>";
         }
         ?>
         <div class="output-preview"><span class="label-output">Output:</span><?php echo $hasil1; ?></div>
@@ -40,7 +40,7 @@
         $hasil2 = "";
         // TODO: Gunakan $i--
         for ($i = 10; $i >= 1; $i--) {
-            $hasil2 .= $i . " ";
+            $hasil2 .= $i . "<br>";
         }
         ?>
         <div class="output-preview"><span class="label-output">Output:</span><?php echo $hasil2; ?></div>
@@ -53,8 +53,8 @@
         <?php
         $total3 = 0;
         // TODO: Tambahkan $i ke $total3 setiap perulangan
-        for ($i = 1; $i <= 10; $i++) {
-            $total3 += $i;
+        for ($i = 1; $i <=10; $i++){
+            $total3 = $total3 + $i;
         }
         ?>
         <div class="output-preview"><span class="label-output">Output:</span>Total: <?php echo $total3; ?></div>
@@ -68,7 +68,7 @@
         $hasil4 = "";
         // TODO: Loop 3 kali
         for ($i = 1; $i <= 3; $i++) {
-            $hasil4 .= "Saya tidak akan terlambat<br>";
+            $hasil4 .= "Saya tidak akan terlambat" . "<br>";
         }
         ?>
         <div class="output-preview"><span class="label-output">Output:</span><?php echo $hasil4; ?></div>
@@ -82,7 +82,7 @@
         $options = "";
         // TODO: Loop 1-31, masukkan ke string <option value='$i'>$i</option>
         for ($i = 1; $i <= 31; $i++) {
-            $options .= "<option value='$i'>$i</option>";
+            $options .= $i ."<option value='$i'>$i</option>";
         }
         ?>
         <div class="output-preview">
