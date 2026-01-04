@@ -27,8 +27,8 @@
         $hobi = ["Membaca", "Koding", "Bersepeda"];
         $list1 = "";
         // TODO: Foreach as $item
-        foreach($hobi as $item) {
-            $list1 .= "<li>$item</li>";
+        foreach ($hobi as $hobi2){
+            $list1 .= $hobi2."<br>";
         }
         ?>
         <div class="output-preview">
@@ -44,9 +44,9 @@
         <?php
         $nilai = [80, 90, 75, 100];
         $total = 0;
-        // TODO: Foreach tambahkan ke $total
-        foreach($nilai as $n) {
-            $total += $n;
+        // TODO: Foreach tambahkan ke $total\
+        foreach ($nilai as $nilai2){
+            $total += $nilai2;
         }
         ?>
         <div class="output-preview"><span class="label-output">Output:</span>Total Nilai: <?php echo $total; ?></div>
