@@ -3,253 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP - Integrasi Form HTML</title>
+    <title>PHP - Handling Form & Input</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
+            background-color: #f4f4f9;
+            color: #333;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #009688;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #00796b;
+            margin-top: 40px;
+            border-left: 5px solid #009688;
+            padding-left: 10px;
+            background: #e0f2f1;
+            padding: 10px;
+            border-radius: 0 4px 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h3 {
+            color: #444;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+        
+        /* Highlight Box (Summary) */
+        .highlight {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-left: 5px solid #ff9800;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #5d4037;
+        }
+
+        /* Menu Navigation */
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .btn-latihan {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #34495e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn-latihan:hover {
+            background-color: #2c3e50;
+        }
+        .btn-context {
+            font-size: 0.7em;
+            background-color: #009688;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .btn-context:hover { background-color: #00796b; }
+
+        /* Comparison Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #009688;
+            color: white;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Code Blocks */
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+        }
+        
+        /* Syntax Colors */
+        .tag { color: #e06c75; }
+        .attr { color: #d19a66; }
+        .str { color: #98c379; }
+        .kw { color: #c678dd; } /* keyword: if, echo */
+        .var { color: #e06c75; } /* php var */
+        .func { color: #61afef; } /* function */
+        .comment { color: #5c6370; font-style: italic; }
+
+        .concept-card {
+            background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
-        h1, h2 {
-            color: #333;
+
+        .alert-security {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border: 1px solid #ffcdd2;
+            border-radius: 4px;
+            font-weight: 500;
         }
-        form {
-            margin: 20px 0;
+
+        /* Visual Example Styles */
+        .visual-example {
+            background-color: #fff;
+            border: 2px dashed #b2dfdb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 10px;
+            position: relative;
         }
-        label {
+        .visual-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #009688;
+            color: white;
+            padding: 2px 10px;
+            font-size: 0.8em;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #555;
         }
-        input, textarea, select {
+        .form-control {
             width: 100%;
             padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box; /* Agar padding tidak merusak lebar */
         }
-        button {
-            background-color: #4CAF50;
+        .btn-submit {
+            background-color: #00796b;
             color: white;
-            padding: 10px 15px;
             border: none;
+            padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            background-color: #e8f5e8;
-            border: 1px solid #4CAF50;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .error {
-            background-color: #ffebee;
-            border: 1px solid #f44336;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .code-block {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 15px;
+        .btn-submit:hover { background-color: #004d40; }
+        
+        /* Arrow Illustration */
+        .arrow-down {
+            text-align: center;
+            font-size: 24px;
+            color: #aaa;
             margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
+        }
+
+        /* Popup Simulation */
+        .popup-sim {
+            border: 1px solid #999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: #fff;
+            width: 200px;
+            margin: 10px auto;
+            border-radius: 5px;
+            font-family: sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .popup-header {
+            background: #eee;
+            padding: 5px;
+            font-size: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+        .popup-body {
+            padding: 15px;
+            color: black;
+            font-size: 14px;
+        }
+        .popup-btn {
+            margin-bottom: 10px;
+            padding: 2px 10px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Materi Ajar PHP: Integrasi Form HTML</h1>
 
-        <div style="background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0;">
-            <strong>Integrasi Form HTML dengan PHP</strong><br>
-            PHP dapat memproses data yang dikirim dari form HTML melalui method GET atau POST. Data form akan tersedia dalam variabel superglobal $_GET atau $_POST.
-        </div>
+    <h1>Materi Ajar: Integrasi Form & PHP</h1>
 
-        <h2>Form Registrasi Sederhana</h2>
+    <!-- Navigasi Menu Atas -->
+    <div class="nav-menu">
+        <strong>Akses Cepat Latihan:</strong>
+        <a href="integrasi_form_html/latihan_form.php" class="btn-latihan">1. Struktur Form</a>
+        <a href="integrasi_form_html/latihan_get_post.php" class="btn-latihan">2. GET vs POST</a>
+        <a href="integrasi_form_html/latihan_handling_data.php" class="btn-latihan">3. Handling Data</a>
+        <a href="integrasi_form_html/latihan_keamanan_form.php" class="btn-latihan">4. Keamanan</a>
+    </div>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label for="nama">Nama Lengkap:</label>
-            <input type="text" id="nama" name="nama" required>
+    <div class="highlight">
+        <strong>Tujuan Pembelajaran:</strong>
+        <ul style="margin-bottom:0;">
+            <li>Memahami perbedaan metode pengiriman data <b>GET</b> dan <b>POST</b>.</li>
+            <li>Menggunakan Superglobals <code>$_POST</code> dan <code>$_GET</code> untuk menangkap input.</li>
+            <li>Melakukan validasi dasar (cek tombol submit).</li>
+        </ul>
+    </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="umur">Umur:</label>
-            <input type="number" id="umur" name="umur" min="1" max="120">
-
-            <label for="jenis_kelamin">Jenis Kelamin:</label>
-            <select id="jenis_kelamin" name="jenis_kelamin">
-                <option value="">Pilih jenis kelamin</option>
-                <option value="pria">Pria</option>
-                <option value="wanita">Wanita</option>
-            </select>
-
-            <label for="hobi">Hobi (pisahkan dengan koma):</label>
-            <input type="text" id="hobi" name="hobi" placeholder="Contoh: membaca, olahraga, musik">
-
-            <label for="pesan">Pesan:</label>
-            <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan Anda..."></textarea>
-
-            <button type="submit" name="submit">Kirim Data</button>
-        </form>
-
-        <?php
-        // Proses form ketika dikirim
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-            // Ambil data dari form
-            $nama = htmlspecialchars($_POST["nama"]);
-            $email = htmlspecialchars($_POST["email"]);
-            $umur = (int)$_POST["umur"];
-            $jenis_kelamin = htmlspecialchars($_POST["jenis_kelamin"]);
-            $hobi = htmlspecialchars($_POST["hobi"]);
-            $pesan = htmlspecialchars($_POST["pesan"]);
-
-            // Validasi sederhana
-            $errors = [];
-
-            if (empty($nama)) {
-                $errors[] = "Nama tidak boleh kosong";
-            }
-
-            if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "Email tidak valid";
-            }
-
-            if ($umur < 1 || $umur > 120) {
-                $errors[] = "Umur tidak valid";
-            }
-
-            if (empty($jenis_kelamin)) {
-                $errors[] = "Jenis kelamin harus dipilih";
-            }
-
-            // Jika ada error, tampilkan
-            if (!empty($errors)) {
-                echo '<div class="error">';
-                echo '<h3>Error:</h3>';
-                echo '<ul>';
-                foreach ($errors as $error) {
-                    echo '<li>' . $error . '</li>';
-                }
-                echo '</ul>';
-                echo '</div>';
-            } else {
-                // Jika tidak ada error, tampilkan hasil
-                echo '<div class="result">';
-                echo '<h3>Data yang Diterima:</h3>';
-                echo '<p><strong>Nama:</strong> ' . $nama . '</p>';
-                echo '<p><strong>Email:</strong> ' . $email . '</p>';
-                echo '<p><strong>Umur:</strong> ' . $umur . ' tahun</p>';
-                echo '<p><strong>Jenis Kelamin:</strong> ' . ucfirst($jenis_kelamin) . '</p>';
-
-                if (!empty($hobi)) {
-                    echo '<p><strong>Hobi:</strong> ' . $hobi . '</p>';
-                }
-
-                if (!empty($pesan)) {
-                    echo '<p><strong>Pesan:</strong> ' . nl2br($pesan) . '</p>';
-                }
-
-                echo '<p><em>Data berhasil diproses pada: ' . date('d-m-Y H:i:s') . '</em></p>';
-                echo '</div>';
-            }
-        }
-        ?>
-
-        <h2>Penjelasan Kode PHP</h2>
+    <!-- 1. HTML FORM STRUCTURE -->
+    <h2>
+        1. Struktur Dasar Form HTML
+        <a href="integrasi_form_html/latihan_form.php" class="btn-context">Buka Latihan Praktik ➜</a>
+    </h2>
+    <div class="concept-card">
+        <p>Agar PHP bisa membaca data, elemen HTML Form wajib memiliki 3 hal:</p>
+        <ol>
+            <li>Tag <code>&lt;form&gt;</code>.</li>
+            <li>Atribut <strong><code>name="..."</code></strong> pada input (KTP-nya data).</li>
+            <li>Tombol <strong>Submit</strong>.</li>
+        </ol>
 
         <div class="code-block">
-<?php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Cek apakah form dikirim dengan method POST<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Ambil data dari form<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nama = htmlspecialchars($_POST["nama"]);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$email = htmlspecialchars($_POST["email"]);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ... data lainnya<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Validasi data<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (empty($nama)) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$errors[] = "Nama tidak boleh kosong";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Proses data jika valid<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (empty($errors)) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Data berhasil diproses!";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Tampilkan error<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-?>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">"proses.php"</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;label&gt;</span>Nama:<span class="tag">&lt;/label&gt;</span>
+    <span class="comment">&lt;!-- 'name' adalah kunci untuk PHP --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">name</span>=<span class="str">"nama_lengkap"</span><span class="tag">&gt;</span>
+    
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span> <span class="attr">name</span>=<span class="str">"kirim"</span><span class="tag">&gt;</span>Kirim Data<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
         </div>
 
-        <h2>Konsep Penting</h2>
-        <ul>
-            <li><strong>$_POST:</strong> Array superglobal untuk data form yang dikirim dengan method POST</li>
-            <li><strong>$_GET:</strong> Array superglobal untuk data form yang dikirim dengan method GET (data muncul di URL)</li>
-            <li><strong>htmlspecialchars():</strong> Fungsi untuk mencegah XSS (Cross-Site Scripting)</li>
-            <li><strong>filter_var():</strong> Fungsi untuk validasi data (email, URL, dll)</li>
-            <li><strong>isset():</strong> Mengecek apakah variabel sudah di-set</li>
-            <li><strong>empty():</strong> Mengecek apakah variabel kosong</li>
-        </ul>
-
-        <h2>Perbedaan GET vs POST</h2>
-        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-            <tr style="background-color: #f5f5f5;">
-                <th style="padding: 10px; text-align: left;">Aspek</th>
-                <th style="padding: 10px; text-align: left;">GET</th>
-                <th style="padding: 10px; text-align: left;">POST</th>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Visibilitas Data</td>
-                <td style="padding: 10px;">Muncul di URL</td>
-                <td style="padding: 10px;">Tersembunyi</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Keamanan</td>
-                <td style="padding: 10px;">Kurang aman</td>
-                <td style="padding: 10px;">Lebih aman</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Batas Data</td>
-                <td style="padding: 10px;">Terbatas (2048 karakter)</td>
-                <td style="padding: 10px;">Tidak terbatas</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Cache</td>
-                <td style="padding: 10px;">Bisa di-cache</td>
-                <td style="padding: 10px;">Tidak di-cache</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Penggunaan</td>
-                <td style="padding: 10px;">Pencarian, pagination</td>
-                <td style="padding: 10px;">Login, upload file</td>
-            </tr>
-        </table>
-
-        <div style="background-color: #e3f2fd; padding: 15px; border-left: 4px solid #2196F3; margin: 20px 0;">
-            <strong>Tips Keamanan:</strong><br>
-            - Selalu validasi dan sanitasi data input<br>
-            - Gunakan htmlspecialchars() untuk output<br>
-            - Gunakan prepared statements untuk database<br>
-            - Jangan percaya data dari user sepenuhnya
+        <!-- VISUALISASI 1 -->
+        <div class="visual-example">
+            <span class="visual-label">Hasil Tampilan di Browser</span>
+            <div class="form-group">
+                <label>Nama:</label>
+                <input type="text" class="form-control" placeholder="Ketik nama di sini...">
+                <small style="color: #e67e22;">(Input ini punya name="nama_lengkap")</small>
+            </div>
+            <button class="btn-submit">Kirim Data</button>
         </div>
     </div>
+
+    <!-- 2. GET VS POST -->
+    <h2>
+        2. Metode Pengiriman: GET vs POST
+        <a href="integrasi_form_html/latihan_get_post.php" class="btn-context">Buka Latihan Praktik ➜</a>
+    </h2>
+    <p>Lihat perbedaan visual penggunaannya di bawah ini:</p>
+
+    <!-- Visual Comparison Side by Side -->
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- KIRI: GET -->
+        <div class="concept-card" style="flex: 1; min-width: 300px;">
+            <h3>A. Metode GET (Transparan)</h3>
+            <p>Cocok untuk <b>Pencarian / Filter</b>.</p>
+            
+            <div class="visual-example" style="border-color: #3498db;">
+                <span class="visual-label" style="background:#3498db">Contoh: Search Bar</span>
+                <div class="form-group">
+                    <label>Cari Produk:</label>
+                    <input type="text" class="form-control" value="Sepatu">
+                </div>
+                <button class="btn-submit" style="background:#3498db">Cari</button>
+            </div>
+
+            <div class="arrow-down">⬇</div>
+
+            <div style="background: #ecf0f1; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em;">
+                <strong>URL Berubah Jadi:</strong><br>
+                website.com/cari.php?<span style="color:red">keyword=Sepatu</span>
+            </div>
+            <p><small>❌ Jangan pakai untuk password!</small></p>
+        </div>
+
+        <!-- KANAN: POST -->
+        <div class="concept-card" style="flex: 1; min-width: 300px;">
+            <h3>B. Metode POST (Rahasia)</h3>
+            <p>Cocok untuk <b>Login / Input Data</b>.</p>
+            
+            <div class="visual-example" style="border-color: #e74c3c;">
+                <span class="visual-label" style="background:#e74c3c">Contoh: Form Login</span>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" value="rahasia123">
+                </div>
+                <button class="btn-submit" style="background:#e74c3c">Login</button>
+            </div>
+
+            <div class="arrow-down">⬇</div>
+
+            <div style="background: #ecf0f1; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em;">
+                <strong>URL Tetap Bersih:</strong><br>
+                website.com/login.php
+            </div>
+            <p><small>✅ Data dikirim di belakang layar.</small></p>
+        </div>
+    </div>
+
+    <!-- 3. MENANGKAP DATA DI PHP -->
+    <h2>
+        3. Menangkap Data di PHP
+        <a href="integrasi_form_html/latihan_handling_data.php" class="btn-context">Buka Latihan Praktik ➜</a>
+    </h2>
+    <div class="concept-card">
+        <p>Bayangkan user mengisi form sebagai berikut:</p>
+        
+        <!-- Simulasi User Input -->
+        <div class="visual-example">
+            <span class="visual-label">User Input</span>
+            <label>Nama Lengkap:</label>
+            <input type="text" class="form-control" value="Budi Santoso" readonly style="background: #f9f9f9;">
+        </div>
+
+        <div class="arrow-down">⬇ Dikirim ke Server (PHP) ⬇</div>
+
+        <!-- Kode PHP -->
+        <div class="code-block">
+<span class="tag">&lt;?php</span>
+<span class="comment">// 1. Cek tombol diklik</span>
+<span class="kw">if</span> (<span class="func">isset</span>(<span class="var">$_POST</span>[<span class="str">'kirim'</span>])) {
+
+    <span class="comment">// 2. Ambil data dari 'name'</span>
+    <span class="var">$nama</span> = <span class="var">$_POST</span>[<span class="str">'nama_lengkap'</span>]; 
+    
+    <span class="comment">// 3. Tampilkan</span>
+    <span class="kw">echo</span> <span class="str">"Halo, "</span> . <span class="var">$nama</span>;
+}
+<span class="tag">?&gt;</span>
+        </div>
+
+        <div class="visual-example" style="background: #2d2d2d; color: #fff; border: none;">
+            <span class="visual-label" style="background: #555;">Hasil Output PHP</span>
+            Halo, Budi Santoso
+        </div>
+    </div>
+
+    <!-- 4. KEAMANAN DASAR -->
+    <h2>
+        4. Keamanan Dasar (Sanitasi)
+        <a href="integrasi_form_html/latihan_keamanan_form.php" class="btn-context">Buka Latihan Praktik ➜</a>
+    </h2>
+    <div class="concept-card">
+        <div class="alert-security">
+            ⚠️ <strong>BAHAYA XSS (Cross Site Scripting):</strong><br>
+            Jangan pernah percaya input user! Jika user iseng memasukkan kode javascript, website Anda bisa di-hack.
+        </div>
+
+        <p>Contoh Kasus: Hacker memasukkan input <code>&lt;script&gt;alert('Hacked!');&lt;/script&gt;</code> ke kolom komentar.</p>
+
+        <!-- Visual Comparison Side by Side -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            
+            <!-- KASUS BURUK -->
+            <div style="flex: 1; min-width: 300px; border: 2px solid #e74c3c; border-radius: 8px; overflow: hidden;">
+                <div style="background: #e74c3c; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.9em;">
+                    ❌ TANPA Sanitasi (Bahaya!)
+                </div>
+                <div style="padding: 15px; background: #fdf2f2; height: 100%;">
+                    <p style="font-size: 0.9em; margin-bottom: 10px;">Browser akan menjalankan kode tersebut:</p>
+                    
+                    <!-- Simulasi Popup Browser -->
+                    <div class="popup-sim">
+                        <div class="popup-header">localhost says</div>
+                        <div class="popup-body">
+                            Hacked!
+                        </div>
+                        <button class="popup-btn">OK</button>
+                    </div>
+                    <p style="color: #c0392b; font-size: 0.85em; text-align: center;">(Website terganggu / data dicuri)</p>
+                </div>
+            </div>
+
+            <!-- KASUS BAIK -->
+            <div style="flex: 1; min-width: 300px; border: 2px solid #27ae60; border-radius: 8px; overflow: hidden;">
+                <div style="background: #27ae60; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.9em;">
+                    ✅ DENGAN htmlspecialchars() (Aman)
+                </div>
+                <div style="padding: 15px; background: #f0fdf4; height: 100%;">
+                    <p style="font-size: 0.9em; margin-bottom: 10px;">Kode diubah menjadi teks biasa:</p>
+                    
+                    <div style="background: white; border: 1px solid #ccc; padding: 10px; font-family: monospace; color: #333; border-radius: 4px;">
+                        &lt;script&gt;alert('Hacked!');&lt;/script&gt;
+                    </div>
+                    <p style="color: #27ae60; font-size: 0.85em; text-align: center; margin-top: 10px;">(Hanya tampil tulisan, script tidak jalan)</p>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <p><strong>Solusi:</strong> Bungkus variabel dengan fungsi pengaman.</p>
+
+        <div class="code-block">
+<span class="tag">&lt;?php</span>
+<span class="comment">// Amankan input sebelum ditampilkan</span>
+<span class="var">$komentar</span> = <span class="func">htmlspecialchars</span>(<span class="var">$_POST</span>[<span class="str">'komentar'</span>]);
+<span class="kw">echo</span> <span class="var">$komentar</span>;
+<span class="tag">?&gt;</span>
+        </div>
+    </div>
+
 </body>
 </html>
