@@ -19,7 +19,7 @@
     <h1>Latihan 1: For Loop</h1>
 
     <!-- SOAL 1 -->
-    <div class="soal-box">
+    <div class="soal-box">  
         <span class="soal-title">Soal 1: Mencetak Angka Berurutan</span>
         <div class="instruction">Buat loop untuk mencetak angka <b>1 sampai 5</b> dipisahkan dengan spasi.</div>
         <?php
