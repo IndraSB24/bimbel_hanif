@@ -27,14 +27,14 @@
         
         <form action="" method="POST">
             <input type="text" name="nama_tamu" placeholder="Nama Anda">
-            <button type="submit" name="tombol_sapa">Sapa Saya</button>
+            <button type="submit" name="sapaan">Sapa Saya</button>
         </form>
 
         <?php
         // TODO: Bungkus echo di dalam if(isset(...))
-        if (isset($_POST['tombol_sapa'])) {
+        if(isset($_POST['sapaan'])){
             $nama = $_POST['nama_tamu'];
-            echo "<div class='output-preview'>Halo, $nama! Selamat datang.</div>";
+            echo "Halo $nama";
         }
         ?>
     </div>
@@ -55,10 +55,8 @@
         <?php
         if(isset($_POST['hitung'])) {
             // TODO: Ambil variabel dan jumlahkan
-            $a = $_POST['angka1'];
-            $b = $_POST['angka2'];
-            $hasil = $a + $b;
-            echo "<div class='output-preview'>Hasil: $a + $b = <b>$hasil</b></div>";
+            $hasil = $_POST['angka1'] + $_POST['angka2'];
+            echo "Hasil dari ". $_POST['angka1']. "+". $_POST['angka2'] . " = $hasil" ;
         }
         ?>
     </div>
@@ -71,11 +69,12 @@
         </div>
         
         <form action="" method="POST">
-            <select name="menu_makanan">
-                <option value="Nasi Goreng">Nasi Goreng</option>
-                <option value="Mie Ayam">Mie Ayam</option>
-                <option value="Bakso">Bakso</option>
-            </select>
+        <select name="menu_makanan">
+            <option value="Ayam">Ayam</option>
+            <option value="Ikan">Ikan</option>
+            <option value="Sapi">Sapi</option>
+            <option value="Kepiting">Kepiting</option>
+        </select>
             <button type="submit" name="pesan_makan">Pesan</button>
         </form>
 
@@ -102,12 +101,12 @@
 
         <?php
         if(isset($_POST['cek_umur'])) {
-            $u = $_POST['umur_input'];
-            // TODO: Buat logika if/else
-            if ($u >= 17) {
-                echo "<div class='output-preview'>Status: <b>Silakan Masuk</b></div>";
-            } else {
-                echo "<div class='output-preview'>Status: <b>Belum Cukup Umur</b></div>";
+            $umur = $_POST['umur_input'];
+            if ($umur >= 17){
+                echo "Silahkan masuk! anda berusia 17 tahun keatas. umur kamu sekarang $umur";
+            }
+            else {
+                echo "Dilarang masuk,Kamu belum cukup umur. umur kamu sekarang $umur";
             }
         }
         ?>

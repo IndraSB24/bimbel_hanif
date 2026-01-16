@@ -29,7 +29,7 @@
         
         <!-- TODO: Tambahkan method="POST" pada tag form -->
         <form action="" method="POST">
-            <input type="text" name="data1" placeholder="Coba ketik sesuatu...">
+            <input name="data1" placeholder="Ketik">
             <button type="submit">Kirim</button>
         </form>
 
@@ -46,8 +46,8 @@
         
         <form action="" method="POST">
             <!-- TODO: Tambahkan atribut name="kota_asal" -->
-            <input type="text" name="kota_asal" placeholder="Kota Asal">
-            <button type="submit">Simpan</button>
+            <input type="text" name="kota_asal" placeholder="Isi kota asalmu">
+            <button type="submit" value="Kirim Form">Simpan</button>
         </form>
 
         <?php 
@@ -71,7 +71,7 @@
             <input type="text" name="hobi" placeholder="Hobi kamu" value="Membaca">
             <br><br>
             <!-- TODO: Buat tombol submit disini -->
-            <button type="submit" name="kirim_btn">Kirim</button>
+           <button type="submit" name="kirim_btn" >Kirim</button>
         </form>
 
         <?php if(isset($_POST['kirim_btn'])) echo "<div class='output-preview'>Tombol berfungsi! Hobi: " . htmlspecialchars($_POST['hobi']) . "</div>"; ?>
@@ -86,8 +86,8 @@
         
         <form action="" method="POST">
             <!-- TODO: Tambahkan Label -->
-            <label>Email:</label>
-            <input type="text" name="email_user" placeholder="contoh@mail.com">
+            <label for="email">Email:</label>
+            <input type="email" name="email_user" placeholder="contoh@mail.com" id="email">
             <button type="submit" name="cek_email">Cek</button>
         </form>
     </div>

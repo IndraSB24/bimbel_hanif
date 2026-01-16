@@ -234,10 +234,10 @@
     <!-- Navigasi Menu Atas -->
     <div class="nav-menu">
         <strong>Akses Cepat Latihan:</strong>
-        <a href="integrasi_form_html/latihan_form.php" class="btn-latihan">1. Struktur Form</a>
-        <a href="integrasi_form_html/latihan_get_post.php" class="btn-latihan">2. GET vs POST</a>
-        <a href="integrasi_form_html/latihan_handling_data.php" class="btn-latihan">3. Handling Data</a>
-        <a href="integrasi_form_html/latihan_keamanan_form.php" class="btn-latihan">4. Keamanan</a>
+        <a href="latihan_form.php" class="btn-latihan">1. Struktur Form</a>
+        <a href="latihan_get_post.php" class="btn-latihan">2. GET vs POST</a>
+        <a href="latihan_handling_data.php" class="btn-latihan">3. Handling Data</a>
+        <a href="latihan_keamanan_form.php" class="btn-latihan">4. Keamanan</a>
     </div>
 
     <div class="highlight">

@@ -78,9 +78,10 @@
             
             // TODO: Cek if(empty($input))
             if(empty($input)) {
-                echo "<div class='output-preview' style='color:#e74c3c'>Error: Form tidak boleh kosong!</div>";
-            } else {
-                echo "<div class='output-preview' style='color:#2ecc71'>Terima kasih, data diterima.</div>";
+                echo "Form kosong,Harus Diisi!";
+            }
+            else{
+                echo "Input kamu adalah: $input";
             }
         }
         ?>
