@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tantangan Akhir: SQL Dasar</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #2c3e50; color: #ecf0f1; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; }
+        .challenge-box { background: #34495e; border-radius: 8px; padding: 25px; margin-bottom: 30px; border-left: 5px solid #e74c3c; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .scenario { background-color: #2c3e50; padding: 15px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #455a64; color: #bdc3c7; }
+        .output-preview { background-color: #1a252f; color: #2ecc71; padding: 15px; border-radius: 6px; font-family: monospace; margin-top: 10px; border: 1px dashed #27ae60; }
+        h3 { color: #e74c3c; margin-top: 0; }
+        .hint { color: #f1c40f; font-size: 0.9em; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 Misi: Database Toko Online</h1>
+    <p style="text-align:center; color:#95a5a6;">Anda ditunjuk sebagai Database Architect untuk startup E-Commerce baru.</p>
+
+    <!-- TAHAP 1 -->
+    <div class="challenge-box">
+        <h3>Tahap 1: Tabel Pesanan</h3>
+        <div class="scenario">
+            Buatlah tabel <code>pesanan</code> dengan spesifikasi awal:
+            <ul style="margin:5px 0 0 20px">
+                <li><code>id</code> (INT, PK, Auto Increment)</li>
+                <li><code>nama_pembeli</code> (VARCHAR 100)</li>
+                <li><code>total_bayar</code> (INT)</li>
+                <li><code>status</code> (ENUM: 'Pending', 'Lunas')</li>
+            </ul>
+        </div>
+        
+        <span class="hint">Tulis Query CREATE TABLE di bawah:</span>
+        <?php
+        $jawaban_1 = "CREATE TABLE pesanan (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama_pembeli VARCHAR(100),
+    total_bayar INT,
+    status ENUM('Pending', 'Lunas')
+);";
+        ?>
+        <div class="output-preview"><?php echo htmlspecialchars($jawaban_1); ?></div>
+    </div>
+
+    <!-- TAHAP 2 -->
+    <div class="challenge-box">
+        <h3>Tahap 2: Revisi Mendadak (ALTER)</h3>
+        <div class="scenario">
+            Bos Anda menyadari ada kesalahan desain! Lakukan perubahan berikut pada tabel <code>pesanan</code>:
+            <ol style="margin:5px 0 0 20px">
+                <li>Kolom <code>total_bayar</code> harusnya bisa simpan desimal (Rupiah & Sen). Ubah jadi <strong>DECIMAL(10,2)</strong>.</li>
+                <li>Kita lupa mencatat kapan pesanan dibuat. Tambahkan kolom <strong>tanggal_order (DATETIME)</strong>.</li>
+            </ol>
+        </div>
+
+        <span class="hint">Tulis 2 Query ALTER TABLE di bawah (pisahkan dengan enter):</span>
+        <?php
+        $jawaban_2 = "ALTER TABLE pesanan MODIFY COLUMN total_bayar DECIMAL(10,2);
+ALTER TABLE pesanan ADD COLUMN tanggal_order DATETIME;";
+        ?>
+        <div class="output-preview"><?php echo nl2br(htmlspecialchars($jawaban_2)); ?></div>
+    </div>
+
+    <!-- TAHAP 3 -->
+    <div class="challenge-box">
+        <h3>Tahap 3: Pembersihan (DROP)</h3>
+        <div class="scenario">
+            Proyek dibatalkan! Hancurkan tabel <code>pesanan</code> agar tidak meninggalkan jejak.
+        </div>
+
+        <span class="hint">Tulis Query DROP TABLE di bawah:</span>
+        <?php
+        $jawaban_3 = "DROP TABLE pesanan;";
+        ?>
+        <div class="output-preview"><?php echo htmlspecialchars($jawaban_3); ?></div>
+    </div>
+
+</body>
+</html>

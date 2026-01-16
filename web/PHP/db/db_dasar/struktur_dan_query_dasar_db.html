@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi: Pengenalan Database & SQL Dasar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            background: #eaf2f8;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 40px;
+        }
+        h3 { color: #444; margin-top: 25px; }
+
+        /* Visualisasi Kotak */
+        .illustration-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            border-top: 4px solid #3498db;
+        }
+        .card-icon { font-size: 3em; display: block; margin-bottom: 10px; }
+        .card-title { font-weight: bold; font-size: 1.1em; color: #2c3e50; margin-bottom: 5px; }
+        .card-desc { font-size: 0.9em; color: #7f8c8d; }
+
+        /* Code Block Styling */
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.6;
+            position: relative;
+        }
+        .code-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #e67e22;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-bottom-left-radius: 6px;
+            font-family: sans-serif;
+        }
+
+        /* Syntax Highlight Colors */
+        .kw { color: #c678dd; font-weight: bold; } /* Keyword: CREATE, TABLE */
+        .val { color: #98c379; } /* Values */
+        .type { color: #e5c07b; } /* Data Types: INT, VARCHAR */
+        .prop { color: #e06c75; } /* Column Names */
+        .comment { color: #5c6370; font-style: italic; }
+
+        /* Table Visualization */
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        .db-table th { background: #34495e; color: white; padding: 12px; }
+        .db-table td { border: 1px solid #bdc3c7; padding: 10px; text-align: center; }
+        .row-highlight { background-color: #f1c40f40; } /* Highlight Row */
+        .col-highlight { background-color: #e74c3c40; } /* Highlight Col */
+
+        .note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        /* Grid untuk Tipe Data & Aturan */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .datatype-item {
+            background: white;
+            padding: 10px;
+            border-left: 3px solid #e67e22;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .constraint-item {
+            background: white;
+            padding: 10px;
+            border-left: 3px solid #e74c3c; /* Merah untuk Aturan */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pengenalan Database & SQL Dasar</h1>
+
+    <!-- 1. KONSEP DASAR -->
+    <h2>1. Apa itu Database?</h2>
+    <p>Bayangkan sebuah <strong>Sekolah</strong>. Di ruang tata usaha, mereka punya sistem penyimpanan data yang rapi. Database bekerja persis seperti itu.</p>
+
+    <div class="illustration-box">
+        <!-- Database -->
+        <div class="card">
+            <span class="card-icon">🗄️</span>
+            <div class="card-title">Database</div>
+            <div class="card-desc">Seperti <strong>Lemari Arsip</strong> besar. Satu lemari bisa menyimpan banyak jenis dokumen.</div>
+        </div>
+        
+        <!-- Tabel -->
+        <div class="card">
+            <span class="card-icon">📁</span>
+            <div class="card-title">Tabel (Table)</div>
+            <div class="card-desc">Seperti <strong>Map Folder</strong> di dalam lemari. Ada map khusus "Siswa", map "Guru", map "Nilai".</div>
+        </div>
+
+        <!-- Kolom -->
+        <div class="card">
+            <span class="card-icon">🏷️</span>
+            <div class="card-title">Kolom (Field)</div>
+            <div class="card-desc">Seperti <strong>Label Judul</strong> pada formulir (Nama, NIS, Alamat). Menentukan jenis data apa yang disimpan.</div>
+        </div>
+
+        <!-- Baris -->
+        <div class="card">
+            <span class="card-icon">📄</span>
+            <div class="card-title">Baris (Record)</div>
+            <div class="card-desc">Seperti <strong>Satu Lembar Formulir</strong> siswa yang sudah diisi lengkap.</div>
+        </div>
+    </div>
+
+    <!-- 2. ANATOMI TABEL -->
+    <h2>2. Anatomi Tabel</h2>
+    <p>Di dalam database, data disimpan dalam bentuk tabel (baris dan kolom).</p>
+    
+    <table class="db-table">
+        <thead>
+            <tr>
+                <th style="background:#e74c3c">id (PK)</th>
+                <th>nama_siswa</th>
+                <th>kelas</th>
+                <th>nilai_ujian</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-highlight">1</td>
+                <td>Budi Santoso</td>
+                <td>12 RPL</td>
+                <td>85.5</td>
+            </tr>
+            <tr class="row-highlight">
+                <td class="col-highlight">2</td>
+                <td>Siti Aminah</td>
+                <td>12 TKJ</td>
+                <td>90.0</td>
+            </tr>
+            <tr>
+                <td class="col-highlight">3</td>
+                <td>Ahmad Dhani</td>
+                <td>12 MM</td>
+                <td>78.2</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <ul style="list-style-type: none; padding: 0;">
+        <li>🟦 <strong>Kolom (Header):</strong> <code>nama_siswa</code>, <code>kelas</code>. Mendefinisikan struktur.</li>
+        <li>🟨 <strong>Baris (Highlight Kuning):</strong> Data lengkap milik Siti Aminah (1 Record).</li>
+        <li>🟥 <strong>Primary Key (PK):</strong> Kolom <code>id</code> yang unik. Tidak boleh ada siswa dengan ID yang sama.</li>
+    </ul>
+
+    <!-- 3. QUERY LEVEL TABEL (DDL) -->
+    <h2>3. Query Membuat Tabel (SQL)</h2>
+    <p>Bahasa yang digunakan untuk "berbicara" dengan database disebut <strong>SQL (Structured Query Language)</strong>.</p>
+
+    <h3>Struktur Query: CREATE TABLE</h3>
+    <div class="code-block">
+        <span class="code-label">Rumus Dasar</span>
+<span class="kw">CREATE TABLE</span> nama_tabel (
+    nama_kolom1 <span class="type">TIPE_DATA</span> <span class="kw">ATURAN</span>,
+    nama_kolom2 <span class="type">TIPE_DATA</span> <span class="kw">ATURAN</span>,
+    ...
+);
+    </div>
+
+    <h3>A. Ragam Tipe Data (Wajib Tahu)</h3>
+    <p>Memilih tipe data yang tepat akan menghemat memori dan mempercepat database.</p>
+    
+    <div class="grid-container">
+        <div class="datatype-item">
+            <strong>🔢 Angka Bulat</strong><br>
+            <code>INT</code><br>
+            <small>Contoh: ID, Stok, Umur, Tahun.</small>
+        </div>
+        <div class="datatype-item">
+            <strong>⚖️ Angka Desimal</strong><br>
+            <code>FLOAT</code> / <code>DOUBLE</code><br>
+            <small>Contoh: Nilai (85.5), Berat Badan (60.2), IPK.</small>
+        </div>
+        <div class="datatype-item">
+            <strong>💵 Uang / Presisi</strong><br>
+            <code>DECIMAL(10,2)</code><br>
+            <small>Contoh: Harga (Rp 5000.00). Lebih akurat untuk uang daripada Float.</small>
+        </div>
+        <div class="datatype-item">
+            <strong>📝 Teks Pendek</strong><br>
+            <code>VARCHAR(255)</code><br>
+            <small>Contoh: Nama, Email, Password, Username.</small>
+        </div>
+        <div class="datatype-item">
+            <strong>📜 Teks Panjang</strong><br>
+            <code>TEXT</code><br>
+            <small>Contoh: Alamat Lengkap, Isi Artikel, Komentar.</small>
+        </div>
+        <div class="datatype-item">
+            <strong>📅 Tanggal</strong><br>
+            <code>DATE</code><br>
+            <small>Contoh: Tanggal Lahir (1995-08-17).</small>
+        </div>
+        <div class="datatype-item">
+            <strong>🕒 Waktu Lengkap</strong><br>
+            <code>DATETIME</code> / <code>TIMESTAMP</code><br>
+            <small>Contoh: Waktu Transaksi (2024-01-20 14:30:00).</small>
+        </div>
+        <div class="datatype-item">
+            <strong>✅ Pilihan (Enum)</strong><br>
+            <code>ENUM('L', 'P')</code><br>
+            <small>Hanya boleh diisi salah satu dari pilihan yang ditentukan.</small>
+        </div>
+    </div>
+
+    <br>
+    <h3>B. Aturan Kolom (Constraints)</h3>
+    <p>Aturan ini menjaga agar data yang masuk valid dan tidak berantakan.</p>
+
+    <div class="grid-container">
+        <div class="constraint-item">
+            <strong>🔑 PRIMARY KEY</strong><br>
+            <small>Tanda pengenal utama. Data di kolom ini harus <strong>UNIK</strong> dan tidak boleh kosong. Biasanya dipakai untuk <code>id</code>.</small>
+        </div>
+        <div class="constraint-item">
+            <strong>🤖 AUTO_INCREMENT</strong><br>
+            <small>Penomoran otomatis (1, 2, 3...). Kita tidak perlu input manual. Sangat wajib untuk <code>id</code>.</small>
+        </div>
+        <div class="constraint-item">
+            <strong>⛔ NOT NULL</strong><br>
+            <small>Wajib diisi. Jika dikosongkan, database akan menolak (Error).</small>
+        </div>
+        <div class="constraint-item">
+            <strong>🦄 UNIQUE</strong><br>
+            <small>Data tidak boleh kembar dengan data lain. Cocok untuk <code>email</code> atau <code>nisn</code>.</small>
+        </div>
+        <div class="constraint-item">
+            <strong>⚙️ DEFAULT</strong><br>
+            <small>Nilai bawaan jika user tidak mengisi. Contoh: Status aktif default '1', Tanggal daftar default 'NOW()'.</small>
+        </div>
+    </div>
+
+    <br>
+    <h3>Contoh Nyata: Tabel Siswa Lengkap</h3>
+
+    <div class="code-block">
+        <span class="code-label">SQL Query</span>
+<span class="comment">-- 1. Buat Database</span>
+<span class="kw">CREATE DATABASE</span> sekolah_db;
+<span class="kw">USE</span> sekolah_db;
+
+<span class="comment">-- 2. Buat Tabel Siswa dengan tipe data & aturan lengkap</span>
+<span class="kw">CREATE TABLE</span> siswa (
+    id <span class="type">INT</span> <span class="kw">PRIMARY KEY AUTO_INCREMENT</span>,
+    nama_lengkap <span class="type">VARCHAR</span>(100) <span class="kw">NOT NULL</span>,
+    nisn <span class="type">VARCHAR</span>(20) <span class="kw">UNIQUE</span>,  <span class="comment">-- Tidak boleh ada NISN kembar</span>
+    jenis_kelamin <span class="type">ENUM</span>('L', 'P') <span class="kw">NOT NULL</span>,
+    nilai_rata2 <span class="type">FLOAT</span> <span class="kw">DEFAULT 0.0</span>, <span class="comment">-- Default nilai 0 jika belum diisi</span>
+    uang_saku <span class="type">DECIMAL</span>(10,2),
+    alamat <span class="type">TEXT</span>,
+    tanggal_daftar <span class="type">TIMESTAMP</span> <span class="kw">DEFAULT CURRENT_TIMESTAMP</span>
+);
+    </div>
+
+    <!-- 4. MODIFIKASI TABEL -->
+    <h2>4. Memodifikasi Tabel (ALTER TABLE)</h2>
+    <p>Seringkali di tengah jalan kita sadar ada kolom yang kurang atau salah tipe data. Kita tidak perlu menghapus tabel, cukup gunakan <code>ALTER TABLE</code>.</p>
+
+    <h3>A. Menambah Kolom Baru (ADD)</h3>
+    <p>Misal: Kita lupa menambahkan kolom "Email".</p>
+    <div class="code-block">
+<span class="kw">ALTER TABLE</span> siswa <span class="kw">ADD COLUMN</span> email <span class="type">VARCHAR</span>(50);
+    </div>
+
+    <h3>B. Mengubah Tipe Data Kolom (MODIFY)</h3>
+    <p>Misal: Kolom "nama_lengkap" ternyata kurang panjang, mau diubah jadi 200 karakter.</p>
+    <div class="code-block">
+<span class="kw">ALTER TABLE</span> siswa <span class="kw">MODIFY COLUMN</span> nama_lengkap <span class="type">VARCHAR</span>(200);
+    </div>
+
+    <h3>C. Menghapus Kolom (DROP)</h3>
+    <p>Misal: Kolom "uang_saku" tidak jadi dipakai.</p>
+    <div class="code-block">
+<span class="kw">ALTER TABLE</span> siswa <span class="kw">DROP COLUMN</span> uang_saku;
+    </div>
+
+    <!-- 5. OPERASI HAPUS -->
+    <h2>5. Menghapus Data & Tabel</h2>
+    <p>Perintah berbahaya yang harus digunakan dengan hati-hati.</p>
+
+    <h3>Mengosongkan Isi Tabel (TRUNCATE)</h3>
+    <p>Isi data hilang bersih, tapi struktur tabel masih ada (bisa diisi lagi).</p>
+    <div class="code-block">
+<span class="kw">TRUNCATE TABLE</span> siswa;
+    </div>
+
+    <h3>Menghancurkan Tabel (DROP)</h3>
+    <p>Tabel hilang sepenuhnya dari database beserta isinya.</p>
+    <div class="code-block">
+<span class="kw">DROP TABLE</span> siswa;
+    </div>
+
+</body>
+</html>

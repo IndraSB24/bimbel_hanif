@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan SQL 1: Create Table</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #eef2f3; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; color: #2980b9; }
+        .soal-box { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px; border-left: 5px solid #3498db; }
+        .instruction { background-color: #dbe9f6; padding: 10px; border-radius: 4px; border: 1px solid #cbdbea; margin-bottom: 15px; }
+        .output-preview { background-color: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; font-family: monospace; margin-top: 15px; white-space: pre-wrap; }
+        textarea { width: 100%; height: 80px; font-family: monospace; padding: 8px; border: 1px solid #ccc; }
+        .hint { font-size: 0.9em; color: #7f8c8d; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <h1>Latihan 1: Merancang Tabel (CREATE)</h1>
+    <p style="text-align:center">Tuliskan Query SQL lengkap di dalam variabel <code>$sql</code>.</p>
+
+    <!-- SOAL 1 -->
+    <div class="soal-box">
+        <h3>Soal 1: Tabel Guru Sederhana</h3>
+        <div class="instruction">
+            Buat tabel bernama <code>guru</code> dengan kolom:
+            <ul>
+                <li><code>id</code>: Angka, Primary Key, Auto Increment.</li>
+                <li><code>nama_lengkap</code>: Teks (max 100), Wajib diisi.</li>
+                <li><code>mata_pelajaran</code>: Teks (max 50).</li>
+            </ul>
+        </div>
+
+        <?php
+        // --- TULIS JAWABAN ANDA DI BAWAH ---
+        $sql_1 = "CREATE TABLE guru (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama_lengkap VARCHAR(100) NOT NULL,
+    mata_pelajaran VARCHAR(50)
+);";
+        ?>
+
+        <div class="output-preview">
+            <strong>Jawaban SQL Anda:</strong><br>
+            <?php echo htmlspecialchars($sql_1); ?>
+        </div>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="soal-box">
+        <h3>Soal 2: Tabel Perpustakaan (Constraints)</h3>
+        <div class="instruction">
+            Buat tabel <code>buku</code> dengan aturan ketat:
+            <ul>
+                <li><code>kode_buku</code>: INT, Primary Key.</li>
+                <li><code>judul</code>: VARCHAR(200), Wajib diisi.</li>
+                <li><code>isbn</code>: VARCHAR(20), <strong>Harus Unik (UNIQUE)</strong>.</li>
+                <li><code>tahun_terbit</code>: INT (4 digit).</li>
+                <li><code>stok</code>: INT, <strong>Default 0</strong>.</li>
+            </ul>
+        </div>
+
+        <?php
+        // --- TULIS JAWABAN ANDA DI BAWAH ---
+        $sql_2 = "CREATE TABLE buku (
+    kode_buku INT PRIMARY KEY,
+    judul VARCHAR(200) NOT NULL,
+    isbn VARCHAR(20) UNIQUE,
+    tahun_terbit INT(4),
+    stok INT DEFAULT 0
+);"; 
+        ?>
+
+        <div class="output-preview">
+            <strong>Jawaban SQL Anda:</strong><br>
+            <?php echo htmlspecialchars($sql_2); ?>
+        </div>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="soal-box">
+        <h3>Soal 3: Tabel Produk dengan ENUM</h3>
+        <div class="instruction">
+            Buat tabel <code>produk</code>:
+            <ul>
+                <li><code>id</code>: INT, Primary Key, Auto Increment.</li>
+                <li><code>nama_barang</code>: VARCHAR(100).</li>
+                <li><code>kondisi</code>: Pilihan (ENUM) hanya boleh <strong>'Baru'</strong> atau <strong>'Bekas'</strong>.</li>
+                <li><code>harga</code>: DECIMAL(10, 2) untuk uang presisi.</li>
+            </ul>
+        </div>
+
+        <?php
+        // --- TULIS JAWABAN ANDA DI BAWAH ---
+        $sql_3 = "CREATE TABLE produk (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama_barang VARCHAR(100),
+    kondisi ENUM('Baru', 'Bekas'),
+    harga DECIMAL(10, 2)
+);";
+        ?>
+
+        <div class="output-preview">
+            <strong>Jawaban SQL Anda:</strong><br>
+            <?php echo htmlspecialchars($sql_3); ?>
+        </div>
+    </div>
+
+</body>
+</html>
