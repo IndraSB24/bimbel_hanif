@@ -101,15 +101,29 @@
     <!-- AREA KERJA SISWA -->
     <div class="workspace">
         <h2 style="text-align:center; color:#7f8c8d;">--- Area Kerja Coding ---</h2>
-        <p style="text-align:center; color:#95a5a6; font-style:italic;">Hapus komentar ini dan mulailah mengetik kode HTML Form & PHP Anda di sini...</p>
-
         <?php
         // --- TULIS KODE PHP ANDA DI SINI ---
-        
+        if(isset($_POST["btn_input"])) {
+            
+        }
         ?>
-
         <!-- --- TULIS KODE HTML FORM ANDA DI BAWAH SINI --- -->
-
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <form action="" method="POST">
+                <input type="text" name="nama_lengkap" placeholder="Tulis nama lengkapmu!">
+                <input type="number" name="nilai_ujian" placeholder="Nilai Ujian:">
+                <input type="text" name="jurusan" placeholder="Jurusan">
+                <button type="submit" value="btn_input">Kirim Form</button>
+            </form>
+        </body>
+        </html>
 
 
     </div>
