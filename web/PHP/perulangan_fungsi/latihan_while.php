@@ -59,7 +59,7 @@
         $hasil_kali = 1;
         // TODO: While $num <= 5, kalikan ke $hasil_kali
         while($num <= 5) {
-            $hasil_kali *= $num; // sama dengan $hasil_kali = $hasil_kali * $num
+            $hasil_kali *= $num; 
             $num++;
         }
         ?>
@@ -75,7 +75,7 @@
         $out4 = "";
         // TODO: While loop
         while($g <= 10) {
-            if($g % 2 != 0) {
+            if($g % 2 == 1) {
                 $out4 .= $g . " ";
             }
             $g++;
