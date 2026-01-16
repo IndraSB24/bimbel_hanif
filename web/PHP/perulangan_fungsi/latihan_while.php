@@ -76,7 +76,7 @@
         // TODO: While loop
         while($g <= 10) {
             if($g % 2 == 1) {
-                $out4 .= $g . "<br>";
+                $out4 .= $g . " ";
             }
             $g++;
         }

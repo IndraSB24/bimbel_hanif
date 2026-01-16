@@ -58,11 +58,12 @@
         <div class="instruction">Tampilkan data siswa (Nama, Kelas, Umur) dengan format "Key: Value".</div>
         <?php
         $siswa = ["Nama" => "Budi", "Kelas" => "12 RPL", "Umur" => 17];
-        $data3 = "";
+        $data3 .= "";
         // TODO: Foreach as $key => $value
-        foreach($siswa as $key => $val) {
-            $data3 .= "$key : $val <br>";
-        }
+foreach ($siswa as $key => $val) {
+    // Menggabungkan key dan value ke dalam string $data3
+    $data3 .= "$key: $val <br>"; 
+}
         ?>
         <div class="output-preview"><span class="label-output">Output:</span><?php echo $data3; ?></div>
     </div>
@@ -83,14 +84,14 @@
         ?>
         <div class="output-preview"><span class="label-output">Output (Diatas 5000):</span><?php echo $mahal; ?></div>
     </div>
-
+        s
     <!-- SOAL 5 -->
     <div class="soal-box">
         <span class="soal-title">Soal 5: Membuat Tabel HTML</span>
         <div class="instruction">Buat baris tabel (tr) untuk setiap nama karyawan.</div>
         <?php
         $karyawan = ["Andi", "Siti", "Rudi"];
-        $tabel = "<table border='1' cellpadding='5'><tr><th>No</th><th>Nama</th></tr>";
+        $tabel = "<table border='2' cellpadding='7'><tr><th>No</th><th>Nama</th></tr>";
         $no = 1;
         // TODO: Foreach
         foreach($karyawan as $nama) {
