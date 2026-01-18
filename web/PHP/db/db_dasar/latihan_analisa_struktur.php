@@ -95,18 +95,12 @@
 
         <?php
         // --- TULIS JAWABAN ANDA DI BAWAH ---
-        $sql_kasus_1 = "CREATE TABLE driver (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nama VARCHAR(100) NOT NULL,
-    plat_nomor VARCHAR(15) UNIQUE,
-    rating FLOAT,
-    status ENUM('Aktif', 'Suspend')
-);";
+        $sql1 = "CREATE TABLE driver(ID INT PRIMARY KEY AUTO_INCREMENT,NAMA TEXT,plat_nomor VARCHAR(12) UNIQUE,RATING FLOAT,STATUS Enum('Aktif','Suspend'));";
         ?>
 
         <div class="output-preview">
             <strong>SQL Draft Anda:</strong><br>
-            <?php echo htmlspecialchars($sql_kasus_1); ?>
+            <?php echo htmlspecialchars($sql1); ?>
         </div>
     </div>
 
