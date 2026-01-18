@@ -125,6 +125,15 @@
             border-left: 3px solid #e74c3c; /* Merah untuk Aturan */
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        
+        /* Grid untuk Aturan Penamaan */
+        .naming-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 3px solid #3498db;
+        }
     </style>
 </head>
 <body>
@@ -206,8 +215,31 @@
         <li>🟥 <strong>Primary Key (PK):</strong> Kolom <code>id</code> yang unik. Tidak boleh ada siswa dengan ID yang sama.</li>
     </ul>
 
-    <!-- 3. QUERY LEVEL TABEL (DDL) -->
-    <h2>3. Query Membuat Tabel (SQL)</h2>
+    <!-- 3. ATURAN PENAMAAN -->
+    <h2>3. Aturan Penamaan (Naming Convention)</h2>
+    <p>Agar database rapi dan tidak error saat dipanggil oleh PHP, ikuti aturan emas ini:</p>
+    
+    <div class="grid-container">
+        <div class="naming-item" style="border-top-color: #27ae60;">
+            <strong>✅ Gunakan snake_case</strong><br>
+            <small>Gunakan huruf kecil dan pemisah underscore (_).<br>Contoh: <code>nama_lengkap</code>, <code>tanggal_lahir</code>.</small>
+        </div>
+        <div class="naming-item" style="border-top-color: #e74c3c;">
+            <strong>❌ Hindari Spasi!</strong><br>
+            <small>Spasi akan membuat query error dan sulit dipanggil.<br>Salah: <code>nama siswa</code>, <code>tgl lahir</code>.</small>
+        </div>
+        <div class="naming-item" style="border-top-color: #f39c12;">
+            <strong>⚠️ Hindari Keyword SQL</strong><br>
+            <small>Jangan pakai kata perintah SQL sebagai nama tabel/kolom.<br>Hindari: <code>select</code>, <code>table</code>, <code>order</code>, <code>date</code>, <code>update</code>.</small>
+        </div>
+        <div class="naming-item" style="border-top-color: #3498db;">
+            <strong>🔤 Konsisten & Jelas</strong><br>
+            <small>Jangan menyingkat berlebihan hingga membingungkan.<br>Benar: <code>harga_beli</code>. Salah: <code>hb</code>.</small>
+        </div>
+    </div>
+
+    <!-- 4. QUERY LEVEL TABEL (DDL) -->
+    <h2>4. Query Membuat Tabel (SQL)</h2>
     <p>Bahasa yang digunakan untuk "berbicara" dengan database disebut <strong>SQL (Structured Query Language)</strong>.</p>
 
     <h3>Struktur Query: CREATE TABLE</h3>
@@ -315,8 +347,8 @@
 );
     </div>
 
-    <!-- 4. MODIFIKASI TABEL -->
-    <h2>4. Memodifikasi Tabel (ALTER TABLE)</h2>
+    <!-- 5. MODIFIKASI TABEL -->
+    <h2>5. Memodifikasi Tabel (ALTER TABLE)</h2>
     <p>Seringkali di tengah jalan kita sadar ada kolom yang kurang atau salah tipe data. Kita tidak perlu menghapus tabel, cukup gunakan <code>ALTER TABLE</code>.</p>
 
     <h3>A. Menambah Kolom Baru (ADD)</h3>
@@ -337,8 +369,8 @@
 <span class="kw">ALTER TABLE</span> siswa <span class="kw">DROP COLUMN</span> uang_saku;
     </div>
 
-    <!-- 5. OPERASI HAPUS -->
-    <h2>5. Menghapus Data & Tabel</h2>
+    <!-- 6. OPERASI HAPUS -->
+    <h2>6. Menghapus Data & Tabel</h2>
     <p>Perintah berbahaya yang harus digunakan dengan hati-hati.</p>
 
     <h3>Mengosongkan Isi Tabel (TRUNCATE)</h3>
