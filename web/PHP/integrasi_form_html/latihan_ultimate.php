@@ -103,8 +103,26 @@
         <h2 style="text-align:center; color:#7f8c8d;">--- Area Kerja Coding ---</h2>
         <?php
         // --- TULIS KODE PHP ANDA DI SINI ---
-        if(isset($_POST["btn_input"])) {
-            
+        if(isset($_POST['btn_input'])) {
+            $NAMA = htmlspecialchars($_POST['nama_lengkap']);
+            $NILAI = ($_POST['nilai_ujian']);
+            $JURUSAN = ($_POST['Jurusan']);
+            if(empty($_POST['nama_lengkap']) || empty($_POST['nilai_ujian'])){
+            echo "<div class='hasil-box' style='color:red;'>Data tidak boleh kosong!</div>";
+            }
+            else{
+             if($NILAI >= 75){
+                $status = "Lulus";
+               }
+               else{
+                $status = "Gagal";
+               }
+                echo "<div class='hasil-box'>";
+                echo "Nama: " . $NAMA . "<br>";
+                echo "Jurusan: " . $JURUSAN . "<br>";
+                echo "Status: <strong>" . $status . "</strong>";
+               echo "</div>";
+            }
         }
         ?>
         <!-- --- TULIS KODE HTML FORM ANDA DI BAWAH SINI --- -->
@@ -116,17 +134,20 @@
             <title>Document</title>
         </head>
         <body>
-            <form action="" method="POST">
+            <form action="" method="post">
                 <input type="text" name="nama_lengkap" placeholder="Tulis nama lengkapmu!">
-                <input type="number" name="nilai_ujian" placeholder="Nilai Ujian:">
-                <input type="text" name="jurusan" placeholder="Jurusan">
-                <button type="submit" value="btn_input">Kirim Form</button>
+                <input type="number" name="nilai_ujian" placeholder="Nilai Ujian: 1-100">
+                <label for="pilihan">Pilih Jurusan:</label>
+                <select name="Jurusan" id="pilihan">
+                <option value="TIK">TIK</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Lainnya">Lainnya</option>
+                </select>
+                <button type="submit" name="btn_input">Kirim Form</button>
             </form>
         </body>
         </html>
-
-
     </div>
-
 </body>
 </html>
