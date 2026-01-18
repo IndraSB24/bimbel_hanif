@@ -33,14 +33,9 @@
         
         <span class="hint">Tulis Query CREATE TABLE di bawah:</span>
         <?php
-        $jawaban_1 = "CREATE TABLE pesanan (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nama_pembeli VARCHAR(100),
-    total_bayar INT,
-    status ENUM('Pending', 'Lunas')
-);";
+        $jawaban1 = "CREATE TABLE pesanan(id INT PRIMARY KEY AUTO INCREMENT,nama_pembeli VARCHAR(100),total_bayar INT,status ENUM('Pending','Lunas'))";
         ?>
-        <div class="output-preview"><?php echo htmlspecialchars($jawaban_1); ?></div>
+        <div class="output-preview"><?php echo htmlspecialchars($jawaban1); ?></div>
     </div>
 
     <!-- TAHAP 2 -->
@@ -56,10 +51,10 @@
 
         <span class="hint">Tulis 2 Query ALTER TABLE di bawah (pisahkan dengan enter):</span>
         <?php
-        $jawaban_2 = "ALTER TABLE pesanan MODIFY COLUMN total_bayar DECIMAL(10,2);
-ALTER TABLE pesanan ADD COLUMN tanggal_order DATETIME;";
+        $jawaban2 = "ALTER TABLE pesanan MODIFY COLUMN total_bayar decimal(10,2)
+        ALTER TABLE pesanan ADD COLUMN tanggal_order DATETIME;";
         ?>
-        <div class="output-preview"><?php echo nl2br(htmlspecialchars($jawaban_2)); ?></div>
+        <div class="output-preview"><?php echo nl2br(htmlspecialchars($jawaban2)); ?></div>
     </div>
 
     <!-- TAHAP 3 -->
@@ -71,9 +66,9 @@ ALTER TABLE pesanan ADD COLUMN tanggal_order DATETIME;";
 
         <span class="hint">Tulis Query DROP TABLE di bawah:</span>
         <?php
-        $jawaban_3 = "DROP TABLE pesanan;";
+        $jawaban3 = "DROP TABLE pesanan;";
         ?>
-        <div class="output-preview"><?php echo htmlspecialchars($jawaban_3); ?></div>
+        <div class="output-preview"><?php echo htmlspecialchars($jawaban3); ?></div>
     </div>
 
 </body>

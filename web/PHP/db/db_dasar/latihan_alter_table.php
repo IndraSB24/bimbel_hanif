@@ -47,12 +47,12 @@
         <?php
         // --- TULIS JAWABAN ANDA DI BAWAH ---
         // Hint: ALTER TABLE ... MODIFY COLUMN ...
-        $sql_2 = "ALTER TABLE siswa MODIFY COLUMN alamat TEXT;"; 
+        $sql2 = "ALTER TABLE siswa MODIFY COLUMN alamat TEXT;";
         ?>
 
         <div class="output-preview">
             <strong>Jawaban SQL Anda:</strong><br>
-            <?php echo htmlspecialchars($sql_2); ?>
+            <?php echo htmlspecialchars($sql2); ?>
         </div>
     </div>
 

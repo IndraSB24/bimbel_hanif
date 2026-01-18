@@ -32,16 +32,13 @@
 
         <?php
         // --- TULIS JAWABAN ANDA DI BAWAH ---
-        $sql_1 = "CREATE TABLE guru (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nama_lengkap VARCHAR(100) NOT NULL,
-    mata_pelajaran VARCHAR(50)
-);";
+       $sql1 = "CREATE TABLE guru(id INT PRIMARY KEY AUTO_INCREMENT,nama_lengkap VARCHAR(100) NOT NULL,
+       mata_pelajaran VARCHAR(50)';"
         ?>
 
         <div class="output-preview">
             <strong>Jawaban SQL Anda:</strong><br>
-            <?php echo htmlspecialchars($sql_1); ?>
+            <?php echo htmlspecialchars($sql1); ?>
         </div>
     </div>
 
@@ -61,18 +58,12 @@
 
         <?php
         // --- TULIS JAWABAN ANDA DI BAWAH ---
-        $sql_2 = "CREATE TABLE buku (
-    kode_buku INT PRIMARY KEY,
-    judul VARCHAR(200) NOT NULL,
-    isbn VARCHAR(20) UNIQUE,
-    tahun_terbit INT(4),
-    stok INT DEFAULT 0
-);"; 
+        $sql2 = "CREATE TABLE buku(kode_buku INT PRIMARY KEY,judul VARCHAR(200),isbn VARCHAR(20) UNIQUE,tahun_terbit INT(4),stok INT DEFAULT 0;"
         ?>
 
         <div class="output-preview">
             <strong>Jawaban SQL Anda:</strong><br>
-            <?php echo htmlspecialchars($sql_2); ?>
+            <?php echo htmlspecialchars($sql2); ?>
         </div>
     </div>
 
