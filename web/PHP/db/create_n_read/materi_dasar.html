@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi SQL: Create & Read Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-code {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .keyword { color: #38bdf8; font-weight: bold; }
+        .table-name { color: #fbbf24; }
+        .string { color: #4ade80; }
+        .comment { color: #94a3b8; font-style: italic; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="border-b-4 border-blue-500 pb-6 mb-10">
+            <h1 class="text-4xl font-extrabold text-slate-900">Sesi 24: SQL - Create & Read Data</h1>
+            <p class="text-xl text-slate-600 mt-2">Belajar dasar manipulasi database dengan SQL.</p>
+        </header>
+
+        <!-- Bagian 1: Konsep -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">1. Apa itu Create & Read?</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
+                    <h3 class="font-bold text-lg mb-2">CREATE</h3>
+                    <p>Proses membuat wadah (tabel) dan memasukkan data baru ke dalamnya. Menggunakan perintah <code>CREATE TABLE</code> dan <code>INSERT INTO</code>.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                    <h3 class="font-bold text-lg mb-2">READ</h3>
+                    <p>Proses mengambil dan menampilkan data dari database. Menggunakan perintah sakti <code>SELECT</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 2: Skema 3 Tabel -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">2. Persiapan: Skema 3 Tabel</h2>
+            <p class="mb-4">Kita akan menggunakan contoh sistem perpustakaan sederhana dengan 3 tabel berikut:</p>
+            
+            <div class="space-y-6">
+                <!-- Tabel Kategori -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Tabel: kategori</h4>
+                    <div class="sql-code">
+                        <span class="keyword">CREATE TABLE</span> <span class="table-name">kategori</span> (<br>
+                        &nbsp;&nbsp;id_kategori <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;nama_kategori <span class="keyword">VARCHAR</span>(50)<br>
+                        );
+                    </div>
+                </div>
+
+                <!-- Tabel Penulis -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Tabel: penulis</h4>
+                    <div class="sql-code">
+                        <span class="keyword">CREATE TABLE</span> <span class="table-name">penulis</span> (<br>
+                        &nbsp;&nbsp;id_penulis <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;nama_penulis <span class="keyword">VARCHAR</span>(100)<br>
+                        );
+                    </div>
+                </div>
+
+                <!-- Tabel Buku -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Tabel: buku (Menghubungkan keduanya)</h4>
+                    <div class="sql-code">
+                        <span class="keyword">CREATE TABLE</span> <span class="table-name">buku</span> (<br>
+                        &nbsp;&nbsp;id_buku <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;judul <span class="keyword">VARCHAR</span>(200),<br>
+                        &nbsp;&nbsp;id_penulis <span class="keyword">INT</span>,<br>
+                        &nbsp;&nbsp;id_kategori <span class="keyword">INT</span><br>
+                        );
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 3: Memasukkan Data (INSERT) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">3. Memasukkan Data (CREATE)</h2>
+            <p class="mb-4">Setelah tabel dibuat, kita isi dengan data menggunakan <code>INSERT INTO</code>.</p>
+            <div class="sql-code">
+                <span class="comment">-- Isi Tabel Kategori</span><br>
+                <span class="keyword">INSERT INTO</span> <span class="table-name">kategori</span> (nama_kategori) <span class="keyword">VALUES</span> (<span class="string">'Fiksi'</span>), (<span class="string">'Teknologi'</span>);<br><br>
+                
+                <span class="comment">-- Isi Tabel Penulis</span><br>
+                <span class="keyword">INSERT INTO</span> <span class="table-name">penulis</span> (nama_penulis) <span class="keyword">VALUES</span> (<span class="string">'Tere Liye'</span>), (<span class="string">'Elon Musk'</span>);<br><br>
+                
+                <span class="comment">-- Isi Tabel Buku</span><br>
+                <span class="keyword">INSERT INTO</span> <span class="table-name">buku</span> (judul, id_penulis, id_kategori) <span class="keyword">VALUES</span> <br>
+                (<span class="string">'Hujan'</span>, 1, 1), <br>
+                (<span class="string">'Pulang'</span>, 1, 1), <br>
+                (<span class="string">'SpaceX Mission'</span>, 2, 2);
+            </div>
+        </section>
+
+        <!-- Bagian 4: Membaca Data (READ) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Membaca Data (READ)</h2>
+            <p class="mb-4">Cara mengambil data dari satu tabel atau lebih.</p>
+            
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-bold">A. Mengambil Semua Kolom</h4>
+                    <div class="sql-code">
+                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span>;
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold">B. Mengambil Kolom Tertentu</h4>
+                    <div class="sql-code">
+                        <span class="keyword">SELECT</span> judul <span class="keyword">FROM</span> <span class="table-name">buku</span>;
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold">C. Membaca Data dengan Filter (WHERE)</h4>
+                    <p class="text-sm text-slate-600 italic mb-2">"Tampilkan buku yang termasuk kategori Fiksi (ID 1)"</p>
+                    <div class="sql-code">
+                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span> <span class="keyword">WHERE</span> id_kategori = 1;
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 5: Visualisasi Hasil -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">5. Visualisasi Data Terkini</h2>
+            <p class="mb-4">Beginilah isi database kita sekarang:</p>
+            
+            <div class="grid grid-cols-1 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2">Tabel Buku</h5>
+                    <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow">
+                        <thead>
+                            <tr class="bg-slate-800 text-white">
+                                <th class="p-3">id_buku</th>
+                                <th class="p-3">judul</th>
+                                <th class="p-3">id_penulis</th>
+                                <th class="p-3">id_kategori</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-3 text-center">1</td>
+                                <td class="p-3">Hujan</td>
+                                <td class="p-3 text-center">1</td>
+                                <td class="p-3 text-center">1</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3 text-center">2</td>
+                                <td class="p-3">Pulang</td>
+                                <td class="p-3 text-center">1</td>
+                                <td class="p-3 text-center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 text-center">3</td>
+                                <td class="p-3">SpaceX Mission</td>
+                                <td class="p-3 text-center">2</td>
+                                <td class="p-3 text-center">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-20 pt-6 border-t text-center text-slate-500">
+            <p>&copy; 2025 Web Development Course - Materi Database</p>
+        </footer>
+    </div>
+
+</body>
+</html>
