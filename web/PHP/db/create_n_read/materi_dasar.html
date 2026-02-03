@@ -19,6 +19,7 @@
         .table-name { color: #fbbf24; }
         .string { color: #4ade80; }
         .comment { color: #94a3b8; font-style: italic; }
+        .operator { color: #f472b6; font-weight: bold; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
@@ -35,48 +36,26 @@
             <h2 class="text-2xl font-bold mb-4">1. Apa itu Create & Read?</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
-                    <h3 class="font-bold text-lg mb-2">CREATE</h3>
+                    <h3 class="font-bold text-lg mb-2 text-green-700">CREATE</h3>
                     <p>Proses membuat wadah (tabel) dan memasukkan data baru ke dalamnya. Menggunakan perintah <code>CREATE TABLE</code> dan <code>INSERT INTO</code>.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500">
-                    <h3 class="font-bold text-lg mb-2">READ</h3>
+                    <h3 class="font-bold text-lg mb-2 text-blue-700">READ</h3>
                     <p>Proses mengambil dan menampilkan data dari database. Menggunakan perintah sakti <code>SELECT</code>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Bagian 2: Skema 3 Tabel -->
+        <!-- Bagian 2: Skema Tabel Master -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">2. Persiapan: Skema 3 Tabel</h2>
-            <p class="mb-4">Kita akan menggunakan contoh sistem perpustakaan sederhana dengan 3 tabel berikut:</p>
+            <h2 class="text-2xl font-bold mb-4">2. Persiapan: Skema Tabel Master</h2>
+            <p class="mb-4">Pastikan kamu sudah membuat tabel-tabel utama ini sebelum mengisi data:</p>
             
             <div class="space-y-6">
-                <!-- Tabel Kategori -->
                 <div class="bg-white p-4 rounded shadow">
-                    <h4 class="font-bold text-blue-600 mb-2">Tabel: kategori</h4>
+                    <h4 class="font-bold text-blue-600 mb-2">Tabel: kategori, penulis, dan buku</h4>
                     <div class="sql-code">
-                        <span class="keyword">CREATE TABLE</span> <span class="table-name">kategori</span> (<br>
-                        &nbsp;&nbsp;id_kategori <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
-                        &nbsp;&nbsp;nama_kategori <span class="keyword">VARCHAR</span>(50)<br>
-                        );
-                    </div>
-                </div>
-
-                <!-- Tabel Penulis -->
-                <div class="bg-white p-4 rounded shadow">
-                    <h4 class="font-bold text-blue-600 mb-2">Tabel: penulis</h4>
-                    <div class="sql-code">
-                        <span class="keyword">CREATE TABLE</span> <span class="table-name">penulis</span> (<br>
-                        &nbsp;&nbsp;id_penulis <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
-                        &nbsp;&nbsp;nama_penulis <span class="keyword">VARCHAR</span>(100)<br>
-                        );
-                    </div>
-                </div>
-
-                <!-- Tabel Buku -->
-                <div class="bg-white p-4 rounded shadow">
-                    <h4 class="font-bold text-blue-600 mb-2">Tabel: buku (Menghubungkan keduanya)</h4>
-                    <div class="sql-code">
+                        <span class="comment">-- Contoh salah satu tabel</span><br>
                         <span class="keyword">CREATE TABLE</span> <span class="table-name">buku</span> (<br>
                         &nbsp;&nbsp;id_buku <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
                         &nbsp;&nbsp;judul <span class="keyword">VARCHAR</span>(200),<br>
@@ -91,61 +70,93 @@
         <!-- Bagian 3: Memasukkan Data (INSERT) -->
         <section class="mb-12">
             <h2 class="text-2xl font-bold mb-4">3. Memasukkan Data (CREATE)</h2>
-            <p class="mb-4">Setelah tabel dibuat, kita isi dengan data menggunakan <code>INSERT INTO</code>.</p>
+            <p class="mb-4">Gunakan <code>INSERT INTO</code> untuk memasukkan minimal 10 data agar database bervariasi.</p>
             <div class="sql-code">
-                <span class="comment">-- Isi Tabel Kategori</span><br>
-                <span class="keyword">INSERT INTO</span> <span class="table-name">kategori</span> (nama_kategori) <span class="keyword">VALUES</span> (<span class="string">'Fiksi'</span>), (<span class="string">'Teknologi'</span>);<br><br>
-                
-                <span class="comment">-- Isi Tabel Penulis</span><br>
-                <span class="keyword">INSERT INTO</span> <span class="table-name">penulis</span> (nama_penulis) <span class="keyword">VALUES</span> (<span class="string">'Tere Liye'</span>), (<span class="string">'Elon Musk'</span>);<br><br>
-                
-                <span class="comment">-- Isi Tabel Buku</span><br>
-                <span class="keyword">INSERT INTO</span> <span class="table-name">buku</span> (judul, id_penulis, id_kategori) <span class="keyword">VALUES</span> <br>
-                (<span class="string">'Hujan'</span>, 1, 1), <br>
-                (<span class="string">'Pulang'</span>, 1, 1), <br>
-                (<span class="string">'SpaceX Mission'</span>, 2, 2);
+                <span class="comment">-- Masukkan banyak data sekaligus</span><br>
+                <span class="keyword">INSERT INTO</span> <span class="table-name">kategori</span> (nama_kategori) <br>
+                <span class="keyword">VALUES</span> (<span class="string">'Fiksi'</span>), (<span class="string">'Sains'</span>), (<span class="string">'Sejarah'</span>), (<span class="string">'Biografi'</span>), (<span class="string">'Komik'</span>);
             </div>
         </section>
 
         <!-- Bagian 4: Membaca Data (READ) -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">4. Membaca Data (READ)</h2>
-            <p class="mb-4">Cara mengambil data dari satu tabel atau lebih.</p>
+            <h2 class="text-2xl font-bold mb-4">4. Membaca Data (READ) Dasar</h2>
+            <div class="sql-code">
+                <span class="comment">-- Ambil semua data</span><br>
+                <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span>;<br><br>
+                <span class="comment">-- Ambil kolom tertentu saja</span><br>
+                <span class="keyword">SELECT</span> judul, id_penulis <span class="keyword">FROM</span> <span class="table-name">buku</span>;
+            </div>
+        </section>
+
+        <!-- Bagian 5: Operator di dalam WHERE (PENTING!) -->
+        <section class="mb-12 bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+            <h2 class="text-2xl font-bold mb-4 text-yellow-800">5. Operator dalam Klausa WHERE</h2>
+            <p class="mb-4">Operator digunakan untuk memfilter data agar lebih spesifik sesuai kebutuhan laporan.</p>
             
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-bold">A. Mengambil Semua Kolom</h4>
-                    <div class="sql-code">
-                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span>;
-                    </div>
-                </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left bg-white rounded-lg shadow-sm mb-6">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-3">Operator</th>
+                            <th class="p-3">Deskripsi</th>
+                            <th class="p-3">Contoh Penggunaan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">=</td>
+                            <td class="p-3">Sama dengan</td>
+                            <td class="p-3"><code>WHERE id_kategori = 1</code></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">!= atau &lt;&gt;</td>
+                            <td class="p-3">Tidak sama dengan</td>
+                            <td class="p-3"><code>WHERE nama_peminjam != 'Budi'</code></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">&gt; dan &lt;</td>
+                            <td class="p-3">Besar dari / Kecil dari</td>
+                            <td class="p-3"><code>WHERE tgl_kembali < '2025-11-10'</code></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">LIKE</td>
+                            <td class="p-3">Pencarian pola teks (paling sering pakai %)</td>
+                            <td class="p-3"><code>WHERE nama LIKE 'Bu%'</code> (Cari yang awalan Bu)</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">BETWEEN</td>
+                            <td class="p-3">Di antara rentang nilai</td>
+                            <td class="p-3"><code>WHERE tgl_pinjam BETWEEN '2025-01-01' AND '2025-01-31'</code></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-mono font-bold text-pink-600">IN</td>
+                            <td class="p-3">Cocok dengan salah satu nilai di list</td>
+                            <td class="p-3"><code>WHERE id_kategori IN (1, 3, 5)</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <div>
-                    <h4 class="font-bold">B. Mengambil Kolom Tertentu</h4>
-                    <div class="sql-code">
-                        <span class="keyword">SELECT</span> judul <span class="keyword">FROM</span> <span class="table-name">buku</span>;
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-bold">C. Membaca Data dengan Filter (WHERE)</h4>
-                    <p class="text-sm text-slate-600 italic mb-2">"Tampilkan buku yang termasuk kategori Fiksi (ID 1)"</p>
-                    <div class="sql-code">
-                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span> <span class="keyword">WHERE</span> id_kategori = 1;
-                    </div>
+            <div class="bg-white p-4 rounded-lg shadow-inner">
+                <h4 class="font-bold mb-2 text-slate-700">Contoh Query Filter Lanjutan:</h4>
+                <div class="sql-code text-xs">
+                    <span class="comment">-- Mencari peminjaman yang "Jatuh Tempo" (sebelum hari ini)</span><br>
+                    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> tgl_kembali <span class="operator">&lt;</span> <span class="string">'2025-11-10'</span>;<br><br>
+                    
+                    <span class="comment">-- Mencari nama peminjam yang mengandung huruf "Siti"</span><br>
+                    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> nama_peminjam <span class="keyword">LIKE</span> <span class="string">'%Siti%'</span>;
                 </div>
             </div>
         </section>
 
-        <!-- Bagian 5: Visualisasi Hasil -->
+        <!-- Bagian 6: Visualisasi Data -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">5. Visualisasi Data Terkini</h2>
-            <p class="mb-4">Beginilah isi database kita sekarang:</p>
-            
+            <h2 class="text-2xl font-bold mb-4">6. Visualisasi Hasil Query</h2>
             <div class="grid grid-cols-1 gap-8">
                 <div>
-                    <h5 class="font-bold mb-2">Tabel Buku</h5>
-                    <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow">
+                    <h5 class="font-bold mb-2">Contoh Output SELECT * FROM buku WHERE id_kategori = 1;</h5>
+                    <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow text-sm">
                         <thead>
                             <tr class="bg-slate-800 text-white">
                                 <th class="p-3">id_buku</th>
@@ -157,21 +168,15 @@
                         <tbody>
                             <tr class="border-b">
                                 <td class="p-3 text-center">1</td>
-                                <td class="p-3">Hujan</td>
+                                <td class="p-3 italic">Hujan</td>
                                 <td class="p-3 text-center">1</td>
                                 <td class="p-3 text-center">1</td>
                             </tr>
                             <tr class="border-b">
                                 <td class="p-3 text-center">2</td>
-                                <td class="p-3">Pulang</td>
+                                <td class="p-3 italic">Pulang</td>
                                 <td class="p-3 text-center">1</td>
                                 <td class="p-3 text-center">1</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 text-center">3</td>
-                                <td class="p-3">SpaceX Mission</td>
-                                <td class="p-3 text-center">2</td>
-                                <td class="p-3 text-center">2</td>
                             </tr>
                         </tbody>
                     </table>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembar Latihan SQL: Kompleks & Komprehensif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-placeholder {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            color: #64748b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            min-height: 120px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .empty-table th {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.75rem;
+        }
+        .empty-table td {
+            border: 1px solid #e2e8f0;
+            height: 30px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-black text-indigo-900">🚀 Tantangan SQL Master</h1>
+            <p class="text-slate-600 mt-2 text-lg">Membangun Ekosistem Database Perpustakaan</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <span class="badge bg-indigo-100 text-indigo-700">Durasi: 90 Menit</span>
+                <span class="badge bg-orange-100 text-orange-700">Level: Menengah</span>
+            </div>
+        </header>
+
+        <!-- Fase 1: Persiapan Data -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-green-500">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">📂</span> Fase 1: Mengisi Data Master
+            </h2>
+            <p class="text-slate-600 mb-6 italic">
+                Sebelum masuk ke transaksi, kita butuh database yang ramai! Masukkan data minimal 10 baris untuk setiap tabel master.
+            </p>
+            
+            <div class="space-y-6">
+                <div class="p-4 bg-slate-50 rounded-lg">
+                    <h4 class="font-bold text-indigo-600 mb-2">Tantangan 1.1: Isi Data Kategori, Penulis, & Buku</h4>
+                    <p class="text-sm text-slate-700">Gunakan perintah <code>INSERT INTO</code> untuk mengisi:</p>
+                    <ul class="list-disc list-inside text-xs text-slate-500 mt-2">
+                        <li>Minimal 10 Kategori (Fiksi, Sains, Sejarah, Komik, dll)</li>
+                        <li>Minimal 10 Penulis ternama.</li>
+                        <li>Minimal 10 Judul Buku yang bervariasi.</li>
+                    </ul>
+                    <div class="sql-placeholder">-- Tulis query INSERT massal di sini</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase 2: Struktur Transaksi -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-blue-500">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">🏗️</span> Fase 2: Membuat Tabel Transaksi
+            </h2>
+            <p class="text-slate-600 mb-6">
+                Sekarang, buatlah tabel <strong>peminjaman</strong> dengan struktur yang mendukung fitur "Jatuh Tempo".
+            </p>
+            
+            <div class="p-4 bg-slate-50 rounded-lg mb-6">
+                <h4 class="font-bold text-indigo-600 mb-2">Tantangan 2.1: CREATE TABLE peminjaman</h4>
+                <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <li><code>id_pinjam</code> (INT, PK, AI)</li>
+                    <li><code>id_buku</code> (INT)</li>
+                    <li><code>nama_peminjam</code> (VARCHAR 100)</li>
+                    <li><code>tgl_pinjam</code> (DATE)</li>
+                    <li><code>tgl_kembali</code> (DATE) <span class="text-xs text-red-500">-- Tanggal seharusnya buku dikembalikan</span></li>
+                </ul>
+                <div class="sql-placeholder">-- Tulis Query CREATE TABLE di sini</div>
+            </div>
+
+            <!-- Ilustrasi Tabel Kosong -->
+            <div class="mt-8">
+                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Ilustrasi Struktur Tabel Peminjaman</h4>
+                <table class="w-full empty-table shadow-sm">
+                    <thead>
+                        <tr>
+                            <th>id_pinjam</th>
+                            <th>id_buku</th>
+                            <th>nama_peminjam</th>
+                            <th>tgl_pinjam</th>
+                            <th>tgl_kembali</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <p class="text-[10px] text-slate-400 mt-2">* Tabel di atas adalah gambaran kolom yang baru saja kamu buat.</p>
+            </div>
+        </div>
+
+        <!-- Fase 3: Rekam Transaksi -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-purple-500">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">📝</span> Fase 3: Mengisi Rekaman Transaksi
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Masukkan <strong>minimal 20 data transaksi</strong>. Pastikan variasi tanggal ada yang sudah lewat (lampau) dan ada yang untuk masa depan.
+            </p>
+            <div class="sql-placeholder">-- Tulis Query INSERT untuk 20 transaksi di sini</div>
+        </div>
+
+        <!-- Fase 4: Analisis & Filter -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-orange-500">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">🔍</span> Fase 4: Filter & Reporting (5 Variasi)
+            </h2>
+            <p class="text-slate-600 mb-6">Gunakan perintah <code>SELECT</code> untuk menjawab kebutuhan laporan berikut:</p>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold text-slate-800">1. Laporan Semua Transaksi</h4>
+                    <p class="text-xs text-slate-500">Tampilkan seluruh kolom dari tabel peminjaman.</p>
+                    <div class="sql-placeholder"></div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-800">2. Filter Peminjam Spesifik</h4>
+                    <p class="text-xs text-slate-500">Tampilkan semua buku yang dipinjam oleh "Budi".</p>
+                    <div class="sql-placeholder"></div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-800">3. Filter Berdasarkan Buku</h4>
+                    <p class="text-xs text-slate-500">Tampilkan siapa saja yang pernah meminjam Buku dengan ID 5.</p>
+                    <div class="sql-placeholder"></div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-800 text-red-600">4. Laporan JATUH TEMPO (Kritis!)</h4>
+                    <p class="text-xs text-slate-500">Tampilkan data peminjaman yang tanggal kembalinya <span class="font-bold">sebelum</span> tanggal hari ini (asumsikan hari ini 2025-11-10).</p>
+                    <div class="sql-placeholder"></div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-800">5. Laporan Peminjaman Bulan Tertentu</h4>
+                    <p class="text-xs text-slate-500">Tampilkan semua transaksi yang terjadi pada bulan November 2025.</p>
+                    <div class="sql-placeholder"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <footer class="text-center text-slate-400 text-xs py-6 border-t border-slate-200">
+            <p>"Data yang rapi adalah awal dari sistem yang hebat."</p>
+        </footer>
+    </div>
+
+</body>
+</html>
