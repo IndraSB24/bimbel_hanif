@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi SQL: Create & Read Data</title>
+    <title>Materi SQL: Create, Read & Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .sql-code {
@@ -14,12 +14,14 @@
             font-family: 'Courier New', Courier, monospace;
             margin: 1rem 0;
             overflow-x: auto;
+            border-left: 4px solid #38bdf8;
         }
         .keyword { color: #38bdf8; font-weight: bold; }
         .table-name { color: #fbbf24; }
         .string { color: #4ade80; }
         .comment { color: #94a3b8; font-style: italic; }
         .operator { color: #f472b6; font-weight: bold; }
+        .function { color: #c084fc; font-weight: bold; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
@@ -27,13 +29,13 @@
     <div class="max-w-4xl mx-auto py-12 px-6">
         <!-- Header -->
         <header class="border-b-4 border-blue-500 pb-6 mb-10">
-            <h1 class="text-4xl font-extrabold text-slate-900">Sesi 24: SQL - Create & Read Data</h1>
-            <p class="text-xl text-slate-600 mt-2">Belajar dasar manipulasi database dengan SQL.</p>
+            <h1 class="text-4xl font-extrabold text-slate-900">Sesi 24: SQL - Create, Read & Analytics</h1>
+            <p class="text-xl text-slate-600 mt-2">Belajar manipulasi dan analisis data dengan SQL.</p>
         </header>
 
         <!-- Bagian 1: Konsep -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">1. Apa itu Create & Read?</h2>
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">1. Apa itu Create & Read?</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
                     <h3 class="font-bold text-lg mb-2 text-green-700">CREATE</h3>
@@ -48,14 +50,13 @@
 
         <!-- Bagian 2: Skema Tabel Master -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">2. Persiapan: Skema Tabel Master</h2>
-            <p class="mb-4">Pastikan kamu sudah membuat tabel-tabel utama ini sebelum mengisi data:</p>
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">2. Persiapan: Skema Tabel Master</h2>
+            <p class="mb-4 text-slate-600">Pastikan kamu sudah membuat tabel-tabel utama ini sebelum mengisi data:</p>
             
             <div class="space-y-6">
                 <div class="bg-white p-4 rounded shadow">
-                    <h4 class="font-bold text-blue-600 mb-2">Tabel: kategori, penulis, dan buku</h4>
+                    <h4 class="font-bold text-blue-600 mb-2 text-sm uppercase">Contoh Tabel Buku</h4>
                     <div class="sql-code">
-                        <span class="comment">-- Contoh salah satu tabel</span><br>
                         <span class="keyword">CREATE TABLE</span> <span class="table-name">buku</span> (<br>
                         &nbsp;&nbsp;id_buku <span class="keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,<br>
                         &nbsp;&nbsp;judul <span class="keyword">VARCHAR</span>(200),<br>
@@ -69,30 +70,30 @@
 
         <!-- Bagian 3: Memasukkan Data (INSERT) -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">3. Memasukkan Data (CREATE)</h2>
-            <p class="mb-4">Gunakan <code>INSERT INTO</code> untuk memasukkan minimal 10 data agar database bervariasi.</p>
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">3. Memasukkan Data (CREATE)</h2>
+            <p class="mb-4 text-slate-600">Gunakan <code>INSERT INTO</code> untuk memasukkan data sekaligus. Sangat disarankan memasukkan banyak data agar laporan lebih bervariasi.</p>
             <div class="sql-code">
-                <span class="comment">-- Masukkan banyak data sekaligus</span><br>
+                <span class="comment">-- Masukkan data kategori sekaligus</span><br>
                 <span class="keyword">INSERT INTO</span> <span class="table-name">kategori</span> (nama_kategori) <br>
                 <span class="keyword">VALUES</span> (<span class="string">'Fiksi'</span>), (<span class="string">'Sains'</span>), (<span class="string">'Sejarah'</span>), (<span class="string">'Biografi'</span>), (<span class="string">'Komik'</span>);
             </div>
         </section>
 
-        <!-- Bagian 4: Membaca Data (READ) -->
+        <!-- Bagian 4: Membaca Data (READ) Dasar -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">4. Membaca Data (READ) Dasar</h2>
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">4. Membaca Data Dasar</h2>
             <div class="sql-code">
-                <span class="comment">-- Ambil semua data</span><br>
+                <span class="comment">-- Ambil semua kolom</span><br>
                 <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span>;<br><br>
-                <span class="comment">-- Ambil kolom tertentu saja</span><br>
+                <span class="comment">-- Ambil kolom judul dan penulis saja</span><br>
                 <span class="keyword">SELECT</span> judul, id_penulis <span class="keyword">FROM</span> <span class="table-name">buku</span>;
             </div>
         </section>
 
-        <!-- Bagian 5: Operator di dalam WHERE (PENTING!) -->
-        <section class="mb-12 bg-yellow-50 p-6 rounded-xl border border-yellow-200">
-            <h2 class="text-2xl font-bold mb-4 text-yellow-800">5. Operator dalam Klausa WHERE</h2>
-            <p class="mb-4">Operator digunakan untuk memfilter data agar lebih spesifik sesuai kebutuhan laporan.</p>
+        <!-- Bagian 5: Operator WHERE -->
+        <section class="mb-12 bg-yellow-50 p-6 rounded-xl border border-yellow-200 shadow-sm">
+            <h2 class="text-2xl font-bold mb-4 text-yellow-800 border-l-4 border-yellow-500 pl-3">5. Filter Data dengan Klausa WHERE</h2>
+            <p class="mb-4 text-slate-700">Digunakan untuk menyaring data agar yang muncul hanya yang kita butuhkan saja.</p>
             
             <div class="overflow-x-auto">
                 <table class="w-full text-left bg-white rounded-lg shadow-sm mb-6">
@@ -100,7 +101,7 @@
                         <tr class="bg-slate-800 text-white">
                             <th class="p-3">Operator</th>
                             <th class="p-3">Deskripsi</th>
-                            <th class="p-3">Contoh Penggunaan</th>
+                            <th class="p-3">Contoh</th>
                         </tr>
                     </thead>
                     <tbody class="text-sm">
@@ -110,53 +111,85 @@
                             <td class="p-3"><code>WHERE id_kategori = 1</code></td>
                         </tr>
                         <tr class="border-b">
-                            <td class="p-3 font-mono font-bold text-pink-600">!= atau &lt;&gt;</td>
+                            <td class="p-3 font-mono font-bold text-pink-600">!=</td>
                             <td class="p-3">Tidak sama dengan</td>
-                            <td class="p-3"><code>WHERE nama_peminjam != 'Budi'</code></td>
+                            <td class="p-3"><code>WHERE nama != 'Budi'</code></td>
                         </tr>
                         <tr class="border-b">
-                            <td class="p-3 font-mono font-bold text-pink-600">&gt; dan &lt;</td>
-                            <td class="p-3">Besar dari / Kecil dari</td>
-                            <td class="p-3"><code>WHERE tgl_kembali < '2025-11-10'</code></td>
+                            <td class="p-3 font-mono font-bold text-pink-600">&gt; , &lt;</td>
+                            <td class="p-3">Besar / Kecil dari</td>
+                            <td class="p-3"><code>WHERE tgl < '2025-11-10'</code></td>
                         </tr>
                         <tr class="border-b">
                             <td class="p-3 font-mono font-bold text-pink-600">LIKE</td>
-                            <td class="p-3">Pencarian pola teks (paling sering pakai %)</td>
-                            <td class="p-3"><code>WHERE nama LIKE 'Bu%'</code> (Cari yang awalan Bu)</td>
+                            <td class="p-3">Pola Teks (%)</td>
+                            <td class="p-3"><code>WHERE nama LIKE 'Bu%'</code></td>
                         </tr>
                         <tr class="border-b">
                             <td class="p-3 font-mono font-bold text-pink-600">BETWEEN</td>
-                            <td class="p-3">Di antara rentang nilai</td>
-                            <td class="p-3"><code>WHERE tgl_pinjam BETWEEN '2025-01-01' AND '2025-01-31'</code></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="p-3 font-mono font-bold text-pink-600">IN</td>
-                            <td class="p-3">Cocok dengan salah satu nilai di list</td>
-                            <td class="p-3"><code>WHERE id_kategori IN (1, 3, 5)</code></td>
+                            <td class="p-3">Antara rentang</td>
+                            <td class="p-3"><code>WHERE id BETWEEN 1 AND 10</code></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </section>
 
-            <div class="bg-white p-4 rounded-lg shadow-inner">
-                <h4 class="font-bold mb-2 text-slate-700">Contoh Query Filter Lanjutan:</h4>
-                <div class="sql-code text-xs">
-                    <span class="comment">-- Mencari peminjaman yang "Jatuh Tempo" (sebelum hari ini)</span><br>
-                    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> tgl_kembali <span class="operator">&lt;</span> <span class="string">'2025-11-10'</span>;<br><br>
-                    
-                    <span class="comment">-- Mencari nama peminjam yang mengandung huruf "Siti"</span><br>
-                    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> nama_peminjam <span class="keyword">LIKE</span> <span class="string">'%Siti%'</span>;
+        <!-- Bagian 6: Analisis & Reporting (Sorting) -->
+        <section class="mb-12 bg-indigo-50 p-6 rounded-xl border border-indigo-200">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-900 border-l-4 border-indigo-500 pl-3">6. Sorting & Analisis Data (Reporting)</h2>
+            <p class="mb-4 text-slate-700">Agar laporan data lebih rapi dan profesional, kita perlu mengurutkan atau menghitung datanya.</p>
+
+            <div class="space-y-6">
+                <!-- ORDER BY -->
+                <div>
+                    <h4 class="font-bold text-indigo-700">A. Pengurutan (ORDER BY)</h4>
+                    <p class="text-xs text-slate-500 mb-2">Mengurutkan data dari terkecil (ASC) atau terbesar (DESC).</p>
+                    <div class="sql-code">
+                        <span class="comment">-- Urutkan berdasarkan judul dari A ke Z</span><br>
+                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">buku</span> <span class="keyword">ORDER BY</span> judul <span class="keyword">ASC</span>;<br><br>
+                        <span class="comment">-- Urutkan transaksi terbaru ke terlama</span><br>
+                        <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">ORDER BY</span> tgl_pinjam <span class="keyword">DESC</span>;
+                    </div>
+                </div>
+
+                <!-- DISTINCT -->
+                <div>
+                    <h4 class="font-bold text-indigo-700">B. Menghapus Duplikat (DISTINCT)</h4>
+                    <p class="text-xs text-slate-500 mb-2">Menampilkan nilai-nilai yang unik saja (tidak ada yang dobel).</p>
+                    <div class="sql-code">
+                        <span class="comment">-- Tampilkan daftar nama peminjam (tanpa pengulangan nama)</span><br>
+                        <span class="keyword">SELECT DISTINCT</span> nama_peminjam <span class="keyword">FROM</span> <span class="table-name">peminjaman</span>;
+                    </div>
+                </div>
+
+                <!-- AGGREGATION -->
+                <div>
+                    <h4 class="font-bold text-indigo-700">C. Fungsi Agregasi (Penghitungan)</h4>
+                    <p class="text-xs text-slate-500 mb-2">Perintah untuk melakukan perhitungan otomatis pada kolom.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+                        <div class="bg-white p-2 border rounded text-center text-xs"><strong>COUNT()</strong><br>Hitung Baris</div>
+                        <div class="bg-white p-2 border rounded text-center text-xs"><strong>SUM()</strong><br>Jumlahkan Total</div>
+                        <div class="bg-white p-2 border rounded text-center text-xs"><strong>AVG()</strong><br>Rata-rata</div>
+                        <div class="bg-white p-2 border rounded text-center text-xs"><strong>MAX/MIN</strong><br>Nilai Tertinggi</div>
+                    </div>
+                    <div class="sql-code">
+                        <span class="comment">-- Hitung total buku yang dipinjam</span><br>
+                        <span class="keyword">SELECT</span> <span class="function">COUNT</span>(*) <span class="keyword">FROM</span> <span class="table-name">peminjaman</span>;<br><br>
+                        <span class="comment">-- Cari harga buku paling mahal</span><br>
+                        <span class="keyword">SELECT</span> <span class="function">MAX</span>(harga) <span class="keyword">FROM</span> <span class="table-name">buku</span>;
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bagian 6: Visualisasi Data -->
+        <!-- Bagian 7: Visualisasi Data -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">6. Visualisasi Hasil Query</h2>
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">7. Visualisasi Hasil Query</h2>
             <div class="grid grid-cols-1 gap-8">
-                <div>
-                    <h5 class="font-bold mb-2">Contoh Output SELECT * FROM buku WHERE id_kategori = 1;</h5>
-                    <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow text-sm">
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <h5 class="font-bold mb-2 text-slate-700 text-sm italic">Contoh Output SELECT * FROM buku WHERE id_kategori = 1;</h5>
+                    <table class="w-full text-left border-collapse rounded-lg overflow-hidden shadow-sm text-sm">
                         <thead>
                             <tr class="bg-slate-800 text-white">
                                 <th class="p-3">id_buku</th>
@@ -172,7 +205,7 @@
                                 <td class="p-3 text-center">1</td>
                                 <td class="p-3 text-center">1</td>
                             </tr>
-                            <tr class="border-b">
+                            <tr class="border-b bg-slate-50">
                                 <td class="p-3 text-center">2</td>
                                 <td class="p-3 italic">Pulang</td>
                                 <td class="p-3 text-center">1</td>
@@ -185,7 +218,7 @@
         </section>
 
         <footer class="mt-20 pt-6 border-t text-center text-slate-500">
-            <p>&copy; 2025 Web Development Course - Materi Database</p>
+            <p>&copy; 2025 Web Development Course - Materi Database Lanjutan</p>
         </footer>
     </div>
 
