@@ -99,7 +99,6 @@
         <div id="clue1" class="clue-content">
             Tips: Gunakan <code>PRIMARY KEY AUTO_INCREMENT</code> untuk ID. Gunakan <code>UNIQUE</code> untuk kontak agar tidak ganda.
         </div>
-
         <textarea placeholder="CREATE TABLE pelanggan ( ... );"></textarea>
     </div>
 
