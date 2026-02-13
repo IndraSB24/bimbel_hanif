@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan SQL: Update & Delete Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-placeholder {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            color: #64748b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            min-height: 100px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .warning-text {
+            color: #b91c1c;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-black text-orange-600">🛠️ Tantangan Update & Delete</h1>
+            <p class="text-slate-600 mt-2 text-lg">Mengelola Perubahan Data dengan Presisi dan Aman</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <span class="badge bg-orange-100 text-orange-700">Level: Menengah</span>
+                <span class="badge bg-slate-200 text-slate-700">Sesi 25</span>
+            </div>
+        </header>
+
+        <!-- Instruksi Awal -->
+        <div class="bg-blue-600 text-white p-6 rounded-2xl shadow-lg mb-10">
+            <h2 class="text-xl font-bold mb-2">💡 Instruksi Kerja</h2>
+            <p class="text-sm opacity-90 leading-relaxed">
+                Gunakan database perpustakaan yang sudah kamu buat di sesi sebelumnya. 
+                Sebelum menjalankan perintah <code class="bg-blue-800 px-1 rounded">UPDATE</code> atau <code class="bg-blue-800 px-1 rounded">DELETE</code>, 
+                sangat disarankan untuk menjalankan <code class="bg-blue-800 px-1 rounded">SELECT</code> terlebih dahulu untuk memastikan target baris sudah benar.
+            </p>
+        </div>
+
+        <!-- Fase 1: Tantangan Update (Pembaruan) -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-orange-500">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="mr-3">🔄</span> Fase 1: Tantangan Pembaruan Data
+            </h2>
+
+            <div class="space-y-10">
+                <!-- Soal 1.1 -->
+                <div>
+                    <h4 class="font-bold text-slate-800">1.1 Koreksi Judul Spesifik</h4>
+                    <p class="text-sm text-slate-600">Buku dengan ID 3 ternyata memiliki kesalahan judul. Ubah judulnya menjadi <span class="font-mono text-blue-600">"Sistem Operasi Modern"</span>.</p>
+                    <div class="sql-placeholder">-- Masukkan Query UPDATE ID 3 di sini</div>
+                </div>
+
+                <!-- Soal 1.2 -->
+                <div>
+                    <h4 class="font-bold text-slate-800">1.2 Update Stok Berdasarkan Kategori (Multi-Kondisi)</h4>
+                    <p class="text-sm text-slate-600">Toko baru saja menerima pasokan buku baru. Tambahkan stok sebanyak <strong>10</strong> untuk semua buku yang memiliki <span class="font-bold">id_kategori = 2</span> DAN <span class="font-bold">stok saat ini kurang dari 5</span>.</p>
+                    <div class="sql-placeholder">-- Masukkan Query UPDATE dengan AND di sini</div>
+                </div>
+
+                <!-- Soal 1.3 -->
+                <div>
+                    <h4 class="font-bold text-slate-800">1.3 Reset Data Massal (Logika OR)</h4>
+                    <p class="text-sm text-slate-600">Ubah semua status buku menjadi <span class="font-mono text-blue-600">'ARSIP'</span> jika buku tersebut memiliki <span class="font-bold">stok = 0</span> ATAU <span class="font-bold">id_kategori = 99</span> (kategori tidak dikenal).</p>
+                    <div class="sql-placeholder">-- Masukkan Query UPDATE dengan OR di sini</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase 2: Tantangan Delete (Penghapusan) -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-red-500">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">🗑️</span> Fase 2: Tantangan Penghapusan Data
+            </h2>
+            <p class="warning-text mb-6 italic">Hati-hati! Sekali dihapus, data tidak bisa dikembalikan.</p>
+
+            <div class="space-y-10">
+                <!-- Soal 2.1 -->
+                <div>
+                    <h4 class="font-bold text-slate-800">2.1 Hapus Record Tunggal</h4>
+                    <p class="text-sm text-slate-600">Hapus data peminjaman yang memiliki <strong>id_pinjam = 12</strong> (karena salah input).</p>
+                    <div class="sql-placeholder">-- Masukkan Query DELETE di sini</div>
+                </div>
+
+                <!-- Soal 2.2 -->
+                <div>
+                    <h4 class="font-bold text-slate-800 text-red-700 underline">2.2 Pembersihan Data Transaksi (Pre-Flight Check)</h4>
+                    <p class="text-sm text-slate-600 mb-2">Tantangan ini memiliki dua langkah:</p>
+                    <p class="text-xs text-slate-500">Langkah A: Tampilkan dulu (SELECT) data peminjaman milik peminjam bernama <span class="font-bold">'Siti'</span> yang meminjam buku <span class="font-bold">id_buku = 5</span>.</p>
+                    <div class="sql-placeholder">-- Jalankan SELECT dulu di sini</div>
+                    
+                    <p class="text-xs text-slate-500 mt-4">Langkah B: Jika datanya sudah benar, tuliskan query untuk menghapusnya.</p>
+                    <div class="sql-placeholder">-- Jalankan DELETE setelah yakin di sini</div>
+                </div>
+
+                <!-- Soal 2.3 -->
+                <div>
+                    <h4 class="font-bold text-slate-800">2.3 Hapus Data Kadaluwarsa (Multi-Kondisi)</h4>
+                    <p class="text-sm text-slate-600">Hapus semua catatan peminjaman yang dilakukan <span class="font-bold text-red-600 italic text-xs">sebelum tanggal '2024-01-01'</span> DAN <span class="font-bold text-red-600 italic text-xs">statusnya sudah 'KEMBALI'</span>.</p>
+                    <div class="sql-placeholder">-- Masukkan Query DELETE dengan AND di sini</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase 3: Simulasi Akhir -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl text-white">
+            <h2 class="text-2xl font-bold mb-4">📊 Laporan Akhir</h2>
+            <p class="text-sm text-slate-400 mb-6">Setelah semua aksi di atas selesai, jalankan query ini untuk melihat kondisi database terbarumu:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900 p-4 rounded border border-slate-700">
+                    <p class="text-xs text-indigo-400 font-mono">-- Cek Stok Terkini</p>
+                    <code class="text-sm">SELECT judul, stok FROM buku ORDER BY stok DESC;</code>
+                </div>
+                <div class="bg-slate-900 p-4 rounded border border-slate-700">
+                    <p class="text-xs text-indigo-400 font-mono">-- Cek Sisa Transaksi</p>
+                    <code class="text-sm">SELECT COUNT(*) FROM peminjaman;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-6 border-t text-center text-slate-400 text-xs italic">
+            <p>"Kesalahan dalam Update/Delete adalah guru terbaik, tapi pastikan kamu punya backup!"</p>
+            <p class="mt-2 font-sans font-normal">&copy; 2025 Bimbel Hanif - Materi Database Mastery</p>
+        </footer>
+    </div>
+
+</body>
+</html>

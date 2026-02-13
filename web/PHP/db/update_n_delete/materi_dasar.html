@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi SQL: Update & Delete Data (Multi-Kondisi)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-code {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            border-left: 4px solid #f59e0b;
+        }
+        .keyword { color: #38bdf8; font-weight: bold; }
+        .table-name { color: #fbbf24; }
+        .string { color: #4ade80; }
+        .comment { color: #94a3b8; font-style: italic; }
+        .logic { color: #f472b6; font-bold: bold; }
+        .danger-zone { border-left-color: #ef4444; }
+        .warning-box {
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: #b91c1c;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="border-b-4 border-orange-500 pb-6 mb-10">
+            <h1 class="text-4xl font-extrabold text-slate-900">Sesi 25: SQL - Update & Delete Lanjutan</h1>
+            <p class="text-xl text-slate-600 mt-2">Menggunakan Multi-Kondisi (AND & OR) untuk Presisi Data.</p>
+        </header>
+
+        <!-- Bagian 1: Mengenal Operator Logika -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-3">1. Operator Logika dalam WHERE</h2>
+            <p class="mb-4 text-slate-600">Seringkali kita ingin mengubah atau menghapus data yang memenuhi lebih dari satu kriteria. Untuk itu, kita gunakan:</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-indigo-500">
+                    <h3 class="font-bold text-indigo-700 mb-2 text-lg">AND</h3>
+                    <p class="text-sm">Semua kondisi <strong>WAJIB</strong> terpenuhi agar data berubah/dihapus.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-pink-500">
+                    <h3 class="font-bold text-pink-700 mb-2 text-lg">OR</h3>
+                    <p class="text-sm">Hanya salah satu kondisi yang perlu terpenuhi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 2: UPDATE Multi-Kondisi -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-orange-500 pl-3">2. UPDATE dengan Multi-Kondisi</h2>
+            <p class="mb-4 text-slate-600">Contoh implementasi mengubah data dengan kriteria yang spesifik.</p>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+                <h4 class="font-bold mb-2 text-sm text-slate-500 uppercase italic">Contoh Kasus 1 (AND):</h4>
+                <p class="text-xs text-slate-600 mb-3">"Kurangi stok buku kategori ID 1 (Fiksi) yang harganya di atas 100rb."</p>
+                <div class="sql-code">
+                    <span class="keyword">UPDATE</span> <span class="table-name">buku</span> <br>
+                    <span class="keyword">SET</span> stok = stok - 1 <br>
+                    <span class="keyword">WHERE</span> id_kategori = 1 <span class="logic">AND</span> harga > 100000;
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-bold mb-2 text-sm text-slate-500 uppercase italic">Contoh Kasus 2 (OR):</h4>
+                <p class="text-xs text-slate-600 mb-3">"Setel status member menjadi 'Tidak Aktif' jika mereka belum meminjam sejak 2024 ATAU mereka memiliki denda."</p>
+                <div class="sql-code">
+                    <span class="keyword">UPDATE</span> <span class="table-name">member</span> <br>
+                    <span class="keyword">SET</span> status = <span class="string">'Nonaktif'</span> <br>
+                    <span class="keyword">WHERE</span> tgl_terakhir_pinjam < <span class="string">'2024-01-01'</span> <span class="logic">OR</span> denda > 0;
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 3: DELETE Multi-Kondisi -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 border-l-4 border-red-500 pl-3">3. DELETE dengan Multi-Kondisi</h2>
+            <div class="warning-box mb-6">
+                <strong>Hati-hati:</strong> Multi-kondisi pada <code>DELETE</code> harus diperiksa dua kali agar tidak salah hapus data penting!
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+                <h4 class="font-bold mb-2 text-sm text-slate-500 uppercase italic">Contoh Kasus 1 (AND):</h4>
+                <p class="text-xs text-slate-600 mb-3">"Hapus transaksi peminjaman milik 'Budi' yang sudah dikembalikan (tgl_kembali sudah terisi)."</p>
+                <div class="sql-code danger-zone">
+                    <span class="keyword">DELETE FROM</span> <span class="table-name">peminjaman</span> <br>
+                    <span class="keyword">WHERE</span> nama_peminjam = <span class="string">'Budi'</span> <span class="logic">AND</span> tgl_kembali <span class="keyword">IS NOT NULL</span>;
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-bold mb-2 text-sm text-slate-500 uppercase italic">Contoh Kasus 2 (In-Range Filter):</h4>
+                <p class="text-xs text-slate-600 mb-3">"Hapus buku yang stoknya 0 DAN kategorinya sudah tidak ada (misal kategori ID 99)."</p>
+                <div class="sql-code danger-zone">
+                    <span class="keyword">DELETE FROM</span> <span class="table-name">buku</span> <br>
+                    <span class="keyword">WHERE</span> stok = 0 <span class="logic">AND</span> id_kategori = 99;
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 4: Tips Lanjutan -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Tips: Gunakan SELECT sebelum UPDATE/DELETE</h2>
+            <p class="mb-4 text-slate-600">Cara terbaik menghindari kesalahan adalah dengan "mengintip" datanya dulu menggunakan <code>SELECT</code> dengan kondisi yang sama.</p>
+            <div class="bg-slate-800 p-6 rounded-lg">
+                <p class="text-white text-sm mb-3 font-bold">Langkah Aman:</p>
+                <p class="text-slate-400 text-xs mb-2">1. Cek dulu siapa yang mau dihapus:</p>
+                <div class="sql-code border-blue-500 bg-slate-900">
+                    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> id_buku = 5 <span class="logic">AND</span> tgl_pinjam < <span class="string">'2023-01-01'</span>;
+                </div>
+                <p class="text-slate-400 text-xs mt-4 mb-2">2. Jika data yang muncul sudah benar, barulah ganti SELECT menjadi DELETE:</p>
+                <div class="sql-code danger-zone bg-slate-900">
+                    <span class="keyword">DELETE FROM</span> <span class="table-name">peminjaman</span> <span class="keyword">WHERE</span> id_buku = 5 <span class="logic">AND</span> tgl_pinjam < <span class="string">'2023-01-01'</span>;
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-20 pt-6 border-t text-center text-slate-500">
+            <p>&copy; 2025 Web Development Course - Update & Delete Master</p>
+        </footer>
+    </div>
+
+</body>
+</html>
