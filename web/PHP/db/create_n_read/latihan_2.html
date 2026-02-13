@@ -57,8 +57,7 @@
             <p class="text-slate-600 mb-6">
                 Masukkan minimal <strong>10 data bebas</strong> untuk masing-masing tabel: <code>kategori</code>, <code>penulis</code>, dan <code>buku</code>.
             </p>
-            <div class="sql-placeholder">-- Hint: INSERT INTO buku (judul, id_penulis, id_kategori) VALUES ('Judul 1', 1, 1), ('Judul 2', 2, 2)... dst sampai 10 baris</div>
-        </div>
+            <div class="sql-placeholder">
 
         <!-- Fase 2: Transaksi -->
         <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border-l-8 border-blue-500">
@@ -128,7 +127,22 @@
                 <div>
                     <h4 class="font-bold">5. Laporan Bulanan</h4>
                     <p class="text-xs text-slate-500">Tampilkan transaksi yang terjadi antara '2025-11-01' sampai '2025-11-30'.</p>
-                    <div class="sql-placeholder"></div>
+                    <div class="sql-placeholder">
+INSERT INTO kategori (id_kategori, nama_kategori) VALUES 
+(1, 'Teknologi'), (2, 'Sains'), (3, 'Fiksi'), (4, 'Sejarah'), (5, 'Bisnis'),
+(6, 'Seni'), (7, 'Kesehatan'), (8, 'Psikologi'), (9, 'Agama'), (10, 'Komik');
+
+-- Mengisi Tabel Penulis
+INSERT INTO penulis (id_penulis, nama_penulis) VALUES 
+(1, 'Tere Liye'), (2, 'Dee Lestari'), (3, 'Raditya Dika'), (4, 'Andrea Hirata'), (5, 'Pramoedya A.T'),
+(6, 'Robert Kiyosaki'), (7, 'James Clear'), (8, 'Elon Musk'), (9, 'Habiburrahman'), (10, 'J.K Rowling');
+
+-- Mengisi Tabel Buku
+INSERT INTO buku (id_buku, judul, id_kategori, id_penulis) VALUES 
+(1, 'Bumi', 3, 1), (2, 'Filosofi Teras', 8, 7), (3, 'Atomic Habits', 8, 7), 
+(4, 'Laskar Pelangi', 3, 4), (5, 'Rich Dad Poor Dad', 5, 6), (6, 'Pulang', 3, 1), 
+(7, 'Supernova', 3, 2), (8, 'Manusia Setengah Salmon', 10, 3), (9, 'Bumi Manusia', 4, 5), 
+(10, 'Harry Potter', 3, 10);</div>
                 </div>
             </div>
         </div>
