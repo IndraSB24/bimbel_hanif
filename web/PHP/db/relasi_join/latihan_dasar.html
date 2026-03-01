@@ -49,14 +49,22 @@
         <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border border-slate-200">
             <h3 class="font-bold text-slate-800 text-xl mb-4">Tantangan 1: Laporan Buku & Kategori</h3>
             <p class="text-sm text-slate-600">Tampilkan daftar <strong>judul buku</strong> dan <strong>nama kategori</strong>-nya. Gunakan <code>INNER JOIN</code> agar hanya buku yang memiliki kategori saja yang muncul.</p>
-            <div class="sql-placeholder">-- Tulis Query INNER JOIN di sini</div>
+            <div class="sql-placeholder">select buku.nama_buku,kategori.nama_kategori
+                from buku
+                inner join kategori
+                on buku.id_kategori = kategori.id_kategori;
+            </div>
         </div>
 
         <!-- Tantangan 2 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border border-slate-200">
             <h3 class="font-bold text-slate-800 text-xl mb-4">Tantangan 2: Daftar Penulis Buku</h3>
             <p class="text-sm text-slate-600">Tampilkan <strong>judul buku</strong> dan <strong>nama penulis</strong>-nya. Pastikan kamu menghubungkan <code>id_penulis</code> dari kedua tabel.</p>
-            <div class="sql-placeholder">-- Tulis Query INNER JOIN (Buku & Penulis) di sini</div>
+            <div class="sql-placeholder">select buku.nama_buku, penulis.nama_penulis
+                from Buku
+                inner join penulis
+                on buku.id_penulis = penulis.id_penulis;
+            </div>
         </div>
 
         <!-- Tantangan 3 -->
@@ -64,12 +72,16 @@
             <h3 class="font-bold text-pink-700 text-xl mb-4">Tantangan 3: Audit Kategori (LEFT JOIN)</h3>
             <p class="text-sm text-slate-600 italic">"Tampilkan semua nama kategori, termasuk kategori yang belum memiliki buku sama sekali."</p>
             <p class="text-xs text-slate-500 mt-2">Hint: Letakkan tabel <code>kategori</code> di sebelah kiri (FROM).</p>
-            <div class="sql-placeholder">-- Tulis Query LEFT JOIN di sini</div>
+            <div class="sql-placeholder">select buku.nama_buku, kategori.nama_kategori
+                from buku
+                left join kategori
+                on buku.id_kategori = kategori.id_kategori;
+            </div>
         </div>
 
         <!-- Footer -->
         <footer class="text-center text-slate-400 text-xs py-6 border-t border-slate-200">
-            <p>&copy; 2025 Bimbel Hanif - Dasar Relasi Database</p>
+            <p>&copy; 2026 Bimbel Hanif - Dasar Relasi Database</p>
         </footer>
     </div>
 
