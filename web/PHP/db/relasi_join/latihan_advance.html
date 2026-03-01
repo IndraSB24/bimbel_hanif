@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan SQL: Join Lanjutan (Expert)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-placeholder {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: #38bdf8;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            min-height: 120px;
+        }
+        .badge-expert {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .table-output th {
+            padding: 8px 12px;
+            border-right: 1px solid #334155;
+        }
+        .table-output td {
+            padding: 8px 12px;
+            border-right: 1px solid #334155;
+        }
+        .table-output th:last-child, .table-output td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-black text-white">🚀 Tantangan Multi-Join Lanjutan</h1>
+            <p class="text-slate-400 mt-2 text-lg">Menggabungkan Banyak Tabel & Analitik</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <span class="badge-expert text-white">Level: Advance</span>
+                <span class="badge-expert text-white">Sesi 26.2</span>
+            </div>
+        </header>
+
+        <!-- Tantangan 1 -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl mb-10 border border-slate-700">
+            <h3 class="font-bold text-indigo-400 text-xl mb-4">1. Laporan Inventaris Lengkap (3 Tabel)</h3>
+            <p class="text-sm text-slate-400 mb-4">
+                Tampilkan laporan yang berisi: <strong>Judul Buku</strong>, <strong>Nama Penulis</strong>, dan <strong>Nama Kategori</strong> dalam satu baris hasil.
+            </p>
+            <div class="sql-placeholder">-- Gunakan INNER JOIN berantai (2x JOIN)</div>
+            
+            <!-- Ekspektasi Output -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Ekspektasi Output:</h4>
+                <div class="overflow-x-auto border border-slate-700 rounded-lg">
+                    <table class="w-full text-xs text-left text-slate-300 table-output">
+                        <thead class="bg-slate-700 text-slate-200 uppercase text-[10px]">
+                            <tr>
+                                <th>judul</th>
+                                <th>nama_penulis</th>
+                                <th>nama_kategori</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-700">
+                                <td class="italic text-white">Hujan</td>
+                                <td>Tere Liye</td>
+                                <td>Fiksi</td>
+                            </tr>
+                            <tr class="border-b border-slate-700 bg-slate-800/50">
+                                <td class="italic text-white">Dunia Sophie</td>
+                                <td>Jostein Gaarder</td>
+                                <td>Filsafat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tantangan 2 -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl mb-10 border border-slate-700">
+            <h3 class="font-bold text-indigo-400 text-xl mb-4">2. Analisis Statistik: Buku per Kategori</h3>
+            <p class="text-sm text-slate-400 mb-4">
+                Tampilkan <strong>Nama Kategori</strong> dan hitung <strong>Jumlah Buku</strong> yang ada di masing-masing kategori tersebut.
+            </p>
+            <p class="text-xs text-indigo-500 italic">Hint: Gunakan LEFT JOIN, COUNT(), dan GROUP BY.</p>
+            <div class="sql-placeholder">-- Tulis Query Aggregation Join di sini</div>
+
+            <!-- Ekspektasi Output -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Ekspektasi Output:</h4>
+                <div class="overflow-x-auto border border-slate-700 rounded-lg">
+                    <table class="w-full text-xs text-left text-slate-300 table-output">
+                        <thead class="bg-slate-700 text-slate-200 uppercase text-[10px]">
+                            <tr>
+                                <th>nama_kategori</th>
+                                <th>jumlah_buku</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-700">
+                                <td class="text-white">Fiksi</td>
+                                <td class="font-bold text-indigo-400">12</td>
+                            </tr>
+                            <tr class="border-b border-slate-700 bg-slate-800/50">
+                                <td class="text-white">Sejarah</td>
+                                <td class="font-bold text-indigo-400">5</td>
+                            </tr>
+                            <tr class="border-b border-slate-700">
+                                <td class="text-white">Komik</td>
+                                <td class="font-bold text-red-400">0</td> <!-- Menunjukkan efek LEFT JOIN -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tantangan 3 -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl mb-10 border border-slate-700">
+            <h3 class="font-bold text-red-400 text-xl mb-4">3. Deteksi Data "Yatim" (Data Tanpa Relasi)</h3>
+            <p class="text-sm text-slate-400 mb-4">
+                Temukan nama-nama <strong>Penulis</strong> yang saat ini <span class="text-white font-bold underline">tidak memiliki</span> buku satupun di tabel buku.
+            </p>
+            <p class="text-xs text-slate-500 italic">Hint: Gunakan LEFT JOIN dan filter WHERE kolom_kanan IS NULL.</p>
+            <div class="sql-placeholder">-- Tulis Query deteksi data kosong di sini</div>
+
+            <!-- Ekspektasi Output -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Ekspektasi Output:</h4>
+                <div class="overflow-x-auto border border-slate-700 rounded-lg">
+                    <table class="w-full text-xs text-left text-slate-300 table-output">
+                        <thead class="bg-slate-700 text-slate-200 uppercase text-[10px]">
+                            <tr>
+                                <th>nama_penulis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-700">
+                                <td class="text-white">Penulis Misterius</td>
+                            </tr>
+                            <tr class="border-b border-slate-700 bg-slate-800/50">
+                                <td class="text-white">Penulis Baru Belum Rilis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tantangan 4 -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl mb-10 border border-slate-700">
+            <h3 class="font-bold text-green-400 text-xl mb-4">4. Laporan Transaksi Peminjaman Lengkap</h3>
+            <p class="text-sm text-slate-400 mb-4">
+                Tampilkan laporan transaksi yang berisi: <strong>Nama Peminjam</strong>, <strong>Judul Buku</strong>, dan <strong>Tanggal Pinjam</strong>.
+            </p>
+            <div class="sql-placeholder">-- Hubungkan tabel Peminjaman dengan tabel Buku</div>
+
+            <!-- Ekspektasi Output -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Ekspektasi Output:</h4>
+                <div class="overflow-x-auto border border-slate-700 rounded-lg">
+                    <table class="w-full text-xs text-left text-slate-300 table-output">
+                        <thead class="bg-slate-700 text-slate-200 uppercase text-[10px]">
+                            <tr>
+                                <th>nama_peminjam</th>
+                                <th>judul</th>
+                                <th>tgl_pinjam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-700">
+                                <td class="text-white">Andi Saputra</td>
+                                <td class="italic">Sistem Basis Data</td>
+                                <td class="font-mono text-green-400">2025-11-01</td>
+                            </tr>
+                            <tr class="border-b border-slate-700 bg-slate-800/50">
+                                <td class="text-white">Budi Santoso</td>
+                                <td class="italic">Hujan</td>
+                                <td class="font-mono text-green-400">2025-11-05</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t border-slate-800 text-center text-slate-500 text-sm italic">
+            <p>"Join adalah kekuatan utama SQL. Kuasai ini, kuasai data."</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan SQL: Join Dasar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sql-placeholder {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            color: #64748b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            min-height: 100px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-black text-blue-700">📚 Latihan SQL: Join Dasar</h1>
+            <p class="text-slate-600 mt-2 text-lg">Menghubungkan Dua Tabel Secara Akurat</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <span class="badge bg-blue-100 text-blue-700">Level: Pemula</span>
+                <span class="badge bg-slate-200 text-slate-700">Sesi 26.1</span>
+            </div>
+        </header>
+
+        <!-- Petunjuk -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border-l-8 border-blue-500 mb-10 text-sm">
+            <h2 class="font-bold mb-2">Instruksi:</h2>
+            <p>Gunakan tabel <code>buku</code>, <code>kategori</code>, dan <code>penulis</code> yang sudah kamu isi sebelumnya. Pastikan kolom penghubung (FK) sudah terisi angka yang sesuai dengan ID (PK) di tabel referensi.</p>
+        </div>
+
+        <!-- Tantangan 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border border-slate-200">
+            <h3 class="font-bold text-slate-800 text-xl mb-4">Tantangan 1: Laporan Buku & Kategori</h3>
+            <p class="text-sm text-slate-600">Tampilkan daftar <strong>judul buku</strong> dan <strong>nama kategori</strong>-nya. Gunakan <code>INNER JOIN</code> agar hanya buku yang memiliki kategori saja yang muncul.</p>
+            <div class="sql-placeholder">-- Tulis Query INNER JOIN di sini</div>
+        </div>
+
+        <!-- Tantangan 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border border-slate-200">
+            <h3 class="font-bold text-slate-800 text-xl mb-4">Tantangan 2: Daftar Penulis Buku</h3>
+            <p class="text-sm text-slate-600">Tampilkan <strong>judul buku</strong> dan <strong>nama penulis</strong>-nya. Pastikan kamu menghubungkan <code>id_penulis</code> dari kedua tabel.</p>
+            <div class="sql-placeholder">-- Tulis Query INNER JOIN (Buku & Penulis) di sini</div>
+        </div>
+
+        <!-- Tantangan 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-10 border border-slate-200 text-pink-900">
+            <h3 class="font-bold text-pink-700 text-xl mb-4">Tantangan 3: Audit Kategori (LEFT JOIN)</h3>
+            <p class="text-sm text-slate-600 italic">"Tampilkan semua nama kategori, termasuk kategori yang belum memiliki buku sama sekali."</p>
+            <p class="text-xs text-slate-500 mt-2">Hint: Letakkan tabel <code>kategori</code> di sebelah kiri (FROM).</p>
+            <div class="sql-placeholder">-- Tulis Query LEFT JOIN di sini</div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-slate-400 text-xs py-6 border-t border-slate-200">
+            <p>&copy; 2025 Bimbel Hanif - Dasar Relasi Database</p>
+        </footer>
+    </div>
+
+</body>
+</html>
