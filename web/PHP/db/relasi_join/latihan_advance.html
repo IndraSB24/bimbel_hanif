@@ -57,7 +57,8 @@
             <p class="text-sm text-slate-400 mb-4">
                 Tampilkan laporan yang berisi: <strong>Judul Buku</strong>, <strong>Nama Penulis</strong>, dan <strong>Nama Kategori</strong> dalam satu baris hasil.
             </p>
-            <div class="sql-placeholder">-- Gunakan INNER JOIN berantai (2x JOIN)</div>
+            <div class="sql-placeholder">select buku.nama_buku,kategori.nama_kategori,penulis.nama_penulis
+                 from buku inner join kategori on buku.id_kategori = kategori.id_kategori; </div>
             
             <!-- Ekspektasi Output -->
             <div class="mt-6">
