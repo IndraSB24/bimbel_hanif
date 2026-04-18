@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Admin - Service HP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi warna kustom Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5', // Indigo 600
+                        secondary: '#10b981', // Emerald 500
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800">
+
+    <!-- PENJELASAN SLICING (Hanya untuk materi edukasi) -->
+    <div class="max-w-7xl mx-auto p-4 mb-6">
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl shadow-sm">
+            <h2 class="font-bold text-blue-900 text-xl mb-3">💡 Konsep Slicing PHP (Include)</h2>
+            <p class="text-sm text-blue-800 mb-4 leading-relaxed">
+                Di PHP, kita tidak ingin menulis menu Sidebar dan Header berulang-ulang di setiap halaman. Oleh karena itu, desain di bawah ini nantinya akan kita potong (slice) menjadi 4 file:
+            </p>
+            <ul class="list-disc list-inside text-sm text-blue-800 space-y-2">
+                <li><code class="bg-blue-200 px-1 rounded font-bold">sidebar.php</code> : Berisi menu navigasi di sebelah kiri.</li>
+                <li><code class="bg-blue-200 px-1 rounded font-bold">header.php</code> : Berisi bagian atas (Profil user & sapaan).</li>
+                <li><code class="bg-blue-200 px-1 rounded font-bold">footer.php</code> : Berisi penutup tag HTML dan hak cipta di bawah.</li>
+                <li><code class="bg-blue-200 px-1 rounded font-bold">index.php</code> : File utama yang memanggil ketiga file di atas menggunakan <code class="italic">include</code>, dan hanya berisi konten inti di tengahnya saja.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MULAI DESAIN FULL DASHBOARD ADMIN          -->
+    <!-- ========================================== -->
+
+    <div class="flex h-screen overflow-hidden bg-slate-100 max-w-7xl mx-auto border shadow-xl">
+        
+        <!-- 1. SIDEBAR (Nantinya dipisah jadi sidebar.php) -->
+        <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex">
+            <!-- Logo Toko -->
+            <div class="h-16 flex items-center justify-center border-b border-slate-700">
+                <span class="text-2xl mr-2">📱</span>
+                <h1 class="text-xl font-black tracking-widest text-indigo-400">iSERVICE</h1>
+            </div>
+
+            <!-- Menu Navigasi -->
+            <nav class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="#" class="flex items-center gap-3 bg-indigo-600 text-white px-4 py-3 rounded-lg font-medium transition-colors">
+                            <span>🏠</span> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center gap-3 hover:bg-slate-800 text-slate-300 px-4 py-3 rounded-lg font-medium transition-colors">
+                            <span>🛠️</span> Transaksi Servis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center gap-3 hover:bg-slate-800 text-slate-300 px-4 py-3 rounded-lg font-medium transition-colors">
+                            <span>📊</span> Laporan Pendapatan
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Menu Logout di Bawah -->
+            <div class="p-4 border-t border-slate-700">
+                <a href="#" class="flex items-center gap-3 hover:bg-red-600/20 text-red-400 px-4 py-2 rounded-lg font-medium transition-colors">
+                    <span>🚪</span> Keluar (Logout)
+                </a>
+            </div>
+        </aside>
+
+        <!-- AREA KANAN (Header, Content, Footer) -->
+        <div class="flex flex-col flex-1 overflow-hidden">
+            
+            <!-- 2. HEADER (Nantinya dipisah jadi header.php) -->
+            <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shadow-sm z-10">
+                <!-- Sapaan -->
+                <div>
+                    <h2 class="font-bold text-slate-800 text-lg">Halo, Kasir01 👋</h2>
+                    <p class="text-xs text-slate-500">Selamat bekerja hari ini!</p>
+                </div>
+                
+                <!-- Profil Info -->
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium text-slate-600 hidden sm:block">Bapak Kasir Service</span>
+                    <div class="w-10 h-10 bg-indigo-100 rounded-full border-2 border-indigo-500 flex items-center justify-center text-indigo-700 font-black">
+                        KS
+                    </div>
+                </div>
+            </header>
+
+            <!-- 3. KONTEN UTAMA (Berubah-ubah sesuai file, misal index.php) -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-6">
+                
+                <!-- Judul Halaman -->
+                <div class="mb-6 flex justify-between items-center">
+                    <h3 class="text-2xl font-black text-slate-800">Ringkasan Dashboard</h3>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold shadow-sm flex items-center gap-2 text-sm transition-colors">
+                        <span>+</span> Penerimaan Servis Baru
+                    </button>
+                </div>
+
+                <!-- Kartu Statistik (Analytics) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 border-l-4 border-orange-500">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⏳</div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">Dalam Antrean</p>
+                            <p class="text-2xl font-black text-slate-800">5 <span class="text-xs font-normal text-slate-400">Unit</span></p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 border-l-4 border-blue-500">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">🔧</div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">Sedang Diproses</p>
+                            <p class="text-2xl font-black text-slate-800">3 <span class="text-xs font-normal text-slate-400">Unit</span></p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 border-l-4 border-emerald-500">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-2xl">✅</div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">Selesai (Bulan Ini)</p>
+                            <p class="text-2xl font-black text-slate-800">12 <span class="text-xs font-normal text-slate-400">Unit</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabel Data Terbaru -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+                        <h4 class="font-bold text-slate-800">Servis Sedang Berjalan</h4>
+                        <a href="#" class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Lihat Semua →</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-slate-600">
+                            <thead class="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-3">Tgl Masuk</th>
+                                    <th class="px-6 py-3">Pelanggan</th>
+                                    <th class="px-6 py-3">Tipe HP</th>
+                                    <th class="px-6 py-3">Status</th>
+                                    <th class="px-6 py-3">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-slate-100 hover:bg-slate-50">
+                                    <td class="px-6 py-4 font-mono text-xs">2025-11-10</td>
+                                    <td class="px-6 py-4 font-bold text-slate-800">Andi Saputra</td>
+                                    <td class="px-6 py-4">Samsung S22</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded text-[10px] font-bold uppercase">Antrean</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-indigo-600 hover:bg-indigo-50 px-3 py-1 rounded border border-indigo-200 text-xs font-bold transition">Update</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4 font-mono text-xs">2025-11-09</td>
+                                    <td class="px-6 py-4 font-bold text-slate-800">Budi Santoso</td>
+                                    <td class="px-6 py-4">iPhone 11</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-[10px] font-bold uppercase">Proses</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-indigo-600 hover:bg-indigo-50 px-3 py-1 rounded border border-indigo-200 text-xs font-bold transition">Update</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- 4. FOOTER (Nantinya dipisah jadi footer.php) -->
+            <footer class="bg-white border-t border-slate-200 p-4 text-center text-xs text-slate-500">
+                &copy; 2025 iSERVICE App - Dibuat untuk Belajar PHP Native.
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi PHP: Login & Autentikasi Session</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .code-block {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-size: 0.875rem;
+            border: 1px solid #334155;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        .php-tag { color: #f472b6; font-weight: bold; } /* Pink */
+        .php-var { color: #60a5fa; } /* Blue */
+        .php-func { color: #e879f9; } /* Purple */
+        .php-str { color: #34d399; } /* Green */
+        .php-keyword { color: #38bdf8; font-weight: bold; } /* Light Blue */
+        .php-comment { color: #94a3b8; font-style: italic; } /* Slate */
+        .file-badge {
+            display: inline-block;
+            background-color: #475569;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            border: 1px solid #64748b;
+        }
+        .warning-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Header -->
+        <header class="border-b-4 border-indigo-500 pb-6 mb-10 text-center md:text-left">
+            <h1 class="text-4xl font-black text-slate-900">Sesi 27: PHP Sessions & Autentikasi</h1>
+            <p class="text-xl text-slate-600 mt-2 font-medium">Membuat Sistem Login Native dengan MySQL.</p>
+        </header>
+
+        <!-- Bagian 1: Analogi Session -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-indigo-500 pl-3">1. Apa itu Session? (Analogi Gelang Konser)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-6 items-center">
+                <div class="text-6xl text-center w-full md:w-1/4">🎟️</div>
+                <div class="w-full md:w-3/4">
+                    <p class="text-slate-700 leading-relaxed">
+                        Internet itu pelupa (Stateless). Tiap kali kamu pindah halaman, server lupa siapa kamu. 
+                        <strong>Session</strong> adalah solusi untuk ini.
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mt-2">
+                        Bayangkan Session seperti <strong>Gelang Konser VIP</strong>. 
+                        Kamu cek tiket sekali di gerbang depan (<strong>Halaman Login</strong>). Setelah lolos, kamu diberi gelang (<strong>$_SESSION</strong>). 
+                        Dengan gelang itu, kamu bebas masuk ke area VIP mana saja (<strong>Halaman Dashboard</strong>) tanpa harus dicek tiket lagi, sampai kamu menggunting gelang tersebut (<strong>Logout</strong>).
+                    </p>
+                </div>
+            </div>
+            
+            <div class="warning-box mt-6">
+                <h4 class="font-bold text-amber-900 flex items-center gap-2"><span class="text-xl">⚠️</span> ATURAN MUTLAK SESSION</h4>
+                <p class="text-sm text-amber-800 mt-1">Fungsi <code class="bg-amber-200 px-1 rounded font-bold">session_start();</code> <strong>WAJIB</strong> diletakkan di baris paling atas (Baris 1) kode PHP. Tidak boleh ada spasi kosong atau kode HTML sekecil apapun sebelum fungsi ini dipanggil!</p>
+            </div>
+        </section>
+
+        <!-- Bagian 2: Persiapan Database -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-blue-500 pl-3">2. Persiapan Database (phpMyAdmin)</h2>
+            <p class="mb-4 text-slate-600">Buat tabel <code>users</code> di database kamu, dan masukkan satu data admin untuk uji coba login.</p>
+            
+            <div class="code-block border-blue-500 border-l-4">
+<span class="php-comment">-- Buat Tabel Users</span>
+<span class="php-keyword">CREATE TABLE</span> users (
+    id <span class="php-keyword">INT</span> PRIMARY KEY AUTO_INCREMENT,
+    username <span class="php-keyword">VARCHAR</span>(50),
+    password <span class="php-keyword">VARCHAR</span>(50), <span class="php-comment">-- Teks biasa (Plain-text) untuk tahap belajar</span>
+    nama_lengkap <span class="php-keyword">VARCHAR</span>(100)
+);
+
+<span class="php-comment">-- Insert data Admin (Password ditulis langsung tanpa enkripsi)</span>
+<span class="php-keyword">INSERT INTO</span> users (username, password, nama_lengkap) 
+<span class="php-keyword">VALUES</span> (<span class="php-str">'admin'</span>, <span class="php-str">'rahasia123'</span>, <span class="php-str">'Budi Admin'</span>);
+            </div>
+            <p class="text-xs text-slate-500 mt-2 italic">*Catatan Keamanan: Untuk tahap paling dasar ini, kita menyimpan password apa adanya (plain-text) agar alurnya mudah dipahami. Di materi tingkat lanjut, kita wajib menggunakan enkripsi.</p>
+        </section>
+
+        <!-- Bagian 3: Arsitektur File -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-emerald-500 pl-3">3. Arsitektur File</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">🔌</div>
+                    <p class="font-bold text-sm">koneksi.php</p>
+                    <p class="text-xs text-slate-500">Kabel ke Database</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">🚪</div>
+                    <p class="font-bold text-sm">login.php</p>
+                    <p class="text-xs text-slate-500">Pintu Masuk (Form)</p>
+                </div>
+                <div class="bg-slate-800 text-white p-4 rounded-xl shadow-md border-2 border-emerald-400 transform scale-105">
+                    <div class="text-3xl mb-2">🏠</div>
+                    <p class="font-bold text-sm text-emerald-300">dashboard.php</p>
+                    <p class="text-xs text-slate-300">Ruang Rahasia (Proteksi)</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">👋</div>
+                    <p class="font-bold text-sm">logout.php</p>
+                    <p class="text-xs text-slate-500">Hancurkan Session</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 4: KODE PHP -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-pink-500 pl-3">4. Implementasi Kode</h2>
+
+            <!-- FILE 1 -->
+            <div class="mb-8">
+                <span class="file-badge">1. koneksi.php</span>
+                <div class="code-block">
+<span class="php-tag">&lt;?php</span>
+<span class="php-var">$host</span> = <span class="php-str">"localhost"</span>;
+<span class="php-var">$user</span> = <span class="php-str">"root"</span>;
+<span class="php-var">$pass</span> = <span class="php-str">""</span>;
+<span class="php-var">$db</span>   = <span class="php-str">"db_sekolah"</span>;
+
+<span class="php-var">$conn</span> = <span class="php-func">mysqli_connect</span>(<span class="php-var">$host</span>, <span class="php-var">$user</span>, <span class="php-var">$pass</span>, <span class="php-var">$db</span>);
+
+<span class="php-keyword">if</span> (!<span class="php-var">$conn</span>) {
+    <span class="php-keyword">die</span>(<span class="php-str">"Koneksi gagal: "</span> . <span class="php-func">mysqli_connect_error</span>());
+}
+<span class="php-tag">?&gt;</span>
+                </div>
+            </div>
+
+            <!-- FILE 2 -->
+            <div class="mb-8">
+                <span class="file-badge">2. login.php</span>
+                <p class="text-sm text-slate-600 mb-2">Menggabungkan logika PHP (atas) dan Form HTML (bawah).</p>
+                <div class="code-block">
+<span class="php-tag">&lt;?php</span>
+<span class="php-comment">// 1. WAJIB PANGGIL SESSION</span>
+<span class="php-func">session_start</span>();
+<span class="php-keyword">require</span> <span class="php-str">'koneksi.php'</span>;
+
+<span class="php-comment">// 2. Jika sudah login, tendang ke dashboard (jangan suruh login lagi)</span>
+<span class="php-keyword">if</span> (<span class="php-func">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-str">'username'</span>])) {
+    <span class="php-func">header</span>(<span class="php-str">"Location: dashboard.php"</span>);
+    <span class="php-keyword">exit</span>;
+}
+
+<span class="php-comment">// 3. Jika tombol 'btn_login' ditekan</span>
+<span class="php-keyword">if</span> (<span class="php-func">isset</span>(<span class="php-var">$_POST</span>[<span class="php-str">'btn_login'</span>])) {
+    <span class="php-var">$username</span> = <span class="php-var">$_POST</span>[<span class="php-str">'username'</span>];
+    <span class="php-var">$password</span> = <span class="php-var">$_POST</span>[<span class="php-str">'password'</span>]; <span class="php-comment">// Tangkap password apa adanya (Tanpa enkripsi)</span>
+
+    <span class="php-comment">// Cek ke database</span>
+    <span class="php-var">$query</span> = <span class="php-func">mysqli_query</span>(<span class="php-var">$conn</span>, <span class="php-str">"SELECT * FROM users WHERE username='<span class="php-var">$username</span>' AND password='<span class="php-var">$password</span>'"</span>);
+    <span class="php-var">$cek</span>   = <span class="php-func">mysqli_num_rows</span>(<span class="php-var">$query</span>); <span class="php-comment">// Hitung baris yg cocok</span>
+
+    <span class="php-keyword">if</span> (<span class="php-var">$cek</span> > 0) {
+        <span class="php-comment">// Data cocok! Ambil datanya</span>
+        <span class="php-var">$data</span> = <span class="php-func">mysqli_fetch_assoc</span>(<span class="php-var">$query</span>);
+        
+        <span class="php-comment">// 4. BUAT GELANG SESSION</span>
+        <span class="php-var">$_SESSION</span>[<span class="php-str">'username'</span>]     = <span class="php-var">$data</span>[<span class="php-str">'username'</span>];
+        <span class="php-var">$_SESSION</span>[<span class="php-str">'nama_lengkap'</span>] = <span class="php-var">$data</span>[<span class="php-str">'nama_lengkap'</span>];
+        <span class="php-var">$_SESSION</span>[<span class="php-str">'status'</span>]       = <span class="php-str">"login"</span>;
+
+        <span class="php-comment">// Arahkan ke ruang rahasia</span>
+        <span class="php-func">header</span>(<span class="php-str">"Location: dashboard.php"</span>);
+        <span class="php-keyword">exit</span>;
+    } <span class="php-keyword">else</span> {
+        <span class="php-var">$error</span> = <span class="php-str">"Username atau Password salah!"</span>;
+    }
+}
+<span class="php-tag">?&gt;</span>
+
+<span class="php-comment">&lt;!-- FORM HTML --&gt;</span>
+&lt;form action="" method="POST"&gt;
+    &lt;h2&gt;Login Sistem&lt;/h2&gt;
+    
+    <span class="php-tag">&lt;?php</span> <span class="php-keyword">if</span>(<span class="php-func">isset</span>(<span class="php-var">$error</span>)) { <span class="php-keyword">echo</span> <span class="php-str">"&lt;p style='color:red;'&gt;<span class="php-var">$error</span>&lt;/p&gt;"</span>; } <span class="php-tag">?&gt;</span>
+
+    &lt;label&gt;Username:&lt;/label&gt;
+    &lt;input type="text" name="username" required&gt;
+
+    &lt;label&gt;Password:&lt;/label&gt;
+    &lt;input type="password" name="password" required&gt;
+
+    &lt;button type="submit" name="btn_login"&gt;Masuk&lt;/button&gt;
+&lt;/form&gt;
+                </div>
+            </div>
+
+            <!-- FILE 3 -->
+            <div class="mb-8">
+                <span class="file-badge">3. dashboard.php (Halaman Terproteksi)</span>
+                <p class="text-sm text-slate-600 mb-2">Di sinilah Satpam kita bekerja. Mengecek apakah <code>$_SESSION</code> sudah dibuat atau belum.</p>
+                <div class="code-block border-emerald-500 border-l-4">
+<span class="php-tag">&lt;?php</span>
+<span class="php-func">session_start</span>();
+
+<span class="php-comment">// LOGIKA SATPAM: Jika tidak ada session 'status' yg bernilai 'login'</span>
+<span class="php-keyword">if</span> (<span class="php-var">$_SESSION</span>[<span class="php-str">'status'</span>] != <span class="php-str">"login"</span>) {
+    <span class="php-func">header</span>(<span class="php-str">"Location: login.php?pesan=belum_login"</span>);
+    <span class="php-keyword">exit</span>; <span class="php-comment">// Wajib exit agar kode di bawahnya tidak dieksekusi</span>
+}
+<span class="php-tag">?&gt;</span>
+
+&lt;h1&gt;Selamat Datang di Area VIP!&lt;/h1&gt;
+&lt;p&gt;Halo, <span class="php-tag">&lt;?php</span> <span class="php-keyword">echo</span> <span class="php-var">$_SESSION</span>[<span class="php-str">'nama_lengkap'</span>]; <span class="php-tag">?&gt;</span>.&lt;/p&gt;
+&lt;p&gt;Anda login sebagai <span class="php-tag">&lt;?php</span> <span class="php-keyword">echo</span> <span class="php-var">$_SESSION</span>[<span class="php-str">'username'</span>]; <span class="php-tag">?&gt;</span>.&lt;/p&gt;
+
+<span class="php-comment">&lt;!-- Tombol keluar --&gt;</span>
+&lt;br&gt;
+&lt;a href="logout.php"&gt;[ Logout (Keluar) ]&lt;/a&gt;
+                </div>
+            </div>
+
+            <!-- FILE 4 -->
+            <div class="mb-8">
+                <span class="file-badge">4. logout.php</span>
+                <p class="text-sm text-slate-600 mb-2">Proses menghancurkan gelang (session) dan menendang kembali ke gerbang depan.</p>
+                <div class="code-block">
+<span class="php-tag">&lt;?php</span>
+<span class="php-func">session_start</span>();   <span class="php-comment">// 1. Panggil dulu session-nya</span>
+<span class="php-func">session_unset</span>();   <span class="php-comment">// 2. Kosongkan semua isi $_SESSION</span>
+<span class="php-func">session_destroy</span>(); <span class="php-comment">// 3. Hancurkan session-nya</span>
+
+<span class="php-comment">// 4. Tendang balik ke form login</span>
+<span class="php-func">header</span>(<span class="php-str">"Location: login.php?pesan=logout"</span>);
+<span class="php-keyword">exit</span>;
+<span class="php-tag">?&gt;</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t text-center text-slate-400 text-sm">
+            <p>"Security starts from understanding how state is managed."</p>
+            <p class="mt-2 text-xs uppercase tracking-widest font-bold text-slate-300">Sesi 27 • PHP Native Auth • Bimbel Hanif</p>
+        </footer>
+    </div>
+
+</body>
+</html>
