@@ -23,7 +23,17 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Tipe HP</label>
                         <input type="text" name="tipe_hp" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm">
                     </div>
-                    
+                     <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Biaya</label>
+                        <input type="text" name="biaya" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm">
+                    </div>
+                    <div>
+                       <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Masuk</label>
+                        <input type="date" 
+                        name="tgl_masuk" 
+                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm" 
+                        required>
+                    </div>
                     <div>
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Admin Penanggung Jawab</label>
                         <select name="id_admin" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm">

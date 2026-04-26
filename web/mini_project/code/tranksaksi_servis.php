@@ -29,7 +29,11 @@ $result = mysqli_query($koneksi, $query);
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Pelanggan</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Perangkat</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Admin</th>
-                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Biaya</th>
+                                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">TGL MASUK</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">STATUS</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Keluhan</th>
+                                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Aksi</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-slate-100">
@@ -43,11 +47,22 @@ $result = mysqli_query($koneksi, $query);
                         <?php echo $row['id_admin']; ?>
                     </span>
                 </td>
-                <td class="px-6 py-4 text-center">
+                 <td class="px-6 py-4 text-slate-800 font-bold"><?php echo $row['biaya']; ?></td>
+                <td class="px-6 py-4 text-slate-800 font-bold"><?php echo $row['tgl_masuk']; ?></td>
+                <td class="px-6 py-4 text-slate-600 font-bold"><?php echo $row['status_service']; ?></td>
+                <td class="px-6 py-4 text-slate-600 font-bold"><?php echo $row['keluhan']; ?></td>
+                                <td class="px-6 py-4 text-center">
                     <div class="flex justify-center gap-2">
-                        <a href="edit.php?id=<?php echo $row['id_servis']; ?>" class="p-2 text-amber-500 hover:bg-amber-50 rounded-lg">✏️</a>
-                        <a href="hapus.php?id=<?php echo $row['id_servis']; ?>" onclick="return confirm('Hapus data?')" class="p-2 text-red-500 hover:bg-red-50 rounded-lg">🗑️</a>
-                    </div>
+                        <a href="edit.php?id_servis=<?php echo $row['id_servis']; ?>" 
+   onclick="return confirm('Ingin Update data?')" 
+   class="p-2 text-red-500 hover:bg-red-50 rounded-lg">✏️
+</a>
+<a href="hapus.php?id_servis=<?php echo $row['id_servis']; ?>" 
+   onclick="return confirm('Hapus data?')" 
+   class="p-2 text-red-500 hover:bg-red-50 rounded-lg">
+   🗑️
+</a>
+</div>
                 </td>
             </tr>
             <?php endwhile; ?>

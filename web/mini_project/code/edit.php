@@ -1,0 +1,163 @@
+<?php 
+include 'koneksi.php';
+include 'header.php';
+$id = $_GET['id_servis'];
+$query = mysqli_query($koneksi, "SELECT * FROM tranksaksi_servis WHERE id_servis='$id'");
+$data = mysqli_fetch_assoc($query);
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaksi - iSERVICE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800">
+
+            <!-- KONTEN UTAMA -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-6">
+                
+                <!-- Breadcrumb -->
+                <nav class="flex mb-6 text-xs font-bold uppercase tracking-widest text-slate-400">
+                    <a href="#" class="hover:text-indigo-600">Transaksi</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-slate-600">Edit #0012</span>
+                </nav>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                        <!-- Card Header -->
+                        <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex justify-between items-center">
+                            <h4 class="font-black text-slate-800 uppercase tracking-tighter">Formulir Update Servis</h4>
+                            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">Sedang Diproses</span>
+                        </div>
+
+                        <!-- Form Body -->
+                       <form action="proses_edit.php" method="POST" class="p-8">
+                                
+                                <!-- Kolom Kiri: Informasi Pelanggan & HP -->
+                                <div class="space-y-6">
+                                    <div class="border-l-4 border-indigo-500 pl-4 mb-4">
+                                        <h5 class="text-sm font-black text-slate-800 uppercase">1. Data Pelanggan & Unit</h5>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Nama Pelanggan</label>
+                                       <input type="hidden" name="id_servis" value="<?php echo $id; ?>">
+                                        <input type="text" name="nama_pelanggan" value="<?php echo $data['nama_pelanggan']; ?>">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Nomor WhatsApp / HP</label>
+                                        <input type="text" name="no_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Tipe Smartphone</label>
+                                        <input type="text" name="tipe_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium text-indigo-600">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Keluhan Kerusakan</label>
+                                        <textarea rows="4" name="keluhan" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium">Layar pecah dan ada garis hijau di bagian tengah. Touchscreen kadang tidak responsif.</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Kolom Kanan: Status, Biaya & Tanggal -->
+                                <div class="space-y-6">
+                                    <div class="border-l-4 border-emerald-500 pl-4 mb-4">
+                                        <h5 class="text-sm font-black text-slate-800 uppercase">2. Status & Administrasi</h5>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Tanggal Masuk</label>
+                                            <<input type="date" name="tgl_masuk" value="<?php echo $data['tgl_masuk']; ?>" readonly>>
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 text-emerald-600">Tanggal Ambil</label>
+                                            <input type="date" name="tgl_ambil" class="w-full px-4 py-3 bg-white border-2 border-emerald-100 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none text-sm font-medium italic" placeholder="....">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Status Progres Servis</label>
+                                        <select name="status" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-bold shadow-sm">
+                                            <option value="Antrean">Antrean</option>
+                                            <option value="Proses" selected>Sedang Diproses</option>
+                                            <option value="Selesai">Sudah Selesai</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Update Biaya (Final)</label>
+                                        <div class="relative">
+                                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 font-bold">Rp</span>
+                                            <input type="number" name="biaya" class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-lg font-mono font-black text-indigo-700">
+                                        </div>
+                                        <p class="text-[10px] text-slate-400 mt-2 italic">* Biaya dapat berubah sesuai ketersediaan sparepart.</p>
+                                    </div>
+
+                                    <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 mt-4">
+                                        <p class="text-[10px] font-bold text-indigo-400 uppercase mb-2">Kasir Penanggung Jawab:</p>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-black">KS</div>
+                                            <p class="text-xs font-bold text-indigo-900">Admin No:<</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer Card Action -->
+                            <div class="mt-10 pt-8 border-t border-slate-100 flex flex-col sm:flex-row gap-4">
+                                <button type="submit" name="edit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-black py-4 rounded-2xl shadow-xl shadow-indigo-200 transition-all uppercase tracking-widest text-sm">
+                                    Simpan Perubahan
+                                </button>
+                                                        <a href="proses_edit.php?id_servis=<?php echo $row['id_servis']; ?>" 
+   onclick="return confirm('Ingin Update data?')" 
+   class="p-2 text-red-500 hover:bg-red-50 rounded-lg">✏️
+</a>
+                                <a href="design_transaksi.html" class="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-500 font-bold py-4 rounded-2xl transition-all text-center text-sm">
+                                    Kembali ke Daftar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Delete Section (Optional) -->
+                    <div class="mt-8 p-6 bg-red-50 rounded-3xl border border-red-100 flex justify-between items-center">
+                        <div>
+                            <h5 class="text-sm font-bold text-red-800">Hapus Transaksi?</h5>
+                            <p class="text-xs text-red-600">Data yang dihapus tidak dapat dikembalikan.</p>
+                        </div>
+                        <button class="bg-white hover:bg-red-600 hover:text-white text-red-600 px-6 py-2 rounded-xl text-xs font-bold border border-red-200 transition-all">
+                            Hapus Permanen
+                        </button>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="bg-white border-t border-slate-200 p-4 text-center text-xs text-slate-500">
+                &copy; 2025 iSERVICE App - Dibuat untuk Belajar PHP Native.
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
