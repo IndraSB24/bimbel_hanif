@@ -62,17 +62,17 @@ $data = mysqli_fetch_assoc($query);
 
                                     <div>
                                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Nomor WhatsApp / HP</label>
-                                        <input type="text" name="no_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium">
+                                        <input type="text" name="no_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium" value="<?php echo $data['no_hp']?>">
                                     </div>
 
                                     <div>
                                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Tipe Smartphone</label>
-                                        <input type="text" name="tipe_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium text-indigo-600">
+                                        <input type="text" name="tipe_hp" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium text-indigo-600" value="<?php echo $data['tipe_hp']?>">
                                     </div>
 
                                     <div>
                                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Keluhan Kerusakan</label>
-                                        <textarea rows="4" name="keluhan" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium">Layar pecah dan ada garis hijau di bagian tengah. Touchscreen kadang tidak responsif.</textarea>
+                                        <textarea rows="4" name="keluhan" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-medium"><?php echo $data['keluhan']?></textarea>
                                     </div>
                                 </div>
 
@@ -106,7 +106,7 @@ $data = mysqli_fetch_assoc($query);
                                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Update Biaya (Final)</label>
                                         <div class="relative">
                                             <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 font-bold">Rp</span>
-                                            <input type="number" name="biaya" class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-lg font-mono font-black text-indigo-700">
+                                            <input type="number" name="biaya" class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-lg font-mono font-black text-indigo-700" value="<?php echo $data['biaya']?>">
                                         </div>
                                         <p class="text-[10px] text-slate-400 mt-2 italic">* Biaya dapat berubah sesuai ketersediaan sparepart.</p>
                                     </div>
