@@ -8,6 +8,7 @@ if (isset($_POST['edit'])) {
     $tipe_hp = $_POST['tipe_hp'];
     $keluhan = $_POST['keluhan'];
     $biaya = $_POST['biaya'];
+    $status = $_POST['status'];
     $tgl_masuk = $_POST['tgl_masuk'];
      $tgl_ambil = $_POST['tgl_ambil']; // Sesuaikan dengan name di form HTML
 
@@ -18,6 +19,7 @@ if (isset($_POST['edit'])) {
               tipe_hp = '$tipe_hp', 
               keluhan = '$keluhan', 
               biaya = '$biaya',
+              status_service = '$status',
               tgl_masuk = '$tgl_masuk',
               tgl_ambil = '$tgl_ambil'
               WHERE id_servis = '$id'";

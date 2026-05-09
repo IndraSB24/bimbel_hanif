@@ -21,18 +21,20 @@ $result = mysqli_query($koneksi, $query);
     </a>
 </div>
 
-<div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+<div class="bg-white rounded-xl shadow-sm border border-slate-200">
+    <div class="overflow-x-auto overflow-y-auto max-h-[400px]">
     <table class="w-full text-left border-collapse">
         <thead class="bg-slate-50 border-b border-slate-200">
             <tr>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ID</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Pelanggan</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Perangkat</th>
-                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Admin</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ID Admin </th>
                             <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Biaya</th>
                                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">TGL MASUK</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">STATUS</th>
                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Keluhan</th>
+                <th>Tgl-Keluar</th>
                                 <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Aksi</th>
             </tr>
         </thead>
@@ -51,8 +53,9 @@ $result = mysqli_query($koneksi, $query);
                 <td class="px-6 py-4 text-slate-800 font-bold"><?php echo $row['tgl_masuk']; ?></td>
                 <td class="px-6 py-4 text-slate-600 font-bold"><?php echo $row['status_service']; ?></td>
                 <td class="px-6 py-4 text-slate-600 font-bold"><?php echo $row['keluhan']; ?></td>
-                                <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center gap-2">
+               <td><?php echo $row['tgl_ambil'];?></td>
+                <td class="px-6 py-4 text-center">
+                    <div>
                         <a href="edit.php?id_servis=<?php echo $row['id_servis']; ?>" 
    onclick="return confirm('Ingin Update data?')" 
    class="p-2 text-red-500 hover:bg-red-50 rounded-lg">✏️
@@ -68,6 +71,7 @@ $result = mysqli_query($koneksi, $query);
             <?php endwhile; ?>
         </tbody>
     </table>
+</div>
 </div>
 
 <?php include 'footer.php'; ?>

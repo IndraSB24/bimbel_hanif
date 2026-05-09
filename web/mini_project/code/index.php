@@ -67,7 +67,7 @@ $result = mysqli_query($koneksi, $query);
                 <td class="px-6 py-4 text-center">
                     <div class="flex justify-center gap-2">
                                        <span>
-            <a href="hapus.php?id=<?php echo $row['id_servis']; ?>" onclick="return confirm('Hapus data?')" class="p-2 text-red-500 hover:bg-red-50 rounded-lg">UPDATE</a>    
+            <a href="edit.php?id=<?php echo $row['id_servis']; ?>" onclick="return confirm('UPDATE DATA SEKARANG?')" class="p-2 text-red-500 hover:bg-red-50 rounded-lg">UPDATE</a>    
             </span>
                     </div>
                 </td>

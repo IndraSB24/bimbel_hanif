@@ -22,6 +22,7 @@
                 <ul class="space-y-2 px-4">
                     <li><a href="index.php" class="flex items-center gap-3 hover:bg-slate-800 text-slate-300 px-4 py-3 rounded-lg font-medium"><span>🏠</span> Dashboard</a></li>
                     <li><a href="tranksaksi_servis.php" class="flex items-center gap-3 bg-indigo-600 text-white px-4 py-3 rounded-lg font-medium"><span>🛠️</span> Transaksi Servis</a></li>
+                    <li><a href="laporan.php" class="flex items-center gap-3 hover:bg-slate-800 text-slate-300 px-4 py-3 rounded-lg font-medium"><span>👤</span>Laporan Pendapatan</a></li>                   
                     <li><a href="admin.php" class="flex items-center gap-3 hover:bg-slate-800 text-slate-300 px-4 py-3 rounded-lg font-medium"><span>👤</span> Data Admin</a></li>
                 </ul>
             </nav>
