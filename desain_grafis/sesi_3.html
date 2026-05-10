@@ -149,21 +149,14 @@
             <div class="text-center mb-6">
                 <span class="text-4xl">🚀</span>
                 <h2 class="text-2xl font-black text-indigo-900 mt-2">Misi Utama: Prototype App Service HP</h2>
-                <p class="text-indigo-700 text-sm mt-1">Gunakan imajinasi UI-mu untuk merancang versi Mobile App dari project Service HP kemarin!</p>
+                <p class="text-indigo-700 text-sm mt-1">Gunakan panduan kerangka di bawah ini untuk merancang versi Mobile App dari project Service HP kemarin!</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-indigo-100">
                 <h3 class="font-bold text-slate-800 mb-3 text-lg">Briefing Tugas:</h3>
                 <ul class="list-disc list-inside space-y-3 text-sm text-slate-600 mb-6">
                     <li><strong>Ukuran Kanvas:</strong> Custom Size (1080 x 1920 px) - Mode Potret.</li>
-                    <li><strong>Tugas:</strong> Rancang <strong>3 Halaman Mockup Aplikasi</strong>:
-                        <div class="ml-6 mt-2 space-y-2 text-xs">
-                            <p>📱 <strong>Halaman 1 (Login):</strong> Logo aplikasi, Form Username & Password, dan Tombol "Masuk".</p>
-                            <p>📱 <strong>Halaman 2 (Dashboard):</strong> Sapaan User, Kartu Jumlah Antrean, dan Tombol "Tambah Servis Baru".</p>
-                            <p>📱 <strong>Halaman 3 (Form Servis):</strong> Form Input Nama Pelanggan, Tipe HP, Keluhan, dan Tombol "Simpan".</p>
-                        </div>
-                    </li>
-                    <li><strong>Misi Prototyping (Wajib):</strong>
+                    <li><strong>Misi Prototyping (Linking):</strong>
                         <ul class="list-none ml-6 mt-2 space-y-1">
                             <li>🔗 Tombol "Masuk" di Hal 1 harus diarahkan ke Hal 2.</li>
                             <li>🔗 Tombol "Tambah Servis" di Hal 2 harus diarahkan ke Hal 3.</li>
@@ -171,6 +164,73 @@
                         </ul>
                     </li>
                 </ul>
+
+                <!-- TAMBAHAN: EKSPEKTASI VISUAL WIREFRAME -->
+                <div class="bg-slate-100 border border-slate-300 rounded-xl p-6 mb-8">
+                    <h4 class="font-bold text-slate-700 text-center mb-6 text-sm uppercase tracking-widest">Panduan Visual (Ekspektasi Layout)</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- HP 1: Login -->
+                        <div class="flex flex-col items-center">
+                            <span class="text-xs font-bold text-slate-500 mb-2">Halaman 1: Login</span>
+                            <div class="w-40 h-72 border-4 border-slate-800 rounded-3xl bg-white shadow-md relative overflow-hidden flex flex-col items-center pt-10 px-4">
+                                <!-- Logo -->
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-500 text-xl mb-4 shadow-sm">📱</div>
+                                <!-- Inputs -->
+                                <div class="w-full h-5 border-2 border-slate-200 rounded text-[6px] text-slate-400 flex items-center px-2 mb-2">Username</div>
+                                <div class="w-full h-5 border-2 border-slate-200 rounded text-[6px] text-slate-400 flex items-center px-2 mb-4">Password</div>
+                                <!-- Button -->
+                                <div class="w-full h-6 bg-indigo-600 rounded text-white text-[8px] font-bold flex items-center justify-center shadow">MASUK</div>
+                            </div>
+                        </div>
+
+                        <!-- HP 2: Dashboard -->
+                        <div class="flex flex-col items-center">
+                            <span class="text-xs font-bold text-slate-500 mb-2">Halaman 2: Dashboard</span>
+                            <div class="w-40 h-72 border-4 border-slate-800 rounded-3xl bg-white shadow-md relative overflow-hidden flex flex-col items-center">
+                                <!-- Header -->
+                                <div class="w-full h-12 bg-indigo-600 flex flex-col justify-center px-3 text-white">
+                                    <div class="text-[6px] opacity-70">Selamat datang,</div>
+                                    <div class="text-[9px] font-bold">Kasir Service</div>
+                                </div>
+                                <!-- Card Stats -->
+                                <div class="w-11/12 h-16 bg-orange-50 border border-orange-200 rounded-lg mt-4 flex flex-col justify-center items-center">
+                                    <div class="text-lg font-black text-orange-600">5</div>
+                                    <div class="text-[6px] text-orange-800 font-bold uppercase">HP Antre</div>
+                                </div>
+                                <!-- Button -->
+                                <div class="w-11/12 h-7 bg-indigo-600 rounded-lg text-white text-[7px] font-bold flex items-center justify-center shadow mt-auto mb-6">
+                                    + TAMBAH SERVIS BARU
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HP 3: Form -->
+                        <div class="flex flex-col items-center">
+                            <span class="text-xs font-bold text-slate-500 mb-2">Halaman 3: Form Input</span>
+                            <div class="w-40 h-72 border-4 border-slate-800 rounded-3xl bg-white shadow-md relative overflow-hidden flex flex-col items-center">
+                                <!-- Header -->
+                                <div class="w-full h-8 bg-indigo-600 flex items-center px-2 text-white gap-2">
+                                    <div class="text-[10px] font-bold cursor-pointer">◀</div>
+                                    <div class="text-[8px] font-bold">Input Servis</div>
+                                </div>
+                                <!-- Form Fields -->
+                                <div class="w-full px-3 mt-4 space-y-2">
+                                    <div class="w-full h-5 border-b-2 border-slate-200 text-[6px] text-slate-400 flex items-end pb-1">Nama Pelanggan</div>
+                                    <div class="w-full h-5 border-b-2 border-slate-200 text-[6px] text-slate-400 flex items-end pb-1">Tipe HP (Contoh: Samsung)</div>
+                                    <div class="w-full h-12 border-2 border-slate-200 rounded mt-2 text-[6px] text-slate-400 p-1">Keluhan Kerusakan...</div>
+                                </div>
+                                <!-- Button -->
+                                <div class="w-11/12 h-7 bg-emerald-500 rounded-lg text-white text-[8px] font-bold flex items-center justify-center shadow mt-auto mb-6">
+                                    SIMPAN DATA
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="text-[10px] text-center text-slate-500 mt-4 italic">Murid bebas mewarnai dan mengganti font, tapi pastikan komponen-komponen di atas ada.</p>
+                </div>
                 
                 <div class="text-center bg-indigo-900 text-white py-3 rounded-lg">
                     <p class="text-xs font-bold uppercase tracking-widest">Kumpulkan Link Mode Presentasi (Bukan Edit Link!)</p>
