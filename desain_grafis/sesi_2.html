@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesi 2: Desain Pitch Deck & Presentasi IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .concept-card { transition: transform 0.3s; }
+        .concept-card:hover { transform: translateY(-5px); }
+        .slide-preview { aspect-ratio: 16/9; border: 1px solid #e2e8f0; background: white; position: relative; overflow: hidden; }
+        .mockup-frame { border: 8px solid #1e293b; border-radius: 12px; border-bottom-width: 16px; background: white; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans pb-20">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        
+        <!-- HEADER MODULE -->
+        <header class="text-center mb-16">
+            <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Modul Pembelajaran • Sesi 2</span>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">Mendesain Pitch Deck <br>& Presentasi IT</h1>
+            <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                Cara mengubah teks panjang menjadi visual yang menjual. Buat audiens (investor/klien) terpukau dengan aplikasi buatanmu dalam 4 slide.
+            </p>
+        </header>
+
+        <!-- BAGIAN 1: MINDSET -->
+        <section class="mb-16 bg-slate-900 text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 opacity-10 text-9xl">💡</div>
+            <h2 class="text-2xl font-bold mb-4 text-emerald-400">"Klien Tidak Membaca Kodemu."</h2>
+            <p class="text-slate-300 leading-relaxed mb-4">
+                Sebagai programmer, kita sering terjebak ingin memamerkan betapa canggihnya database atau query SQL kita. Tapi ingat: <strong>Klien, dosen, atau investor hanya peduli pada SOLUSI apa yang bisa aplikasimu berikan.</strong>
+            </p>
+            <p class="text-slate-300 leading-relaxed">
+                <strong>Pitch Deck</strong> adalah presentasi singkat (biasanya 5-10 slide) yang digunakan oleh startup untuk menjelaskan aplikasinya secara cepat, elegan, dan meyakinkan.
+            </p>
+        </section>
+
+        <!-- BAGIAN 2: ANATOMI SLIDE STARTUP -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-indigo-500 pl-3">
+                <span class="text-indigo-600 mr-2">1.</span> Formula 4 Slide Presentasi Aplikasi
+            </h2>
+            <p class="text-slate-600 mb-8">Tidak perlu puluhan slide. Startup besar seperti Airbnb dulunya hanya menggunakan slide yang sangat ringkas. Ini adalah 4 struktur wajibnya:</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Slide 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 concept-card">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Judul & Hook</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">Satu kalimat tajam (Tagline) tentang apa aplikasimu. Logo aplikasi besar di tengah.</p>
+                    <div class="mt-4 slide-preview p-4 flex flex-col justify-center items-center bg-indigo-50">
+                        <h4 class="font-black text-indigo-900 text-xl text-center">iSERVICE</h4>
+                        <p class="text-[8px] text-indigo-600 mt-1 uppercase tracking-widest text-center">Sistem Cerdas Kelola Servis HP</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 concept-card">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                        <h3 class="font-bold text-slate-800 text-lg">The Problem (Masalah)</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">Kenapa aplikasi ini dibuat? Sebutkan 3 "rasa sakit" (pain points) yang dialami user saat ini.</p>
+                    <div class="mt-4 slide-preview p-4 bg-red-50">
+                        <h4 class="font-bold text-red-900 text-[10px] uppercase mb-2">Masalah Saat Ini</h4>
+                        <ul class="text-[8px] text-red-700 space-y-1">
+                            <li>❌ Pencatatan masih pakai buku tulis (Sering Hilang)</li>
+                            <li>❌ Pelanggan tidak tahu status HP-nya</li>
+                            <li>❌ Susah menghitung omzet bulanan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 concept-card">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                        <h3 class="font-bold text-slate-800 text-lg">The Solution (Solusi)</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">Bagaimana aplikasimu memecahkan 3 masalah di atas? Gunakan Ikon + Teks Singkat.</p>
+                    <div class="mt-4 slide-preview p-4 bg-emerald-50">
+                        <h4 class="font-bold text-emerald-900 text-[10px] uppercase mb-2">Solusi Kami</h4>
+                        <div class="flex justify-between gap-1 mt-2">
+                            <div class="text-center w-1/3"><div class="text-sm">💾</div><p class="text-[6px] font-bold mt-1">Data Digital (Aman)</p></div>
+                            <div class="text-center w-1/3"><div class="text-sm">📱</div><p class="text-[6px] font-bold mt-1">Pantau Real-time</p></div>
+                            <div class="text-center w-1/3"><div class="text-sm">📊</div><p class="text-[6px] font-bold mt-1">Laporan Otomatis</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 concept-card">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Product / Mockup</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">Pamerkan screenshot aplikasimu di dalam bingkai laptop/HP agar terlihat nyata dan mahal.</p>
+                    <div class="mt-4 slide-preview p-4 bg-blue-50 flex items-center justify-center">
+                        <!-- Simple CSS Mockup representation -->
+                        <div class="mockup-frame w-20 h-12 flex items-center justify-center bg-slate-100 relative">
+                            <div class="w-full h-2 bg-blue-500 absolute top-0"></div>
+                            <span class="text-[6px] font-bold text-slate-400 mt-1">Aplikasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: TEKNIK VISUALISASI DATA -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-amber-500 pl-3">
+                <span class="text-amber-600 mr-2">2.</span> Kematian karena Teks (Death by Powerpoint)
+            </h2>
+            <p class="text-slate-600 mb-6">Dosa terbesar dalam presentasi adalah <strong>memindahkan naskah Word ke dalam PowerPoint/Canva.</strong> Audiens tidak akan membaca, mereka akan tertidur.</p>
+            
+            <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200">
+                <h3 class="font-bold text-slate-800 mb-4 text-center">Studi Kasus: Mengubah Teks Menjadi Infografis</h3>
+                
+                <div class="flex flex-col md:flex-row gap-6">
+                    <!-- Bad Slide -->
+                    <div class="w-full md:w-1/2">
+                        <span class="text-xs font-bold text-red-500 uppercase block mb-2 text-center">❌ Slide Pemula (Teks Panjang)</span>
+                        <div class="slide-preview p-6 flex flex-col justify-center">
+                            <h4 class="font-bold text-sm mb-2">Kenapa Toko Service Butuh Aplikasi?</h4>
+                            <p class="text-[8px] leading-relaxed text-slate-700 text-justify">
+                                Saat ini banyak sekali toko service HP yang masih menggunakan pencatatan manual menggunakan buku tulis. Hal ini sangat berbahaya karena buku bisa hilang, basah, atau rusak. Selain itu pelanggan juga sering marah-marah karena mereka harus bolak-balik ke toko hanya untuk menanyakan apakah HP mereka sudah selesai diperbaiki atau belum. Terakhir, pemilik toko kesulitan jika harus menghitung pendapatan kotor per bulan karena harus menjumlahkan nota satu per satu secara manual dengan kalkulator.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Good Slide -->
+                    <div class="w-full md:w-1/2">
+                        <span class="text-xs font-bold text-emerald-600 uppercase block mb-2 text-center">✅ Slide Pro (Ikon + Poin Inti)</span>
+                        <div class="slide-preview p-6 flex flex-col justify-center bg-slate-800 text-white">
+                            <h4 class="font-bold text-sm mb-4 text-emerald-400">Masalah Toko Service Saat Ini</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-red-500/20 flex items-center justify-center text-[10px]">📖</div>
+                                    <div><p class="text-[10px] font-bold">Pencatatan Rawan Hilang</p><p class="text-[7px] text-slate-400">Buku manual mudah rusak/basah.</p></div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-orange-500/20 flex items-center justify-center text-[10px]">😠</div>
+                                    <div><p class="text-[10px] font-bold">Pelanggan Sering Komplain</p><p class="text-[7px] text-slate-400">Tidak ada info status HP real-time.</p></div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded bg-blue-500/20 flex items-center justify-center text-[10px]">🧮</div>
+                                    <div><p class="text-[10px] font-bold">Rekap Keuangan Sulit</p><p class="text-[7px] text-slate-400">Menghitung nota satu-per-satu.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 4: BINGKAI & MOCKUP DI CANVA -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-pink-500 pl-3">
+                <span class="text-pink-600 mr-2">3.</span> Trik Rahasia Canva: Bingkai (Frames)
+            </h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/2">
+                    <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                        Bagaimana cara presentasi Apple bisa terlihat sangat keren? Mereka menaruh gambar antarmuka (UI) ke dalam "Bodi Device" yang nyata. Di Canva, fitur ini disebut <strong>Bingkai (Frames)</strong>.
+                    </p>
+                    <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 font-medium">
+                        <li>Buka tab <strong class="text-pink-600">Elemen</strong> di kiri.</li>
+                        <li>Ketik <strong class="bg-slate-100 px-1 rounded">Bingkai Laptop</strong> atau scroll ke bawah cari kategori <strong>Bingkai</strong>.</li>
+                        <li>Pilih gambar laptop/HP (yang bergambar bukit hijau).</li>
+                        <li>Upload screenshot websitemu (contoh: halaman dashboard).</li>
+                        <li><em>Drag & Drop</em> (Tarik) screenshot tersebut ke atas gambar laptop. Canva akan otomatis memotong dan menyesuaikannya!</li>
+                    </ol>
+                </div>
+                <!-- Ilustrasi -->
+                <div class="w-full md:w-1/2 bg-pink-50 p-6 rounded-xl flex justify-center items-center">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">💻 ⬅️ 🖼️</div>
+                        <p class="text-xs font-bold text-pink-700 uppercase">Tarik Gambar ke Dalam Bingkai</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 5: TUGAS PRAKTIK -->
+        <section class="bg-indigo-50 border-2 border-indigo-200 p-8 rounded-3xl shadow-sm">
+            <div class="text-center mb-6">
+                <span class="text-4xl">🚀</span>
+                <h2 class="text-2xl font-black text-indigo-900 mt-2">Misi Praktik: Pitch Deck Aplikasi Service HP</h2>
+                <p class="text-indigo-700 text-sm mt-1">Waktunya berjualan! Buat presentasi untuk sistem yang kamu buat di sesi coding sebelumnya.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-indigo-100">
+                <h3 class="font-bold text-slate-800 mb-3 text-lg">Briefing Tugas:</h3>
+                <ul class="list-disc list-inside space-y-3 text-sm text-slate-600 mb-6">
+                    <li><strong>Ukuran Kanvas:</strong> Presentasi 16:9 (1920 x 1080 px).</li>
+                    <li><strong>Tugas:</strong> Buat <strong>tepat 4 Slide</strong> mengikuti struktur Anatomi Slide Startup di atas.</li>
+                    <li><strong>Bahan Screenshot:</strong> Screenshot halaman <em>Dashboard HTML</em> yang kita pelajari di Sesi 1 PHP kemarin. Masukkan ke dalam bingkai laptop di Canva.</li>
+                    <li><strong>Tantangan Kematian Teks:</strong> Slide No.2 (Masalah) dan No.3 (Solusi) <strong class="text-red-500">TIDAK BOLEH</strong> berisi lebih dari 20 kata per slide. Wajib gunakan Ikon!</li>
+                    <li><strong>Palet Warna:</strong> Gunakan warna yang mencerminkan teknologi (Biru gelap, Putih, Aksen Hijau/Oranye). Jangan pakai warna pastel.</li>
+                </ul>
+                
+                <div class="text-center bg-indigo-900 text-white py-3 rounded-lg">
+                    <p class="text-xs font-bold uppercase tracking-widest">Target: Presentasi di Depan Kelas (Pitching 2 Menit)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-slate-400 text-xs font-medium">
+            Mencetak Calon Mahasiswa IT dengan Skill Presentasi Sekelas Silicon Valley.
+        </footer>
+
+    </div>
+
+</body>
+</html>

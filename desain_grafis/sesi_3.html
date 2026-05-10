@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesi 3: UI/UX & Prototyping IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .concept-card { transition: transform 0.3s; }
+        .concept-card:hover { transform: translateY(-5px); }
+        .wireframe-box { border: 2px dashed #94a3b8; background-color: #f8fafc; }
+        .mockup-box { border: 2px solid #e2e8f0; background-color: white; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        
+        /* Animasi Klik Sederhana */
+        @keyframes clickAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.9); background-color: #4f46e5; }
+            100% { transform: scale(1); }
+        }
+        .animate-click { animation: clickAnim 2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans pb-20">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        
+        <!-- HEADER MODULE -->
+        <header class="text-center mb-16">
+            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Modul Pembelajaran • Sesi 3</span>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">UI/UX & Prototyping <br>di Canva</h1>
+            <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                Merancang antarmuka aplikasi (Mockup) dan membuatnya hidup. Belajar membuat desain yang bisa diklik tanpa menulis satu baris kode pun!
+            </p>
+        </header>
+
+        <!-- BAGIAN 1: KONSEP DASAR -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-purple-500 pl-3">
+                <span class="text-purple-600 mr-2">1.</span> Tiga Tahap Desain Aplikasi
+            </h2>
+            <p class="text-slate-600 mb-8">Dalam industri IT, seorang UI/UX Designer tidak langsung mendesain warna dan gambar. Mereka melewati 3 tahap penting ini:</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Wireframe -->
+                <div class="p-6 rounded-2xl wireframe-box concept-card">
+                    <h3 class="font-bold text-slate-700 mb-2 text-center uppercase tracking-widest text-xs">Tahap 1: Wireframe</h3>
+                    <div class="w-full h-32 border-2 border-slate-300 rounded flex flex-col items-center justify-center p-4 gap-2 mb-4">
+                        <div class="w-12 h-12 rounded-full border-2 border-slate-300 flex items-center justify-center text-slate-300 text-xs">X</div>
+                        <div class="w-3/4 h-2 bg-slate-300 rounded"></div>
+                        <div class="w-1/2 h-2 bg-slate-300 rounded"></div>
+                        <div class="w-full h-6 border-2 border-slate-300 mt-2 flex justify-center items-center"><span class="text-[8px] text-slate-400">BUTTON</span></div>
+                    </div>
+                    <p class="text-xs text-slate-600 text-center leading-relaxed"><strong>Kerangka Kasar.</strong> Hanya kotak hitam-putih. Fokus pada "letak tombol dan teks", bukan warna.</p>
+                </div>
+
+                <!-- Mockup -->
+                <div class="p-6 rounded-2xl mockup-box concept-card">
+                    <h3 class="font-bold text-purple-700 mb-2 text-center uppercase tracking-widest text-xs">Tahap 2: Mockup</h3>
+                    <div class="w-full h-32 border border-slate-200 rounded flex flex-col items-center justify-center p-4 gap-2 mb-4 bg-slate-50">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-xl shadow-inner">👤</div>
+                        <div class="font-bold text-xs text-slate-800">Budi Santoso</div>
+                        <div class="text-[8px] text-slate-500">Kasir Service HP</div>
+                        <button class="w-full h-6 bg-purple-600 text-white rounded mt-2 text-[8px] font-bold shadow-md">LIHAT PROFIL</button>
+                    </div>
+                    <p class="text-xs text-slate-600 text-center leading-relaxed"><strong>Desain Visual.</strong> Diberi warna, jenis font asli, dan ikon. Ini adalah wujud asli aplikasi.</p>
+                </div>
+
+                <!-- Prototype -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 concept-card relative overflow-hidden">
+                    <div class="absolute -right-2 -bottom-2 text-6xl opacity-20">✨</div>
+                    <h3 class="font-bold text-emerald-400 mb-2 text-center uppercase tracking-widest text-xs">Tahap 3: Prototype</h3>
+                    <div class="w-full h-32 border border-slate-700 rounded flex flex-col items-center justify-center p-4 gap-2 mb-4 bg-slate-800 relative">
+                        <div class="font-bold text-xs text-white">Budi Santoso</div>
+                        <!-- Tombol beranimasi seolah diklik -->
+                        <button class="w-full h-6 bg-purple-500 text-white rounded mt-2 text-[8px] font-bold shadow-lg animate-click relative">
+                            LIHAT PROFIL
+                            <div class="absolute -right-3 -bottom-3 text-lg">👆</div>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-300 text-center leading-relaxed"><strong>Desain Interaktif.</strong> Tombol bisa diklik dan berpindah halaman. Digunakan untuk presentasi ke klien.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 2: KOMPONEN UI DI CANVA -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-blue-500 pl-3">
+                <span class="text-blue-600 mr-2">2.</span> Membuat Komponen UI (User Interface)
+            </h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <p class="text-slate-600 mb-6 text-sm">Di Canva, kita tidak perlu koding untuk membuat elemen UI. Kita menggunakan "Bentuk" (Shapes) dasar yang ada di menu <strong>Elemen</strong>.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex gap-4 items-center">
+                                <div class="w-12 h-8 bg-blue-600 rounded-md shadow-md"></div>
+                                <div><strong class="text-sm block">Tombol (Button)</strong> <span class="text-xs text-slate-500">Gunakan kotak (R), ubah warnanya, tumpulkan sudutnya (Corner Rounding), dan tambahkan teks di tengah.</span></div>
+                            </li>
+                            <li class="flex gap-4 items-center">
+                                <div class="w-12 h-8 border-2 border-slate-300 rounded-md bg-slate-50 flex items-center px-2"><span class="text-[8px] text-slate-400">Ketik di sini...</span></div>
+                                <div><strong class="text-sm block">Input Text / Form</strong> <span class="text-xs text-slate-500">Gunakan kotak kosong, beri garis tepi (border), dan tambahkan teks abu-abu pudar di dalamnya (Placeholder).</span></div>
+                            </li>
+                            <li class="flex gap-4 items-center">
+                                <div class="w-12 h-12 rounded-full bg-slate-200 border-2 border-white shadow-md flex justify-center items-center">👤</div>
+                                <div><strong class="text-sm block">Avatar User</strong> <span class="text-xs text-slate-500">Gunakan bingkai lingkaran (Frames) atau elemen lingkaran biasa (C).</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 text-center">
+                        <span class="text-4xl block mb-2">📱</span>
+                        <h4 class="font-bold text-blue-900 mb-2">Tips Ukuran Layar Mobile</h4>
+                        <p class="text-xs text-blue-800">Saat buat desain baru di Canva, gunakan <strong>Ukuran Khusus (Custom Size)</strong>. Masukkan ukuran: <br><strong class="text-lg">1080 x 1920 px</strong> <br>(Ukuran standar Smartphone HD).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: PROTOTYPING (LINKING) -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-emerald-500 pl-3">
+                <span class="text-emerald-600 mr-2">3.</span> Trik Ajaib: Menghubungkan Halaman (Linking)
+            </h2>
+            
+            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 opacity-10 text-9xl">🔗</div>
+                <h3 class="font-bold text-xl mb-4 text-emerald-400">Bagaimana membuat tombol berfungsi?</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                    Inilah rahasia membuat Prototype di Canva! Kamu bisa menautkan (link) sebuah tombol atau teks agar saat diklik saat mode presentasi, layar akan otomatis berpindah ke halaman/slide tertentu.
+                </p>
+                
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 relative z-10">
+                    <h4 class="font-bold text-emerald-300 mb-3 text-sm uppercase tracking-widest">Langkah-langkahnya:</h4>
+                    <ol class="list-decimal list-inside space-y-3 text-sm text-slate-300">
+                        <li>Pastikan kamu sudah punya <strong>minimal 2 Halaman</strong> desain (Misal: Hal 1 Login, Hal 2 Dashboard).</li>
+                        <li>Pilih elemen yang akan dijadikan tombol (Misal kotak biru bertuliskan "Masuk").</li>
+                        <li><strong>Klik Kanan</strong> pada elemen tersebut, lalu pilih <strong class="text-white bg-slate-700 px-2 rounded">Tautan (Link)</strong>. <em>Atau tekan Ctrl + K.</em></li>
+                        <li>Pada kotak pencarian yang muncul, scroll ke bawah dan temukan daftar halamanmu.</li>
+                        <li>Pilih <strong class="text-emerald-400">Halaman 2 (Dashboard)</strong>. Klik Selesai.</li>
+                        <li>Klik tombol <strong>Tampilkan (Present)</strong> di pojok kanan atas Canva. Coba klik tombolmu!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 4: TUGAS PRAKTIK -->
+        <section class="bg-indigo-50 border-2 border-indigo-200 p-8 rounded-3xl shadow-sm">
+            <div class="text-center mb-6">
+                <span class="text-4xl">🚀</span>
+                <h2 class="text-2xl font-black text-indigo-900 mt-2">Misi Utama: Prototype App Service HP</h2>
+                <p class="text-indigo-700 text-sm mt-1">Gunakan imajinasi UI-mu untuk merancang versi Mobile App dari project Service HP kemarin!</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-indigo-100">
+                <h3 class="font-bold text-slate-800 mb-3 text-lg">Briefing Tugas:</h3>
+                <ul class="list-disc list-inside space-y-3 text-sm text-slate-600 mb-6">
+                    <li><strong>Ukuran Kanvas:</strong> Custom Size (1080 x 1920 px) - Mode Potret.</li>
+                    <li><strong>Tugas:</strong> Rancang <strong>3 Halaman Mockup Aplikasi</strong>:
+                        <div class="ml-6 mt-2 space-y-2 text-xs">
+                            <p>📱 <strong>Halaman 1 (Login):</strong> Logo aplikasi, Form Username & Password, dan Tombol "Masuk".</p>
+                            <p>📱 <strong>Halaman 2 (Dashboard):</strong> Sapaan User, Kartu Jumlah Antrean, dan Tombol "Tambah Servis Baru".</p>
+                            <p>📱 <strong>Halaman 3 (Form Servis):</strong> Form Input Nama Pelanggan, Tipe HP, Keluhan, dan Tombol "Simpan".</p>
+                        </div>
+                    </li>
+                    <li><strong>Misi Prototyping (Wajib):</strong>
+                        <ul class="list-none ml-6 mt-2 space-y-1">
+                            <li>🔗 Tombol "Masuk" di Hal 1 harus diarahkan ke Hal 2.</li>
+                            <li>🔗 Tombol "Tambah Servis" di Hal 2 harus diarahkan ke Hal 3.</li>
+                            <li>🔗 Tombol "Back / Kembali" di Hal 3 harus diarahkan kembali ke Hal 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="text-center bg-indigo-900 text-white py-3 rounded-lg">
+                    <p class="text-xs font-bold uppercase tracking-widest">Kumpulkan Link Mode Presentasi (Bukan Edit Link!)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-slate-400 text-xs font-medium">
+            Sesi 3: UI/UX & Prototyping • Membangun Aplikasi Tanpa Koding
+        </footer>
+
+    </div>
+
+</body>
+</html>
