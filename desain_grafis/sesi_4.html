@@ -3,21 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesi 4: Tech Microblogging (Carousel Design)</title>
+    <title>Sesi 4: Tech Microblogging & Carousel</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .concept-card { transition: transform 0.3s; }
+        .concept-card:hover { transform: translateY(-5px); }
+        
+        /* Simulasi Seamless Carousel */
+        .carousel-slide {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            border: 2px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        /* Elemen menyambung */
+        .seamless-shape-left {
+            position: absolute;
+            right: -25px; /* Menjorok keluar ke kanan */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: #f43f5e; /* Rose 500 */
+            border-radius: 50%;
+        }
+        
+        .seamless-shape-right {
+            position: absolute;
+            left: -25px; /* Lanjutan dari slide sebelumnya di kiri */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: #f43f5e;
+            border-radius: 50%;
+        }
+        
+        /* Garis putus-putus pembatas layar HP */
+        .screen-divider {
+            border-right: 2px dashed #94a3b8;
+            height: 180px;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans pb-20">
-    <div class="max-w-4xl mx-auto py-12 px-6 text-center">
-        <header class="mb-16">
-            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Modul Pembelajaran • Sesi 4</span>
-            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">Tech Microblogging <br>(Carousel Design)</h1>
-            <p class="text-slate-600 text-lg max-w-2xl mx-auto">Materi sedang dalam tahap penyusunan. Stay tuned!</p>
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        
+        <!-- HEADER MODULE -->
+        <header class="text-center mb-16">
+            <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Modul Pembelajaran • Sesi 4</span>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">Tech Microblogging <br>& Carousel Design</h1>
+            <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                Membagikan ilmu IT ke media sosial. Belajar membuat desain postingan yang bisa digeser (Carousel) dengan efek menyambung tanpa putus.
+            </p>
         </header>
-        <div class="bg-white p-12 rounded-3xl shadow-sm border border-slate-200">
-            <div class="text-6xl mb-4">🚧</div>
-            <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
-            <a href="index.html" class="text-indigo-600 font-bold hover:underline">← Kembali ke Silabus</a>
-        </div>
+
+        <!-- BAGIAN 1: KONSEP MICROBLOGGING -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-rose-500 pl-3">
+                <span class="text-rose-600 mr-2">1.</span> Apa itu Tech Microblogging?
+            </h2>
+            
+            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-6 items-center">
+                <div class="text-6xl">📣</div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2 text-rose-400">Kode Dibaca Mesin, Ide Dibaca Manusia</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Microblogging adalah seni menyederhanakan konsep IT yang rumit (seperti Database, API, atau Hosting) menjadi konten visual yang mudah dipahami oleh orang awam atau sesama programmer di Instagram/LinkedIn.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Format yang paling disukai algoritma saat ini adalah <strong>Carousel (Postingan Bergeser)</strong>, karena format ini membuat orang bertahan lebih lama untuk membaca <em>(High Retention Rate)</em>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 2: ANATOMI CAROUSEL -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-blue-500 pl-3">
+                <span class="text-blue-600 mr-2">2.</span> Formula 4 Slide Edukasi
+            </h2>
+            <p class="text-slate-600 mb-6">Jangan asal memasukkan teks. Carousel yang baik memiliki alur cerita (Storytelling) seperti ini:</p>
+
+            <div class="grid md:grid-cols-4 gap-4">
+                <!-- Slide 1 -->
+                <div class="bg-white p-5 rounded-2xl border-t-4 border-rose-500 shadow-sm concept-card">
+                    <h3 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-widest text-rose-600">Slide 1: Hook</h3>
+                    <p class="text-xs text-slate-600 mb-4">Judul yang memancing rasa penasaran.</p>
+                    <div class="aspect-square bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center p-3 text-center">
+                        <div class="text-2xl mb-2">🤔</div>
+                        <h4 class="font-bold text-[10px] uppercase">Masih Bingung Bedanya HTML & CSS?</h4>
+                    </div>
+                </div>
+
+                <!-- Slide 2 & 3 -->
+                <div class="bg-white p-5 rounded-2xl border-t-4 border-blue-500 shadow-sm concept-card md:col-span-2">
+                    <h3 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-widest text-blue-600">Slide 2 & 3: Isi (Daging)</h3>
+                    <p class="text-xs text-slate-600 mb-4">Satu slide = Satu ide utama. Gunakan Ikon!</p>
+                    <div class="flex gap-2">
+                        <div class="aspect-square w-1/2 bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center p-3 text-center">
+                            <h4 class="font-bold text-[10px] text-orange-600 uppercase">HTML = Rangka</h4>
+                            <p class="text-[8px] mt-1 text-slate-500">Ibarat tulang pada tubuh manusia.</p>
+                            <div class="text-lg mt-2">🦴</div>
+                        </div>
+                        <div class="aspect-square w-1/2 bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center p-3 text-center">
+                            <h4 class="font-bold text-[10px] text-blue-600 uppercase">CSS = Pakaian</h4>
+                            <p class="text-[8px] mt-1 text-slate-500">Membuatnya tampil lebih cantik dan rapi.</p>
+                            <div class="text-lg mt-2">👗</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="bg-white p-5 rounded-2xl border-t-4 border-emerald-500 shadow-sm concept-card">
+                    <h3 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-widest text-emerald-600">Slide 4: CTA</h3>
+                    <p class="text-xs text-slate-600 mb-4">Perintah bertindak (Call to Action).</p>
+                    <div class="aspect-square bg-slate-50 border border-slate-200 rounded-lg flex flex-col items-center justify-center p-3 text-center">
+                        <h4 class="font-bold text-[10px] uppercase mb-2">Bermanfaat?</h4>
+                        <div class="flex gap-2 text-sm">
+                            <span>❤️</span> <span>💬</span> <span>🔖</span>
+                        </div>
+                        <p class="text-[7px] mt-2 font-bold text-emerald-600 border border-emerald-300 bg-emerald-50 px-2 py-1 rounded">SAVE POSTINGAN INI</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: EFEK SEAMLESS -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-indigo-500 pl-3">
+                <span class="text-indigo-600 mr-2">3.</span> Trik Rahasia: Efek Menyambung (Seamless)
+            </h2>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/2">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Pernah melihat postingan Instagram yang saat digeser (swipe), elemen grafisnya terlihat menyambung sempurna antara halaman 1 dan 2? Ini membuat user tanpa sadar terus menggeser hingga akhir!
+                        </p>
+                        <h4 class="font-bold text-slate-800 text-sm mb-2">Cara Melakukannya di Canva:</h4>
+                        <ol class="list-decimal list-inside text-sm text-slate-600 space-y-2">
+                            <li>Buat objek (misal: lingkaran atau panah panjang).</li>
+                            <li>Letakkan objek tersebut terpotong tepat di <strong>tepi kanan</strong> Slide 1.</li>
+                            <li>Copy objek tersebut (<kbd class="bg-slate-100 border rounded px-1 text-xs">Ctrl+C</kbd>).</li>
+                            <li>Buka Slide 2, lalu <strong>Paste in Place</strong>. Kemudian geser objek lurus ke ujung <strong>tepi kiri</strong>.</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Simulasi Visual Seamless -->
+                    <div class="w-full md:w-1/2 bg-slate-100 p-6 rounded-xl flex items-center justify-center overflow-hidden">
+                        <div class="flex items-center">
+                            <!-- Slide Kiri -->
+                            <div class="flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Slide 1</span>
+                                <div class="carousel-slide shadow-sm">
+                                    <div class="p-4"><p class="text-xs font-bold">Geser untuk tahu rahasianya</p></div>
+                                    <div class="seamless-shape-left"></div> <!-- Lingkaran di kanan -->
+                                </div>
+                            </div>
+                            
+                            <!-- Pembatas Imajiner -->
+                            <div class="screen-divider"></div>
+                            
+                            <!-- Slide Kanan -->
+                            <div class="flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Slide 2</span>
+                                <div class="carousel-slide shadow-sm">
+                                    <div class="seamless-shape-right"></div> <!-- Lingkaran di kiri -->
+                                    <div class="p-4 ml-4"><p class="text-xs font-bold text-right">Tada! Gambarnya menyambung.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 4: TUGAS PRAKTIK -->
+        <section class="bg-rose-50 border-2 border-rose-200 p-8 rounded-3xl shadow-sm">
+            <div class="text-center mb-6">
+                <span class="text-4xl">🚀</span>
+                <h2 class="text-2xl font-black text-rose-900 mt-2">Misi Utama: Buat Carousel Pertamamu!</h2>
+                <p class="text-rose-700 text-sm mt-1">Pilih satu topik IT ringan yang sudah kamu kuasai dan buat edukasinya.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-rose-100">
+                <h3 class="font-bold text-slate-800 mb-3 text-lg">Briefing Tugas:</h3>
+                <ul class="list-disc list-inside space-y-3 text-sm text-slate-600 mb-6">
+                    <li><strong>Ukuran Kanvas:</strong> Instagram Portrait (1080 x 1350 px) agar lebih optimal di layar HP.</li>
+                    <li><strong>Tema (Pilih Salah Satu):</strong>
+                        <ul class="list-circle ml-6 mt-1 space-y-1 text-xs font-bold text-rose-600">
+                            <li>Apa itu Database? (Analogi Lemari Arsip)</li>
+                            <li>Bedanya UI dan UX?</li>
+                            <li>Kenapa Programmer Suka Mode Gelap (Dark Mode)?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Jumlah Halaman:</strong> Tepat 4 Halaman (Sesuai panduan visual di bawah).</li>
+                    <li><strong>Misi Rahasia (Wajib):</strong> Harus ada minimal 1 elemen grafis (garis, panah, atau ilustrasi) yang <strong>menyambung (seamless)</strong> antara halaman 1 dan halaman 2!</li>
+                </ul>
+
+                <!-- EKSPEKTASI VISUAL -->
+                <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-8">
+                    <h4 class="font-bold text-slate-300 text-center mb-6 text-sm uppercase tracking-widest">Contoh Desain Jadi (Tiru Desain Ini!)</h4>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        
+                        <!-- Slide 1: Hook -->
+                        <div class="border border-slate-600 bg-slate-900 rounded-xl aspect-[4/5] flex flex-col p-4 relative overflow-hidden text-center text-white shadow-xl">
+                            <span class="absolute top-3 left-3 bg-slate-800 text-slate-400 text-[8px] px-2 py-1 rounded z-20 shadow-sm">1. Hook</span>
+                            
+                            <div class="flex-1 flex flex-col justify-center items-center z-10 mt-6 mb-2">
+                                <div class="text-3xl mb-3">🤔</div>
+                                <h5 class="font-black text-[11px] text-rose-400 uppercase leading-snug mb-2 drop-shadow-md">Masih Bingung<br>Apa Itu Database?</h5>
+                                <p class="text-[8px] text-slate-300 leading-relaxed px-2">Sering dengar istilahnya tapi nggak paham maksudnya?</p>
+                            </div>
+                            
+                            <!-- Seamless Element Right -->
+                            <div class="bg-rose-500 w-6 h-5 rounded-l-full absolute -right-1 bottom-[15%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <div class="text-[7px] font-bold text-slate-500 tracking-widest uppercase mb-1 z-10">Geser</div>
+                        </div>
+
+                        <!-- Slide 2: Edukasi -->
+                        <div class="border border-slate-600 bg-slate-900 rounded-xl aspect-[4/5] flex flex-col p-4 relative overflow-hidden text-white shadow-xl">
+                            <span class="absolute top-3 left-3 bg-slate-800 text-slate-400 text-[8px] px-2 py-1 rounded z-20 shadow-sm">2. Edukasi</span>
+                            
+                            <!-- Seamless Element Left -->
+                            <div class="bg-rose-500 w-5 h-5 rounded-r-full absolute -left-1 bottom-[15%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <!-- Seamless Element Right (New) -->
+                            <div class="bg-blue-500 w-6 h-5 rounded-l-full absolute -right-1 top-[35%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <div class="flex-1 flex flex-col justify-center z-10 mt-5">
+                                <h5 class="font-black text-[10px] text-rose-400 uppercase mb-2 border-b border-slate-700 pb-2 drop-shadow-md">Bayangkan Lemari 🗄️</h5>
+                                <p class="text-[8px] text-slate-200 leading-relaxed z-10 bg-slate-900/40 rounded py-1 px-1 mt-1">
+                                    Database adalah lemari raksasa di dunia digital.
+                                </p>
+                                <p class="text-[8px] text-slate-200 leading-relaxed z-10 bg-slate-900/40 rounded py-1 px-1 mt-1">
+                                    Tempat menyimpan data (nama, password) agar mudah dicari oleh sistem.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Edukasi Lanjutan -->
+                        <div class="border border-slate-600 bg-slate-900 rounded-xl aspect-[4/5] flex flex-col p-4 relative overflow-hidden text-white shadow-xl">
+                            <span class="absolute top-3 left-3 bg-slate-800 text-slate-400 text-[8px] px-2 py-1 rounded z-20 shadow-sm">3. Edukasi</span>
+                            
+                            <!-- Seamless Element Left (Connect from Slide 2) -->
+                            <div class="bg-blue-500 w-5 h-5 rounded-r-full absolute -left-1 top-[35%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <!-- Seamless Element Right (Connect to Slide 4) -->
+                            <div class="bg-emerald-500 w-6 h-5 rounded-l-full absolute -right-1 bottom-[25%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <div class="flex-1 flex flex-col justify-center z-10 mt-4">
+                                <h5 class="font-black text-[10px] text-blue-400 uppercase mb-2 border-b border-slate-700 pb-2 drop-shadow-md">Kalau Gak Ada DB? 💥</h5>
+                                
+                                <div class="flex items-start gap-2 mt-2 bg-slate-800/80 p-2 rounded-lg border border-slate-700 shadow-inner z-10">
+                                    <div class="text-[12px] mt-0.5">📱</div>
+                                    <p class="text-[7px] text-slate-300 leading-relaxed">
+                                        Data berantakan! Akun IG-mu bisa tertukar dengan profil orang lain.<br><br>Makanya butuh "kamar" spesifik di tabel.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: CTA -->
+                        <div class="border border-slate-600 bg-slate-800 rounded-xl aspect-[4/5] flex flex-col p-4 relative overflow-hidden text-white text-center shadow-xl">
+                            <span class="absolute top-3 left-3 bg-slate-700 text-slate-300 text-[8px] px-2 py-1 rounded z-20 shadow-sm">4. CTA</span>
+                            
+                            <!-- Seamless Element Left (Connect from Slide 3) -->
+                            <div class="bg-emerald-500 w-5 h-5 rounded-r-full absolute -left-1 bottom-[25%] shadow-lg z-0 opacity-90"></div>
+                            
+                            <div class="flex-1 flex flex-col justify-center items-center w-full mt-4">
+                                <div class="text-3xl mb-2">💡</div>
+                                <h5 class="font-bold text-[10px] text-white mb-1">Udah Paham Kan?</h5>
+                                <p class="text-[7px] text-slate-400 mb-4 px-2">Support terus konten edukasi ini ya!</p>
+                                
+                                <div class="flex gap-4 mb-4">
+                                    <span class="text-xs">❤️</span>
+                                    <span class="text-xs">💬</span>
+                                    <span class="text-xs">✈️</span>
+                                </div>
+                                <button class="w-full bg-rose-500 text-white font-bold py-2 rounded-lg shadow-lg text-[7px] uppercase tracking-widest hover:bg-rose-600 transition-colors">🔖 Save Postingan</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="text-center bg-rose-900 text-white py-3 rounded-lg">
+                    <p class="text-xs font-bold uppercase tracking-widest">Waktu Pengerjaan: 35 Menit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-slate-400 text-xs font-medium">
+            Sesi 4: Microblogging • Bangun Personal Branding di Dunia IT
+        </footer>
+
     </div>
+
 </body>
 </html>

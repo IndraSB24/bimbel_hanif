@@ -3,21 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesi 5: Portofolio & CV Kreatif Programmer</title>
+    <title>Sesi 5: Personal Branding & CV IT</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .concept-card { transition: transform 0.3s; }
+        .concept-card:hover { transform: translateY(-5px); }
+        
+        /* Custom Scrollbar untuk bagian CV */
+        .cv-container::-webkit-scrollbar { width: 6px; }
+        .cv-container::-webkit-scrollbar-track { background: #f1f1f1; rounded: 4px; }
+        .cv-container::-webkit-scrollbar-thumb { background: #cbd5e1; rounded: 4px; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans pb-20">
-    <div class="max-w-4xl mx-auto py-12 px-6 text-center">
-        <header class="mb-16">
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        
+        <!-- HEADER MODULE -->
+        <header class="text-center mb-16">
             <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Modul Pembelajaran • Sesi 5</span>
-            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">Portofolio & CV Kreatif <br>Programmer</h1>
-            <p class="text-slate-600 text-lg max-w-2xl mx-auto">Materi sedang dalam tahap penyusunan. Stay tuned!</p>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">Personal Branding <br>& Desain CV IT</h1>
+            <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                Kodinganmu tidak akan dilihat jika CV-mu langsung ditolak. Pelajari cara merancang CV yang dilirik oleh tim rekrutmen atau klien.
+            </p>
         </header>
-        <div class="bg-white p-12 rounded-3xl shadow-sm border border-slate-200">
-            <div class="text-6xl mb-4">🚧</div>
-            <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
-            <a href="index.html" class="text-indigo-600 font-bold hover:underline">← Kembali ke Silabus</a>
-        </div>
+
+        <!-- BAGIAN 1: ATS VS KREATIF -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-orange-500 pl-3">
+                <span class="text-orange-600 mr-2">1.</span> CV ATS vs CV Kreatif
+            </h2>
+            <p class="text-slate-600 mb-6">Sebagai calon orang IT, kamu wajib tahu bahwa ada dua jenis aliran CV saat melamar pekerjaan, magang, atau beasiswa.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- ATS -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-slate-800 concept-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-lg text-slate-800">CV ATS (Mesin)</h3>
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-4">
+                        <li>✅ <strong>Hitam putih</strong>, murni teks dari atas ke bawah.</li>
+                        <li>✅ Tanpa foto, tanpa ikon, tanpa kolom ganda.</li>
+                        <li>✅ Digunakan untuk perusahaan raksasa / BUMN yang menyeleksi pelamar pakai robot (Software ATS).</li>
+                    </ul>
+                    <div class="bg-slate-100 p-3 rounded text-xs font-mono text-slate-500 text-center">Bikinnya pakai Microsoft Word</div>
+                </div>
+
+                <!-- KREATIF -->
+                <div class="bg-gradient-to-br from-orange-50 to-rose-50 p-6 rounded-2xl shadow-sm border-t-4 border-orange-500 concept-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-lg text-orange-900">CV Kreatif (Manusia)</h3>
+                        <span class="text-2xl">🎨</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700 mb-4">
+                        <li>✅ <strong>Berwarna</strong>, layout rapi (bisa 2 kolom).</li>
+                        <li>✅ Boleh ada foto profesional dan ikon pendukung.</li>
+                        <li>✅ Sangat cocok untuk dikirim via Email, DM LinkedIn, Startup, Agensi, atau portofolio pribadi.</li>
+                    </ul>
+                    <div class="bg-orange-200/50 text-orange-800 font-bold p-3 rounded text-xs text-center border border-orange-300">Bikinnya pakai Canva (Kita pelajari hari ini)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 2: ANATOMI CV IT -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center border-l-4 border-blue-500 pl-3">
+                <span class="text-blue-600 mr-2">2.</span> Anatomi CV Programmer yang Menjual
+            </h2>
+            
+            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 opacity-10 text-9xl">💼</div>
+                <h3 class="font-bold text-xl mb-4 text-blue-400">Apa yang dicari HRD dari anak IT?</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                    Rekrutmen IT itu berbeda. HRD tidak terlalu peduli kamu juara lomba puisi atau panitia pensi. Mereka mencari <strong>"Apa saja teknologi yang kamu bisa, dan mana bukti aplikasinya?"</strong>
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4 relative z-10">
+                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                        <h4 class="font-bold text-blue-300 mb-2 text-sm uppercase tracking-widest">Wajib Ada:</h4>
+                        <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
+                            <li><strong>Link Portofolio/GitHub:</strong> Tempat mereka mengintip kodemu.</li>
+                            <li><strong>Tech Stack (Skill):</strong> Jangan pakai rating bintang (⭐⭐⭐). Tulis saja bahasanya: HTML, CSS, PHP, MySQL.</li>
+                            <li><strong>Projects:</strong> Aplikasi apa saja yang pernah kamu buat (Contoh: "Aplikasi Kasir Toko HP").</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                        <h4 class="font-bold text-red-400 mb-2 text-sm uppercase tracking-widest">Dilarang Keras:</h4>
+                        <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
+                            <li>Hobi yang tidak relevan (Membaca, Tidur, dll).</li>
+                            <li>Font gaul / tulisan bersambung.</li>
+                            <li>Mencantumkan agama, tinggi badan, golongan darah (Kecuali diminta instansi tertentu).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: TUGAS PRAKTIK -->
+        <section class="bg-indigo-50 border-2 border-indigo-200 p-8 rounded-3xl shadow-sm">
+            <div class="text-center mb-6">
+                <span class="text-4xl">🚀</span>
+                <h2 class="text-2xl font-black text-indigo-900 mt-2">Misi Utama: Rancang CV Pertamamu!</h2>
+                <p class="text-indigo-700 text-sm mt-1">Buatlah CV yang siap kamu gunakan untuk melamar magang atau pendaftaran kampus IT.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-indigo-100">
+                <h3 class="font-bold text-slate-800 mb-3 text-lg">Briefing Tugas:</h3>
+                <ul class="list-disc list-inside space-y-3 text-sm text-slate-600 mb-6">
+                    <li><strong>Ukuran Kanvas:</strong> Dokumen A4 (210 x 297 mm).</li>
+                    <li><strong>Tema Warna:</strong> Gunakan palet profesional (Navy/Biru Tua dipadu Putih/Abu-abu).</li>
+                    <li><strong>Instruksi Khusus:</strong> 
+                        <ul class="list-circle ml-6 mt-1 space-y-1 text-xs text-slate-500">
+                            <li>Buat layout <strong>2 Kolom</strong> (1 Kolom sempit untuk Profil, 1 Kolom lebar untuk Pengalaman/Proyek).</li>
+                            <li>Masukkan "Sistem Service HP" (PHP/MySQL) yang kamu kerjakan di sesi lalu sebagai salah satu <strong>Proyek Utama</strong> di CV-mu.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- EKSPEKTASI VISUAL (DESAIN JADI) -->
+                <div class="bg-slate-200 border border-slate-300 rounded-xl p-6 mb-8 cv-container overflow-x-auto flex justify-center">
+                    <div class="w-full max-w-sm">
+                        <h4 class="font-bold text-slate-700 text-center mb-4 text-xs uppercase tracking-widest">Contoh Desain Jadi (Tiru Layout Ini!)</h4>
+                        
+                        <!-- SIMULASI KERTAS A4 CV -->
+                        <div class="bg-white shadow-2xl mx-auto flex" style="width: 210px; height: 297px;">
+                            
+                            <!-- Kiri (Sidebar Navy) -->
+                            <div class="w-1/3 bg-slate-900 h-full p-3 flex flex-col text-white">
+                                <!-- Foto (Dummy Circle) -->
+                                <div class="w-12 h-12 bg-slate-400 rounded-full mx-auto mt-2 mb-3 border-2 border-white flex items-center justify-center overflow-hidden">
+                                    <span class="text-xs">👤</span>
+                                </div>
+                                
+                                <h5 class="text-[5px] font-bold text-blue-300 uppercase border-b border-slate-700 pb-1 mb-2">Kontak</h5>
+                                <div class="space-y-1 mb-4">
+                                    <p class="text-[4px] text-slate-300 flex items-center gap-1"><span>📧</span> andi@email.com</p>
+                                    <p class="text-[4px] text-slate-300 flex items-center gap-1"><span>📱</span> 0812-3456</p>
+                                    <p class="text-[4px] text-slate-300 flex items-center gap-1"><span>🔗</span> github.com/andi</p>
+                                </div>
+
+                                <h5 class="text-[5px] font-bold text-blue-300 uppercase border-b border-slate-700 pb-1 mb-2">Pendidikan</h5>
+                                <div class="mb-4">
+                                    <p class="text-[5px] font-bold">SMA/SMK Teknologi</p>
+                                    <p class="text-[4px] text-slate-400">2022 - 2025</p>
+                                </div>
+
+                                <h5 class="text-[5px] font-bold text-blue-300 uppercase border-b border-slate-700 pb-1 mb-2">Tech Stack</h5>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-slate-700 text-[4px] px-1 py-0.5 rounded">HTML/CSS</span>
+                                    <span class="bg-slate-700 text-[4px] px-1 py-0.5 rounded">PHP Native</span>
+                                    <span class="bg-slate-700 text-[4px] px-1 py-0.5 rounded">MySQL</span>
+                                    <span class="bg-slate-700 text-[4px] px-1 py-0.5 rounded">Tailwind</span>
+                                </div>
+                            </div>
+
+                            <!-- Kanan (Konten Utama) -->
+                            <div class="w-2/3 bg-white h-full p-4 flex flex-col">
+                                <!-- Header Nama -->
+                                <div class="mb-3">
+                                    <h1 class="text-[12px] font-black text-slate-800 leading-none tracking-tight uppercase">Andi<br>Programmer</h1>
+                                    <h2 class="text-[6px] text-blue-600 font-bold uppercase tracking-widest mt-1">Junior Web Developer</h2>
+                                </div>
+
+                                <!-- Profil Ringkas -->
+                                <div class="mb-4">
+                                    <h5 class="text-[6px] font-bold text-slate-800 uppercase border-b-2 border-blue-500 inline-block pb-0.5 mb-1.5">Profil Singkat</h5>
+                                    <p class="text-[4.5px] text-slate-600 leading-relaxed text-justify">
+                                        Lulusan baru dengan ketertarikan tinggi pada pengembangan website. Memiliki pengalaman dasar merancang database dan membangun aplikasi CRUD menggunakan PHP. Siap belajar teknologi baru dan bekerja dalam tim.
+                                    </p>
+                                </div>
+
+                                <!-- Proyek Portfolio -->
+                                <div class="mb-2">
+                                    <h5 class="text-[6px] font-bold text-slate-800 uppercase border-b-2 border-blue-500 inline-block pb-0.5 mb-1.5">Proyek Portofolio</h5>
+                                    
+                                    <!-- Proyek 1 -->
+                                    <div class="mb-2.5">
+                                        <div class="flex justify-between items-baseline">
+                                            <h6 class="text-[5.5px] font-bold text-slate-900">Sistem Service HP (iSERVICE)</h6>
+                                            <span class="text-[4px] text-slate-400 font-mono">2025</span>
+                                        </div>
+                                        <p class="text-[4.5px] text-blue-600 font-medium mb-0.5">Tech: PHP, MySQL, CSS</p>
+                                        <ul class="list-disc list-inside text-[4.5px] text-slate-600 leading-tight space-y-0.5 ml-1">
+                                            <li>Merancang ERD (2 Tabel) dan Sistem Relasi.</li>
+                                            <li>Membuat fitur Login Admin & Multi-Role.</li>
+                                            <li>Mengembangkan fitur CRUD data perbaikan HP.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Proyek 2 -->
+                                    <div>
+                                        <div class="flex justify-between items-baseline">
+                                            <h6 class="text-[5.5px] font-bold text-slate-900">Website Informasi Perpustakaan</h6>
+                                            <span class="text-[4px] text-slate-400 font-mono">2024</span>
+                                        </div>
+                                        <p class="text-[4.5px] text-blue-600 font-medium mb-0.5">Tech: HTML, Tailwind CSS</p>
+                                        <ul class="list-disc list-inside text-[4.5px] text-slate-600 leading-tight space-y-0.5 ml-1">
+                                            <li>Membuat UI/UX Responsif menggunakan Tailwind.</li>
+                                            <li>Mengimplementasikan Flexbox dan CSS Grid.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <p class="text-[10px] text-center text-slate-500 mt-4 italic">Buka <strong>A4 Document</strong> di Canva dan tirulah komposisi 2 kolom ini!</p>
+                    </div>
+                </div>
+                
+                <div class="text-center bg-indigo-900 text-white py-3 rounded-lg">
+                    <p class="text-xs font-bold uppercase tracking-widest">Waktu Pengerjaan: 40 Menit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-slate-400 text-xs font-medium">
+            Sesi 5: CV Kreatif Programmer • Siap Tembus Kuliah & Magang IT
+        </footer>
+
     </div>
+
 </body>
 </html>
